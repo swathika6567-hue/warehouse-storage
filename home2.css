@@ -2394,3 +2394,64 @@ html body .home2-page .h2-final-cta .h2-cta-buttons a.h2-btn-light:hover {
         scroll-behavior: auto !important;
     }
 }
+
+
+/* =========================================
+   FIX: ONLY THE 3 STORAGE ENQUIRY LINKS
+   Add at the END of home2.css
+========================================= */
+
+.home2-page .h2-sizes .h2-size-card .h2-size-body a.h2-link,
+body.dark-mode .home2-page .h2-sizes .h2-size-card .h2-size-body a.h2-link {
+    background: transparent !important;
+    color: #008F89 !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Hover: orange text only */
+.home2-page .h2-sizes .h2-size-card .h2-size-body a.h2-link:hover,
+body.dark-mode .home2-page .h2-sizes .h2-size-card .h2-size-body a.h2-link:hover {
+    background: transparent !important;
+    color: #FF8A36 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Move Enquire About Space links slightly left */
+
+.home2-page .h2-sizes .h2-size-card .h2-size-body a.h2-link {
+    transform: translateX(-10px);
+}
+
+
+
+/* Fix: Room for What's Next CTA card */
+.home2-page .h2-feature-image {
+    position: relative;
+    min-width: 0;
+}
+
+.home2-page .h2-feature-note {
+    position: absolute;
+    right: 0;
+    bottom: 24px;
+    max-width: calc(100% - 20px);
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.home2-page .h2-feature-note p,
+.home2-page .h2-feature-note strong {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .home2-page .h2-feature-note {
+        right: 10px;
+        bottom: 10px;
+        max-width: calc(100% - 20px);
+    }
+}
