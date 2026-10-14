@@ -1869,3 +1869,73 @@ html[dir="rtl"] .pricing-eyebrow {
     transform: translateY(-3px) !important;
     box-shadow: 0 6px 16px rgba(0, 184, 176, 0.18) !important;
 }
+
+
+/* Our Storage Options — Enquiry link */
+.pricing-plan-btn {
+    display: inline-flex !important;
+    width: fit-content !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    gap: 6px;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    color: var(--primary, #174A3B) !important;
+    -webkit-text-fill-color: var(--primary, #174A3B);
+
+    padding: 14px 0 !important;
+    transition: color 0.3s ease;
+}
+
+.pricing-plan-btn:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    color: var(--accent, #D8893D) !important;
+    -webkit-text-fill-color: var(--accent, #D8893D);
+}
+
+.pricing-plan-btn span {
+    color: inherit;
+    -webkit-text-fill-color: inherit;
+}
+
+
+/* Our Storage Options — Enquiry link */
+
+.pricing-plan-btn {
+    display: inline-flex !important;
+    width: fit-content !important;
+    align-items: center;
+    justify-content: flex-start !important;
+    gap: 6px;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    color: #008F89 !important;
+    -webkit-text-fill-color: #008F89;
+
+    padding: 14px 0 !important;
+    transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.pricing-plan-btn:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    color: #E47718 !important;
+    -webkit-text-fill-color: #E47718;
+    gap: 10px;
+}
+
+.pricing-plan-btn span {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit;
+}
