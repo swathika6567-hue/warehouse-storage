@@ -1,52 +1,53 @@
 /* =========================================================
-   STOREVAULT
-   PRICING PAGE - COMPLETE CSS
-   Teal + Orange Theme
-   Shared Header and Footer Stay in style.css
+STOREVAULT — PRICING PAGE
+Complete Responsive Stylesheet
+Matches About + Facilities + Home 2 Brand Colors
 ========================================================= */
-
 
 /* =========================================================
-   1. PRICING VARIABLES
-========================================================= */
+
+1. BRAND TOKENS
+   ========================================================= */
 
 :root {
-    --price-primary: #00B8B0;
-    --price-primary-dark: #008F89;
-    --price-primary-deep: #006F6B;
+--price-primary: #123C38;
+--price-primary-dark: #0B2C29;
+--price-primary-light: #EAF2EF;
 
-    --price-orange: #FF8A36;
-    --price-orange-dark: #E47718;
+--price-accent: #B96643;
+--price-accent-dark: #984B30;
 
-    --price-heading: #17383C;
-    --price-text: #425B5D;
-    --price-muted: #687A7D;
+--price-border: #C9D5CE;
+--price-text: #263B36;
+--price-muted: #64736D;
 
-    --price-background: #FFFDF8;
-    --price-section: #F1F8F7;
-    --price-card: #FFFFFF;
-    --price-border: #D8E9E6;
+--price-surface: #FFFFFF;
+--price-surface-alt: #F5F8F6;
 
-    --price-dark-background: #102729;
-    --price-dark-section: #163336;
-    --price-dark-card: #1B3B3D;
-    --price-dark-border: #315657;
-    --price-dark-text: #F4F7F6;
-    --price-dark-muted: #BCCAC8;
+--price-label-bg: #F8F1ED;
+--price-label-text: #984B30;
 
-    --price-radius: 14px;
-    --price-shadow: 0 12px 35px rgba(23, 56, 60, 0.08);
-    --price-container: 1200px;
+--price-dark-bg: #101B19;
+--price-dark-alt: #14221F;
+--price-dark-card: #192A26;
+--price-dark-border: #30433D;
+--price-dark-text: #F1F6F3;
+--price-dark-muted: #B7C7C0;
+
+--price-cta-dark: #285943;
+
+--price-radius-sm: 10px;
+--price-radius-md: 16px;
+--price-radius-lg: 24px;
+
+--price-shadow: 0 12px 35px rgba(18, 60, 56, 0.08);
+--price-transition: 0.25s ease;
+
 }
-
 
 /* =========================================================
-   2. PRICING PAGE BASE
+2. PAGE DEFAULTS
 ========================================================= */
-
-body {
-    margin: 0;
-}
 
 .pricing-hero,
 .pricing-intro,
@@ -56,8 +57,11 @@ body {
 .pricing-process,
 .pricing-faq,
 .pricing-final-cta {
-    box-sizing: border-box;
-    width: 100%;
+box-sizing: border-box;
+width: 100%;
+border-top: none;
+border-bottom: none;
+box-shadow: none;
 }
 
 .pricing-hero *,
@@ -68,32 +72,13 @@ body {
 .pricing-process *,
 .pricing-faq *,
 .pricing-final-cta * {
-    box-sizing: border-box;
+box-sizing: border-box;
 }
 
-.pricing-hero,
-.pricing-intro,
-.pricing-plans,
-.pricing-advantages,
-.pricing-comparison,
-.pricing-process,
-.pricing-faq {
-    color: var(--price-text);
-}
-
-.pricing-hero h1,
-.pricing-hero h2,
-.pricing-intro h2,
-.pricing-plans h2,
-.pricing-plans h3,
-.pricing-plans h4,
-.pricing-advantages h2,
-.pricing-advantages h3,
-.pricing-comparison h2,
-.pricing-process h2,
-.pricing-process h3,
-.pricing-faq h2 {
-    color: var(--price-heading);
+.pricing-hero img,
+.pricing-plans img {
+display: block;
+max-width: 100%;
 }
 
 .pricing-hero p,
@@ -102,1840 +87,4465 @@ body {
 .pricing-advantages p,
 .pricing-comparison p,
 .pricing-process p,
-.pricing-faq p {
-    line-height: 1.8;
-}
-
-.pricing-hero img,
-.pricing-plans img {
-    display: block;
-    max-width: 100%;
+.pricing-faq p,
+.pricing-final-cta p {
+line-height: 1.8;
 }
 
 .pricing-hero a,
 .pricing-plans a,
 .pricing-advantages a,
+.pricing-comparison a,
 .pricing-faq a,
 .pricing-final-cta a {
-    text-decoration: none;
+-webkit-tap-highlight-color: transparent;
 }
 
-.pricing-hero a:focus-visible,
-.pricing-plans a:focus-visible,
-.pricing-advantages a:focus-visible,
-.pricing-faq a:focus-visible,
-.pricing-final-cta a:focus-visible {
-    outline: 3px solid var(--price-primary);
-    outline-offset: 4px;
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: min(1180px, calc(100% - 48px));
+margin-inline: auto;
 }
-
 
 /* =========================================================
-   3. PRICING HERO
+3. TAGLINE LABELS
+Cream background + terracotta text
 ========================================================= */
 
-.pricing-hero {
-    position: relative;
-    overflow: hidden;
-    padding: 90px 0;
-    background: var(--price-background);
-}
-
-.pricing-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-    align-items: center;
-    gap: 65px;
-}
-
-.pricing-hero-content {
-    max-width: 570px;
-}
-
 .pricing-eyebrow {
-    display: inline-block;
-    margin-bottom: 16px;
-    color: var(--price-primary-dark);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    line-height: 1.7;
-    text-transform: uppercase;
+display: inline-block;
+width: fit-content;
+margin: 0 0 22px;
+padding: 4px 10px;
+
+color: var(--price-label-text);
+background: var(--price-label-bg);
+
+border: none;
+border-radius: 0;
+box-shadow: none;
+
+font-size: 12px;
+font-weight: 800;
+line-height: 1.6;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
 }
 
-.pricing-hero-content h1 {
-    margin: 0 0 22px;
-    color: var(--price-heading);
-    font-size: clamp(38px, 4.5vw, 58px);
-    font-weight: 800;
-    line-height: 1.13;
-    letter-spacing: -1.5px;
-}
+/* Keep labels free of decorative lines */
 
-.pricing-hero-content h1 span {
-    display: block;
-    color: var(--price-primary-dark);
+.pricing-eyebrow::before,
+.pricing-eyebrow::after {
+content: none !important;
+display: none !important;
 }
-
-.pricing-hero-content > p {
-    max-width: 540px;
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-.pricing-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 14px;
-    margin-top: 30px;
-}
-
 
 /* =========================================================
-   4. BUTTON SYSTEM
-   Matches Facilities CSS
+4. SECTION HEADINGS
+========================================================= */
+
+.pricing-section-heading {
+width: 100%;
+max-width: 740px;
+margin: 0 auto 48px;
+text-align: center;
+}
+
+.pricing-section-heading .pricing-eyebrow {
+margin-bottom: 18px;
+}
+
+.pricing-section-heading h2 {
+margin: 0 0 16px;
+
+color: var(--price-primary);
+font-size: clamp(29px, 3.5vw, 43px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
+}
+
+.pricing-section-heading > p {
+max-width: 650px;
+margin: 0 auto;
+
+color: var(--price-muted);
+font-size: 15px;
+
+}
+
+/* =========================================================
+5. BUTTONS
 ========================================================= */
 
 .pricing-btn,
 .pricing-plan-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: 50px;
-    padding: 14px 25px;
-    border: 2px solid transparent;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.4;
-    text-align: center;
-    cursor: pointer;
-    transition:
-        background-color 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+
+min-height: 48px;
+padding: 13px 24px;
+
+border: 1px solid transparent;
+border-radius: 8px;
+
+font-family: inherit;
+font-size: 14px;
+font-weight: 700;
+line-height: 1.4;
+text-align: center;
+text-decoration: none !important;
+
+cursor: pointer;
+
+transition:
+    color var(--price-transition),
+    background-color var(--price-transition),
+    border-color var(--price-transition),
+    transform var(--price-transition);
+
 }
 
-.pricing-btn:hover,
-.pricing-plan-btn:hover {
-    transform: translateY(-2px);
+.pricing-btn-primary {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
 }
 
-/* Orange primary button */
-
-.pricing-btn-primary,
-.pricing-plan-btn,
-.pricing-plan-btn-featured,
-.pricing-btn-light {
-    background: var(--price-orange);
-    color: #172B32;
-    border-color: var(--price-orange);
+.pricing-btn-primary:hover {
+color: #FFFFFF !important;
+background: var(--price-accent-dark) !important;
+border-color: var(--price-accent-dark) !important;
+transform: translateY(-2px);
 }
-
-.pricing-btn-primary:hover,
-.pricing-plan-btn:hover,
-.pricing-plan-btn-featured:hover,
-.pricing-btn-light:hover {
-    background: var(--price-orange-dark);
-    color: #172B32;
-    border-color: var(--price-orange-dark);
-}
-
-/* Teal outline button */
 
 .pricing-btn-outline {
-    background: transparent;
-    color: var(--price-primary-dark);
-    border-color: var(--price-primary);
+color: var(--price-primary) !important;
+background: transparent !important;
+border-color: var(--price-border) !important;
 }
 
 .pricing-btn-outline:hover {
-    background: var(--price-primary-dark);
-    color: #FFFFFF;
-    border-color: var(--price-primary-dark);
+color: #FFFFFF !important;
+background: var(--price-primary) !important;
+border-color: var(--price-primary) !important;
 }
 
-/* Final CTA outline button */
+.pricing-btn-light {
+color: var(--price-primary) !important;
+background: #FFFFFF !important;
+border-color: #FFFFFF !important;
+}
+
+.pricing-btn-light:hover {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
 
 .pricing-btn-cta-outline {
-    background: transparent;
-    color: #FFFFFF;
-    border-color: #FFFFFF;
+color: #FFFFFF !important;
+background: transparent !important;
+border-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .pricing-btn-cta-outline:hover {
-    background: #FFFFFF;
-    color: #17383C;
-    border-color: #FFFFFF;
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
 }
 
+.pricing-btn:focus-visible,
+.pricing-plan-btn:focus-visible,
+.pricing-comparison a:focus-visible,
+.pricing-faq a:focus-visible {
+outline: 3px solid var(--price-accent);
+outline-offset: 4px;
+}
 
 /* =========================================================
-   5. HERO IMAGE AND FLOATING CARD
+6. PRICING HERO
 ========================================================= */
 
+.pricing-hero {
+position: relative;
+overflow: hidden;
+padding: 88px 0 96px;
+
+background:
+    radial-gradient(
+        circle at 5% 5%,
+        rgba(234, 242, 239, 0.9),
+        transparent 38%
+    ),
+    #FFFFFF;
+
+}
+
+.pricing-hero-grid {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+align-items: center;
+gap: 72px;
+}
+
+.pricing-hero-content {
+min-width: 0;
+}
+
+.pricing-hero-content h1 {
+max-width: 650px;
+margin: 0 0 24px;
+
+color: var(--price-primary);
+font-size: clamp(38px, 4.5vw, 58px);
+font-weight: 850;
+line-height: 1.12;
+letter-spacing: -1.8px;
+
+}
+
+.pricing-hero-content h1 span {
+display: block;
+color: var(--price-accent);
+}
+
+.pricing-hero-content > p {
+max-width: 570px;
+margin: 0 0 30px;
+
+color: var(--price-muted);
+font-size: 16px;
+line-height: 1.9;
+
+}
+
+.pricing-hero-actions {
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 14px;
+}
+
 .pricing-hero-visual {
-    position: relative;
-    min-width: 0;
+position: relative;
+min-width: 0;
+padding: 0 12px 12px 0;
 }
 
 .pricing-hero-visual > img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--price-shadow);
+width: 100%;
+height: 440px;
+object-fit: cover;
+object-position: center;
+
+border: none;
+border-radius: var(--price-radius-lg);
+box-shadow: var(--price-shadow);
+
 }
 
 .pricing-floating-card {
-    position: absolute;
-    right: -22px;
-    bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: min(310px, 90%);
-    padding: 20px;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: 12px;
-    box-shadow: var(--price-shadow);
+position: absolute;
+right: 0;
+bottom: 30px;
+
+display: flex;
+align-items: center;
+gap: 14px;
+
+width: min(320px, calc(100% - 15px));
+padding: 19px 22px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+border-radius: 12px;
+box-shadow: 0 14px 30px rgba(11, 44, 41, 0.18);
+
 }
 
 .pricing-floating-icon {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 10px;
-    background: var(--price-primary);
-    color: #FFFFFF;
-    font-size: 24px;
+display: flex;
+flex: 0 0 44px;
+align-items: center;
+justify-content: center;
+
+width: 44px;
+height: 44px;
+
+color: #FFFFFF;
+background: rgba(255, 255, 255, 0.12);
+border-radius: 10px;
+font-size: 24px;
+
 }
 
 .pricing-floating-card strong {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--price-heading);
-    font-size: 15px;
+display: block;
+margin-bottom: 5px;
+
+color: #FFFFFF;
+font-size: 15px;
+font-weight: 800;
+
 }
 
 .pricing-floating-card p {
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 12px;
-    line-height: 1.6;
+margin: 0;
+color: rgba(255, 255, 255, 0.82);
+font-size: 12px;
+line-height: 1.6;
 }
-
-
-/* =========================================================
-   6. HERO BENEFITS
-========================================================= */
 
 .pricing-hero-benefits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 22px;
-    margin-top: 25px;
+display: grid;
+gap: 12px;
+margin-top: 28px;
 }
 
-.pricing-hero-benefits div {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    color: var(--price-text);
-    font-size: 13px;
-    line-height: 1.6;
+.pricing-hero-benefits > div {
+display: flex;
+align-items: center;
+gap: 11px;
+
+color: var(--price-text);
+font-size: 14px;
+line-height: 1.6;
+
 }
 
-.pricing-hero-benefits span {
-    color: var(--price-primary-dark);
-    font-weight: 900;
-}
+.pricing-hero-benefits > div > span {
+display: inline-flex;
+flex: 0 0 24px;
+align-items: center;
+justify-content: center;
 
+width: 24px;
+height: 24px;
+
+color: var(--price-primary);
+background: var(--price-primary-light);
+border-radius: 50%;
+
+font-size: 13px;
+font-weight: 900;
+
+}
 
 /* =========================================================
-   7. SECTION HEADINGS
-   OUR STORAGE OPTIONS AND OTHER SECTIONS
+7. PRICING INTRO
 ========================================================= */
 
 .pricing-intro {
-    padding: 75px 0 30px;
-    background: var(--price-section);
+padding: 76px 0 24px;
+background: var(--price-surface-alt);
 }
 
-.pricing-section-heading {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
+.pricing-intro .pricing-section-heading {
+margin-bottom: 30px;
 }
-
-.pricing-section-heading .pricing-eyebrow {
-    margin-bottom: 14px;
-    color: var(--price-orange-dark);
-}
-
-.pricing-section-heading h2 {
-    margin: 0 0 16px;
-    color: var(--price-heading);
-    font-size: clamp(30px, 3.4vw, 42px);
-    font-weight: 800;
-    line-height: 1.25;
-}
-
-.pricing-section-heading p {
-    max-width: 680px;
-    margin: 0 auto;
-    color: var(--price-muted);
-    font-size: 15px;
-    line-height: 1.85;
-}
-
 
 /* =========================================================
-   8. STORAGE PLAN CARDS
+8. STORAGE PLAN CARDS
 ========================================================= */
 
 .pricing-plans {
-    padding: 35px 0 85px;
-    background: var(--price-section);
+padding: 52px 0 96px;
+background: var(--price-surface-alt);
 }
 
 .pricing-plan-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
-    gap: 26px;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+align-items: stretch;
+gap: 24px;
 }
 
 .pricing-plan-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    overflow: hidden;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: var(--price-radius);
-    box-shadow: 0 8px 25px rgba(23, 56, 60, 0.06);
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+overflow: hidden;
+
+background: #FFFFFF;
+border: 1px solid #E4EBE6;
+border-radius: var(--price-radius-md);
+box-shadow: 0 8px 22px rgba(18, 60, 56, 0.035);
+
+transition:
+    transform var(--price-transition),
+    box-shadow var(--price-transition),
+    border-color var(--price-transition);
+
 }
 
 .pricing-plan-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--price-primary);
-    box-shadow: var(--price-shadow);
+transform: translateY(-5px);
+border-color: var(--price-border);
+box-shadow: var(--price-shadow);
 }
 
 .pricing-plan-featured {
-    border: 2px solid var(--price-primary);
+border: 2px solid var(--price-primary);
+box-shadow: 0 12px 32px rgba(18, 60, 56, 0.09);
 }
 
 .pricing-featured-label {
-    position: absolute;
-    z-index: 2;
-    top: 15px;
-    right: 15px;
-    padding: 8px 12px;
-    background: var(--price-orange);
-    color: #172B32;
-    border-radius: 5px;
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 0.8px;
+position: absolute;
+z-index: 2;
+top: 14px;
+right: 14px;
+
+padding: 7px 11px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+border-radius: 6px;
+
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+
 }
 
 .pricing-plan-image {
-    position: relative;
-    height: 225px;
-    overflow: hidden;
-    background: var(--price-border);
+position: relative;
+overflow: hidden;
+background: var(--price-primary-light);
 }
 
-.pricing-plan-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+.pricing-plan-image > img {
+width: 100%;
+height: 235px;
+object-fit: cover;
+object-position: center;
+
+transition: transform 0.45s ease;
+
 }
 
-.pricing-plan-card:hover .pricing-plan-image img {
-    transform: scale(1.04);
+.pricing-plan-card:hover .pricing-plan-image > img {
+transform: scale(1.035);
 }
 
 .pricing-plan-badge {
-    position: absolute;
-    bottom: 14px;
-    left: 15px;
-    padding: 8px 12px;
-    background: var(--price-primary-dark);
-    color: #FFFFFF;
-    border-radius: 5px;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
+position: absolute;
+bottom: 14px;
+left: 14px;
+
+padding: 7px 11px;
+
+color: var(--price-primary);
+background: #FFFFFF;
+border: 1px solid rgba(18, 60, 56, 0.08);
+border-radius: 6px;
+
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+
 }
 
 .pricing-plan-body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 27px 24px 25px;
+display: flex;
+flex: 1;
+flex-direction: column;
+align-items: flex-start;
+
+padding: 27px 25px 28px;
+
 }
 
 .pricing-plan-kicker {
-    margin-bottom: 9px;
-    color: var(--price-primary-dark);
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
+display: inline-block;
+margin-bottom: 10px;
+
+color: var(--price-accent);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+
 }
 
 .pricing-plan-body h3 {
-    margin: 0 0 12px;
-    color: var(--price-heading);
-    font-size: 25px;
-    font-weight: 800;
-    line-height: 1.3;
+margin: 0 0 12px;
+
+color: var(--price-primary);
+font-size: 24px;
+font-weight: 800;
+line-height: 1.35;
+
 }
 
 .pricing-plan-description {
-    min-height: 78px;
-    margin: 0 0 20px;
-    color: var(--price-muted);
-    font-size: 14px;
-    line-height: 1.8;
+margin: 0 0 20px;
+
+color: var(--price-muted);
+font-size: 14px;
+
 }
 
 .pricing-price {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    padding: 17px;
-    background: var(--price-section);
-    border: 1px solid var(--price-border);
-    border-radius: 9px;
+display: flex;
+flex-direction: column;
+gap: 5px;
+
+width: 100%;
+margin: 0 0 20px;
+padding: 17px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: 10px;
+
 }
 
 .pricing-price-label {
-    color: var(--price-muted);
-    font-size: 12px;
-    font-weight: 700;
+color: var(--price-muted);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
 }
 
 .pricing-price strong {
-    color: var(--price-primary-dark);
-    font-size: 19px;
-    font-weight: 900;
+color: var(--price-primary);
+font-size: 19px;
+font-weight: 800;
+line-height: 1.4;
 }
 
 .pricing-price > span:last-child {
-    color: var(--price-muted);
-    font-size: 12px;
-    line-height: 1.6;
+color: var(--price-muted);
+font-size: 12px;
+line-height: 1.6;
 }
 
 .pricing-plan-divider {
-    width: 100%;
-    height: 1px;
-    margin: 23px 0;
-    background: var(--price-border);
+width: 100%;
+height: 1px;
+margin: 0 0 21px;
+background: #E5ECE7;
 }
 
 .pricing-plan-body h4 {
-    margin: 0 0 16px;
-    color: var(--price-heading);
-    font-size: 15px;
-    font-weight: 800;
+margin: 0 0 15px;
+
+color: var(--price-primary);
+font-size: 15px;
+font-weight: 800;
+
 }
 
 .pricing-feature-list {
-    display: grid;
-    gap: 13px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+display: grid;
+gap: 12px;
+
+width: 100%;
+margin: 0 0 25px;
+padding: 0;
+
+list-style: none;
+
 }
 
 .pricing-feature-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--price-text);
-    font-size: 13px;
-    line-height: 1.6;
+display: flex;
+align-items: flex-start;
+gap: 10px;
+
+color: var(--price-text);
+font-size: 13px;
+line-height: 1.7;
+
 }
 
-.pricing-feature-list li span {
-    flex-shrink: 0;
-    color: var(--price-primary-dark);
-    font-weight: 900;
+.pricing-feature-list li > span {
+flex: 0 0 auto;
+color: var(--price-accent);
+font-weight: 900;
 }
 
 .pricing-plan-btn {
-    width: 100%;
-    justify-content: space-between;
-    margin-top: auto;
-    padding: 14px 17px;
-    font-size: 13px;
+justify-content: space-between;
+width: 100%;
+margin-top: auto;
+padding: 13px 15px;
+
+color: var(--price-primary) !important;
+background: transparent !important;
+border-color: var(--price-border) !important;
+
+font-size: 13px;
+
 }
 
-.pricing-plan-btn span {
-    flex-shrink: 0;
-    font-size: 20px;
+.pricing-plan-btn > span {
+margin-left: 5px;
+font-size: 18px;
+transition: transform var(--price-transition);
+}
+
+.pricing-plan-btn:hover {
+color: #FFFFFF !important;
+background: var(--price-primary) !important;
+border-color: var(--price-primary) !important;
+}
+
+.pricing-plan-btn:hover > span {
+transform: translateX(3px);
+}
+
+.pricing-plan-btn-featured {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
+
+.pricing-plan-btn-featured:hover {
+color: #FFFFFF !important;
+background: var(--price-accent-dark) !important;
+border-color: var(--price-accent-dark) !important;
 }
 
 .pricing-disclaimer {
-    max-width: 850px;
-    margin: 28px auto 0;
-    color: var(--price-muted);
-    font-size: 12px;
-    line-height: 1.8;
-    text-align: center;
+max-width: 850px;
+margin: 32px auto 0;
+
+color: var(--price-muted);
+font-size: 12px;
+text-align: center;
+
 }
 
-
 /* =========================================================
-   9. ADVANTAGES SECTION
+9. PRICING ADVANTAGES
 ========================================================= */
 
 .pricing-advantages {
-    padding: 90px 0;
-    background: var(--price-background);
+padding: 100px 0;
+background: #FFFFFF;
 }
 
 .pricing-advantages-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: start;
-    gap: 70px;
+display: grid;
+grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+align-items: center;
+gap: 75px;
 }
 
 .pricing-advantages-content {
-    position: sticky;
-    top: 30px;
-}
-
-.pricing-advantages-content .pricing-eyebrow {
-    color: var(--price-orange-dark);
+min-width: 0;
 }
 
 .pricing-advantages-content h2 {
-    margin: 0 0 20px;
-    color: var(--price-heading);
-    font-size: clamp(30px, 3vw, 40px);
-    font-weight: 800;
-    line-height: 1.25;
+margin: 0 0 20px;
+
+color: var(--price-primary);
+font-size: clamp(30px, 3.5vw, 43px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
 }
 
 .pricing-advantages-content > p {
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 15px;
-}
+margin: 0 0 27px;
 
-.pricing-advantages-content .pricing-btn {
-    margin-top: 26px;
+color: var(--price-muted);
+font-size: 15px;
+
 }
 
 .pricing-advantage-list {
-    display: grid;
-    gap: 16px;
+display: grid;
+gap: 20px;
+min-width: 0;
 }
 
 .pricing-advantage-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    padding: 23px;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: 11px;
+display: flex;
+align-items: flex-start;
+gap: 17px;
+
+padding: 20px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: 12px;
+
+transition:
+    border-color var(--price-transition),
+    transform var(--price-transition);
+
+}
+
+.pricing-advantage-item:hover {
+transform: translateY(-3px);
+border-color: var(--price-border);
 }
 
 .pricing-advantage-icon {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    background: rgba(0, 184, 176, 0.12);
-    color: var(--price-primary-dark);
-    border-radius: 9px;
-    font-size: 15px;
-    font-weight: 900;
+display: flex;
+flex: 0 0 48px;
+align-items: center;
+justify-content: center;
+
+width: 48px;
+height: 48px;
+
+color: var(--price-primary);
+background: var(--price-primary-light);
+border-radius: 10px;
+
+font-size: 14px;
+font-weight: 900;
+
 }
 
 .pricing-advantage-item h3 {
-    margin: 0 0 8px;
-    color: var(--price-heading);
-    font-size: 17px;
-    line-height: 1.4;
+margin: 0 0 7px;
+
+color: var(--price-primary);
+font-size: 17px;
+font-weight: 800;
+line-height: 1.4;
+
 }
 
 .pricing-advantage-item p {
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 13px;
-    line-height: 1.8;
+margin: 0;
+
+color: var(--price-muted);
+font-size: 13px;
+
 }
 
-
 /* =========================================================
-   10. COMPARISON TABLE
+10. COMPARISON TABLE
 ========================================================= */
 
 .pricing-comparison {
-    padding: 85px 0;
-    background: var(--price-section);
+padding: 96px 0 100px;
+background: var(--price-surface-alt);
 }
 
 .pricing-table-wrap {
-    margin-top: 40px;
-    overflow-x: auto;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: 12px;
-    box-shadow: var(--price-shadow);
-    -webkit-overflow-scrolling: touch;
+width: 100%;
+overflow-x: auto;
+
+background: #FFFFFF;
+border: 1px solid #E2EAE4;
+border-radius: var(--price-radius-md);
+box-shadow: 0 8px 25px rgba(18, 60, 56, 0.035);
+
+-webkit-overflow-scrolling: touch;
+
 }
 
 .pricing-table {
-    width: 100%;
-    min-width: 650px;
-    border-collapse: collapse;
-    text-align: left;
+width: 100%;
+min-width: 690px;
+border-collapse: collapse;
+border-spacing: 0;
+
+color: var(--price-text);
+font-size: 13px;
+text-align: left;
+
 }
 
 .pricing-table th,
 .pricing-table td {
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--price-border);
-    color: var(--price-text);
-    font-size: 13px;
-    line-height: 1.6;
-    vertical-align: middle;
+padding: 18px 20px;
+border-bottom: 1px solid #E5ECE7;
+vertical-align: middle;
 }
 
 .pricing-table thead th {
-    background: var(--price-primary-dark);
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: 800;
+color: #FFFFFF;
+background: var(--price-primary);
+
+font-size: 12px;
+font-weight: 800;
+line-height: 1.6;
+
 }
 
 .pricing-table thead th:first-child {
-    border-radius: 0;
+border-top-left-radius: 0;
 }
 
 .pricing-table tbody th {
-    color: var(--price-heading);
-    font-weight: 800;
+width: 22%;
+
+color: var(--price-primary);
+background: #F8FAF8;
+
+font-weight: 800;
+
+}
+
+.pricing-table tbody td {
+color: var(--price-muted);
+background: #FFFFFF;
+line-height: 1.7;
 }
 
 .pricing-table tbody tr:last-child th,
 .pricing-table tbody tr:last-child td {
-    border-bottom: none;
+border-bottom: none;
 }
 
-.pricing-table tbody tr:hover {
-    background: var(--price-section);
+.pricing-table tbody tr:hover td,
+.pricing-table tbody tr:hover th {
+background: var(--price-primary-light);
 }
 
-.pricing-table td a {
-    color: var(--price-primary-dark);
-    font-weight: 800;
-    text-decoration: none;
+.pricing-table tbody td a {
+color: var(--price-primary);
+font-weight: 800;
+text-decoration: none;
+
+transition: color var(--price-transition);
+
 }
 
-.pricing-table td a:hover {
-    color: var(--price-orange-dark);
+.pricing-table tbody td a:hover {
+color: var(--price-accent);
 }
-
 
 /* =========================================================
-   11. PRICING PROCESS
+11. PRICING PROCESS
 ========================================================= */
 
 .pricing-process {
-    padding: 85px 0;
-    background: var(--price-background);
+padding: 96px 0 100px;
+background: #FFFFFF;
 }
 
 .pricing-process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 42px;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 24px;
 }
 
 .pricing-process-card {
-    padding: 30px 25px;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: var(--price-radius);
-    box-shadow: 0 8px 25px rgba(23, 56, 60, 0.05);
-    transition: transform 0.25s ease;
+position: relative;
+min-width: 0;
+padding: 32px 28px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: var(--price-radius-md);
+
+transition:
+    transform var(--price-transition),
+    border-color var(--price-transition),
+    background-color var(--price-transition);
+
 }
 
 .pricing-process-card:hover {
-    transform: translateY(-5px);
+transform: translateY(-5px);
+background: #FFFFFF;
+border-color: var(--price-border);
 }
 
 .pricing-process-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 55px;
-    height: 55px;
-    margin-bottom: 22px;
-    background: var(--price-orange);
-    color: #172B32;
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: 900;
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 52px;
+height: 52px;
+margin-bottom: 24px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+border-radius: 12px;
+
+font-size: 17px;
+font-weight: 850;
+
 }
 
 .pricing-process-card h3 {
-    margin: 0 0 12px;
-    color: var(--price-heading);
-    font-size: 19px;
-    line-height: 1.4;
+margin: 0 0 13px;
+
+color: var(--price-primary);
+font-size: 20px;
+font-weight: 800;
+line-height: 1.4;
+
 }
 
 .pricing-process-card p {
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 14px;
+margin: 0;
+
+color: var(--price-muted);
+font-size: 14px;
+
 }
 
-
 /* =========================================================
-   12. FAQ
+12. PRICING FAQ
 ========================================================= */
 
 .pricing-faq {
-    padding: 85px 0;
-    background: var(--price-section);
+padding: 96px 0 100px;
+background: var(--price-surface-alt);
 }
 
 .pricing-faq-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-    align-items: start;
-    gap: 65px;
+display: grid;
+grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+align-items: start;
+gap: 75px;
 }
 
 .pricing-faq-intro {
-    position: sticky;
-    top: 30px;
+min-width: 0;
 }
 
 .pricing-faq-intro h2 {
-    margin: 0 0 16px;
-    color: var(--price-heading);
-    font-size: clamp(29px, 3vw, 38px);
-    font-weight: 800;
-    line-height: 1.25;
+margin: 0 0 18px;
+
+color: var(--price-primary);
+font-size: clamp(29px, 3.4vw, 40px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.7px;
+
 }
 
-.pricing-faq-intro p {
-    margin: 0;
-    color: var(--price-muted);
-    font-size: 15px;
-}
+.pricing-faq-intro > p {
+margin: 0 0 25px;
 
-.pricing-faq-intro .pricing-btn {
-    margin-top: 25px;
+color: var(--price-muted);
+font-size: 15px;
+
 }
 
 .pricing-faq-list {
-    display: grid;
-    gap: 13px;
+display: grid;
+gap: 12px;
+min-width: 0;
 }
 
 .pricing-faq-item {
-    overflow: hidden;
-    background: var(--price-card);
-    border: 1px solid var(--price-border);
-    border-radius: 10px;
-}
+padding: 0 21px;
+overflow: hidden;
 
-.pricing-faq-item summary {
-    position: relative;
-    padding: 20px 50px 20px 20px;
-    color: var(--price-heading);
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.6;
-    cursor: pointer;
-    list-style: none;
-}
+background: #FFFFFF;
+border: 1px solid #E4EBE6;
+border-radius: 12px;
 
-.pricing-faq-item summary::-webkit-details-marker {
-    display: none;
-}
+transition:
+    border-color var(--price-transition),
+    background-color var(--price-transition);
 
-.pricing-faq-item summary::after {
-    content: "+";
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    color: var(--price-primary-dark);
-    font-size: 23px;
-    font-weight: 500;
-    transform: translateY(-50%);
-}
-
-.pricing-faq-item[open] summary {
-    border-bottom: 1px solid var(--price-border);
-}
-
-.pricing-faq-item[open] summary::after {
-    content: "−";
-    color: var(--price-orange-dark);
-}
-
-.pricing-faq-item > p {
-    margin: 0;
-    padding: 18px 20px 22px;
-    color: var(--price-muted);
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   13. FINAL CTA
-========================================================= */
-
-.pricing-final-cta {
-    padding: 80px 0;
-    overflow: hidden;
-    background: var(--price-primary-deep);
-}
-
-.pricing-final-cta-inner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 45px;
-    min-height: 300px;
-    padding: 50px 55px;
-    overflow: hidden;
-    background: var(--price-primary-dark);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-}
-
-.pricing-cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 650px;
-}
-
-.pricing-cta-content .pricing-eyebrow {
-    color: #FFD0A8;
-}
-
-.pricing-cta-content h2 {
-    margin: 0 0 18px;
-    color: #FFFFFF;
-    font-size: clamp(30px, 3.5vw, 43px);
-    font-weight: 800;
-    line-height: 1.2;
-}
-
-.pricing-cta-content > p {
-    max-width: 590px;
-    margin: 0;
-    color: #E0F7F5;
-    font-size: 15px;
-}
-
-.pricing-cta-content .pricing-hero-actions {
-    margin-top: 25px;
-}
-
-.pricing-cta-decoration {
-    position: relative;
-    flex-shrink: 0;
-    width: 200px;
-    height: 190px;
-}
-
-.pricing-cta-box {
-    position: absolute;
-    width: 95px;
-    height: 95px;
-    border: 2px solid rgba(255, 255, 255, 0.35);
-    border-radius: 12px;
-    transform: rotate(45deg);
-}
-
-.pricing-cta-box-one {
-    top: 0;
-    left: 50px;
-    background: rgba(255, 138, 54, 0.9);
-    border-color: var(--price-orange);
-}
-
-.pricing-cta-box-two {
-    top: 65px;
-    left: 5px;
-    background: rgba(0, 184, 176, 0.45);
-}
-
-.pricing-cta-box-three {
-    top: 65px;
-    right: 0;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-
-/* =========================================================
-   14. DARK MODE
-   Only Pricing page content
-========================================================= */
-
-body.dark-mode .pricing-hero,
-body.dark-mode .pricing-advantages,
-body.dark-mode .pricing-process {
-    background: var(--price-dark-background);
-}
-
-body.dark-mode .pricing-intro,
-body.dark-mode .pricing-plans,
-body.dark-mode .pricing-comparison,
-body.dark-mode .pricing-faq {
-    background: var(--price-dark-section);
-}
-
-body.dark-mode .pricing-hero h1,
-body.dark-mode .pricing-section-heading h2,
-body.dark-mode .pricing-plan-body h3,
-body.dark-mode .pricing-plan-body h4,
-body.dark-mode .pricing-advantages-content h2,
-body.dark-mode .pricing-advantage-item h3,
-body.dark-mode .pricing-process-card h3,
-body.dark-mode .pricing-faq-intro h2 {
-    color: var(--price-dark-text);
-}
-
-body.dark-mode .pricing-hero-content > p,
-body.dark-mode .pricing-section-heading p,
-body.dark-mode .pricing-plan-description,
-body.dark-mode .pricing-price > span:last-child,
-body.dark-mode .pricing-advantage-item p,
-body.dark-mode .pricing-process-card p,
-body.dark-mode .pricing-faq-intro p,
-body.dark-mode .pricing-faq-item > p {
-    color: var(--price-dark-muted);
-}
-
-body.dark-mode .pricing-hero-content h1 span,
-body.dark-mode .pricing-plan-kicker,
-body.dark-mode .pricing-price strong {
-    color: #32DED5;
-}
-
-body.dark-mode .pricing-eyebrow {
-    color: #32DED5;
-}
-
-body.dark-mode .pricing-plan-card,
-body.dark-mode .pricing-advantage-item,
-body.dark-mode .pricing-process-card,
-body.dark-mode .pricing-faq-item,
-body.dark-mode .pricing-floating-card,
-body.dark-mode .pricing-table-wrap {
-    background: var(--price-dark-card);
-    border-color: var(--price-dark-border);
-}
-
-body.dark-mode .pricing-floating-card strong,
-body.dark-mode .pricing-table tbody th,
-body.dark-mode .pricing-faq-item summary {
-    color: var(--price-dark-text);
-}
-
-body.dark-mode .pricing-floating-card p {
-    color: var(--price-dark-muted);
-}
-
-body.dark-mode .pricing-price {
-    background: var(--price-dark-section);
-    border-color: var(--price-dark-border);
-}
-
-body.dark-mode .pricing-plan-divider,
-body.dark-mode .pricing-table th,
-body.dark-mode .pricing-table td,
-body.dark-mode .pricing-faq-item[open] summary {
-    border-color: var(--price-dark-border);
-}
-
-body.dark-mode .pricing-feature-list li {
-    color: var(--price-dark-text);
-}
-
-body.dark-mode .pricing-table thead th {
-    background: var(--price-primary-deep);
-    color: #FFFFFF;
-}
-
-body.dark-mode .pricing-table tbody td {
-    color: var(--price-dark-muted);
-}
-
-body.dark-mode .pricing-table tbody tr:hover {
-    background: var(--price-dark-section);
-}
-
-body.dark-mode .pricing-table td a {
-    color: #32DED5;
-}
-
-body.dark-mode .pricing-plan-btn,
-body.dark-mode .pricing-plan-btn-featured,
-body.dark-mode .pricing-btn-primary,
-body.dark-mode .pricing-btn-light {
-    background: var(--price-orange);
-    color: #172B32;
-    border-color: var(--price-orange);
-}
-
-body.dark-mode .pricing-plan-btn:hover,
-body.dark-mode .pricing-plan-btn-featured:hover,
-body.dark-mode .pricing-btn-primary:hover,
-body.dark-mode .pricing-btn-light:hover {
-    background: var(--price-orange-dark);
-    color: #172B32;
-    border-color: var(--price-orange-dark);
-}
-
-body.dark-mode .pricing-btn-outline {
-    background: transparent;
-    color: #32DED5;
-    border-color: #32DED5;
-}
-
-body.dark-mode .pricing-btn-outline:hover {
-    background: var(--price-primary-dark);
-    color: #FFFFFF;
-    border-color: var(--price-primary-dark);
-}
-
-body.dark-mode .pricing-btn-cta-outline {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-}
-
-body.dark-mode .pricing-btn-cta-outline:hover {
-    background: #FFFFFF;
-    color: #17383C;
-}
-
-body.dark-mode .pricing-disclaimer {
-    color: var(--price-dark-muted);
-}
-
-
-/* =========================================================
-   15. RTL SUPPORT
-========================================================= */
-
-html[dir="rtl"] .pricing-hero-content,
-html[dir="rtl"] .pricing-advantages-content,
-html[dir="rtl"] .pricing-faq-intro {
-    text-align: right;
-}
-
-html[dir="rtl"] .pricing-hero-actions {
-    justify-content: flex-start;
-}
-
-html[dir="rtl"] .pricing-floating-card {
-    right: auto;
-    left: -22px;
-}
-
-html[dir="rtl"] .pricing-plan-badge {
-    left: auto;
-    right: 15px;
-}
-
-html[dir="rtl"] .pricing-featured-label {
-    right: auto;
-    left: 15px;
-}
-
-html[dir="rtl"] .pricing-plan-btn {
-    flex-direction: row-reverse;
-}
-
-html[dir="rtl"] .pricing-faq-item summary {
-    padding-right: 20px;
-    padding-left: 50px;
-}
-
-html[dir="rtl"] .pricing-faq-item summary::after {
-    right: auto;
-    left: 20px;
-}
-
-html[dir="rtl"] .pricing-table {
-    text-align: right;
-}
-
-
-/* =========================================================
-   16. TABLET RESPONSIVE
-========================================================= */
-
-@media (max-width: 1000px) {
-    .pricing-hero {
-        padding: 70px 0;
-    }
-
-    .pricing-hero-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-        gap: 35px;
-    }
-
-    .pricing-hero-visual > img {
-        height: 390px;
-    }
-
-    .pricing-plan-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .pricing-plan-card:last-child {
-        grid-column: 1 / -1;
-        width: calc(50% - 13px);
-        justify-self: center;
-    }
-
-    .pricing-advantages-grid,
-    .pricing-faq-grid {
-        gap: 35px;
-    }
-
-    .pricing-cta-decoration {
-        opacity: 0.7;
-    }
-}
-
-
-/* =========================================================
-   17. MOBILE RESPONSIVE
-========================================================= */
-
-@media (max-width: 700px) {
-    .pricing-hero {
-        padding: 55px 0;
-    }
-
-    .pricing-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 38px;
-    }
-
-    .pricing-hero-content {
-        max-width: none;
-    }
-
-    .pricing-hero-content h1 {
-        font-size: clamp(34px, 9vw, 46px);
-        letter-spacing: -0.8px;
-    }
-
-    .pricing-hero-content > p {
-        font-size: 14px;
-    }
-
-    .pricing-hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .pricing-btn {
-        width: 100%;
-    }
-
-    .pricing-hero-benefits {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .pricing-hero-visual > img {
-        height: 300px;
-        border-radius: 14px;
-    }
-
-    .pricing-floating-card {
-        right: 12px;
-        bottom: 12px;
-        width: min(300px, calc(100% - 24px));
-        padding: 15px;
-    }
-
-    .pricing-intro {
-        padding: 55px 0 25px;
-    }
-
-    .pricing-plans {
-        padding: 25px 0 60px;
-    }
-
-    .pricing-section-heading h2 {
-        font-size: 30px;
-    }
-
-    .pricing-section-heading p {
-        font-size: 14px;
-    }
-
-    .pricing-plan-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .pricing-plan-card:last-child {
-        grid-column: auto;
-        width: 100%;
-    }
-
-    .pricing-plan-image {
-        height: 230px;
-    }
-
-    .pricing-plan-body {
-        padding: 24px 20px;
-    }
-
-    .pricing-plan-description {
-        min-height: 0;
-    }
-
-    .pricing-advantages,
-    .pricing-comparison,
-    .pricing-process,
-    .pricing-faq {
-        padding: 60px 0;
-    }
-
-    .pricing-advantages-grid,
-    .pricing-faq-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .pricing-advantages-content,
-    .pricing-faq-intro {
-        position: static;
-    }
-
-    .pricing-advantage-item {
-        padding: 19px;
-        gap: 14px;
-    }
-
-    .pricing-advantage-icon {
-        width: 42px;
-        height: 42px;
-    }
-
-    .pricing-process-grid {
-        grid-template-columns: 1fr;
-        gap: 17px;
-        margin-top: 30px;
-    }
-
-    .pricing-process-card {
-        padding: 25px 22px;
-    }
-
-    .pricing-table-wrap {
-        margin-top: 28px;
-    }
-
-    .pricing-table th,
-    .pricing-table td {
-        padding: 15px;
-        font-size: 12px;
-    }
-
-    .pricing-final-cta {
-        padding: 55px 0;
-    }
-
-    .pricing-final-cta-inner {
-        min-height: 0;
-        padding: 35px 24px;
-        border-radius: 14px;
-    }
-
-    .pricing-cta-content h2 {
-        font-size: 30px;
-    }
-
-    .pricing-cta-content > p {
-        font-size: 14px;
-    }
-
-    .pricing-cta-decoration {
-        display: none;
-    }
-
-    .pricing-cta-content .pricing-hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    html[dir="rtl"] .pricing-floating-card {
-        right: 12px;
-        left: 12px;
-    }
-}
-
-
-/* =========================================================
-   18. SMALL MOBILE
-========================================================= */
-
-@media (max-width: 400px) {
-    .pricing-hero-content h1 {
-        font-size: 32px;
-    }
-
-    .pricing-section-heading h2 {
-        font-size: 27px;
-    }
-
-    .pricing-plan-body {
-        padding: 21px 16px;
-    }
-
-    .pricing-plan-body h3 {
-        font-size: 22px;
-    }
-
-    .pricing-btn,
-    .pricing-plan-btn {
-        min-height: 50px;
-        padding: 13px 15px;
-        font-size: 13px;
-    }
-
-    .pricing-advantage-item {
-        flex-direction: column;
-    }
-
-    .pricing-faq-item summary {
-        padding: 17px 43px 17px 16px;
-        font-size: 13px;
-    }
-
-    .pricing-faq-item > p {
-        padding: 16px;
-    }
-}
-
-
-/* =========================================================
-   19. REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    .pricing-hero *,
-    .pricing-plans *,
-    .pricing-advantages *,
-    .pricing-process *,
-    .pricing-faq * {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
-
-/* PRICING PAGE TAGLINE SIZE AND STYLE */
-
-.pricing-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #FF8A36;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.8px;
-    line-height: 1.7;
-    text-transform: uppercase;
-}
-
-.pricing-eyebrow::before {
-    content: "";
-    display: inline-block;
-    flex: 0 0 25px;
-    width: 25px;
-    height: 2px;
-    background-color: #FF8A36;
-}
-
-/* Centered section taglines */
-
-.pricing-section-heading .pricing-eyebrow {
-    justify-content: center;
-}
-
-/* Keep taglines left-aligned in these sections */
-
-.pricing-hero-content .pricing-eyebrow,
-.pricing-advantages-content .pricing-eyebrow,
-.pricing-faq-intro .pricing-eyebrow,
-.pricing-cta-content .pricing-eyebrow {
-    justify-content: flex-start;
-}
-
-/* Dark mode */
-
-body.dark-mode .pricing-eyebrow {
-    color: #FF8A36;
-}
-
-body.dark-mode .pricing-eyebrow::before {
-    background-color: #FF8A36;
-}
-
-/* RTL support */
-
-html[dir="rtl"] .pricing-eyebrow {
-    flex-direction: row-reverse;
-}
-
-
-/* =========================================================
-   PRICING PAGE — ORANGE TAGLINES WITH HORIZONTAL LINE
-========================================================= */
-
-.pricing-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #FF8A36 !important;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.8px;
-    line-height: 1.7;
-    text-transform: uppercase;
-}
-
-/* Horizontal line before each tagline */
-
-.pricing-eyebrow::before {
-    content: "";
-    display: inline-block;
-    flex: 0 0 25px;
-    width: 25px;
-    height: 2px;
-    background: #FF8A36;
-}
-
-/* Centered section headings */
-
-.pricing-section-heading .pricing-eyebrow {
-    justify-content: center;
-}
-
-/* Left-aligned taglines */
-
-.pricing-hero-content .pricing-eyebrow,
-.pricing-advantages-content .pricing-eyebrow,
-.pricing-faq-intro .pricing-eyebrow,
-.pricing-cta-content .pricing-eyebrow {
-    justify-content: flex-start;
-}
-
-/* Keep tagline orange in dark mode */
-
-body.dark-mode .pricing-eyebrow {
-    color: #FF8A36 !important;
-}
-
-body.dark-mode .pricing-eyebrow::before {
-    background: #FF8A36;
-}
-
-/* RTL support */
-
-html[dir="rtl"] .pricing-eyebrow {
-    flex-direction: row-reverse;
-}
-
-/* =========================================
-   PRICING PAGE - CTA SECOND BUTTON
-   EXPLORE FACILITIES
-========================================= */
-
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline {
-    background: #FFFFFF !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border: 2px solid #00B8B0 !important;
-    text-decoration: none !important;
-}
-
-/* HOVER EFFECT */
-
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:hover {
-    background: #00B8B0 !important;
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    border-color: #00B8B0 !important;
-}
-
-/* =====================================================
-   STOREVAULT — PRICING PAGE ANIMATIONS
-   Teal + Orange | Smooth | Responsive
-===================================================== */
-
-/* HERO */
-.pricing-hero-content {
-    animation: pricingFadeUp 0.8s ease both;
-}
-
-.pricing-hero-visual {
-    animation: pricingFadeInRight 0.9s ease both;
-}
-
-.pricing-floating-card {
-    animation: pricingFloat 4s ease-in-out infinite;
-}
-
-/* SECTION HEADINGS */
-.pricing-section-heading {
-    animation: pricingFadeUp 0.7s ease both;
-}
-
-/* PRICING PLAN CARDS */
-.pricing-plan-card {
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
-}
-
-.pricing-plan-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 35px rgba(0, 111, 107, 0.14);
-}
-
-.pricing-plan-image img {
-    transition: transform 0.5s ease;
-}
-
-.pricing-plan-card:hover .pricing-plan-image img {
-    transform: scale(1.05);
-}
-
-/* ADVANTAGES */
-.pricing-advantage-item {
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.pricing-advantage-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 111, 107, 0.10);
-}
-
-/* PROCESS CARDS */
-.pricing-process-card {
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-}
-
-.pricing-process-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 111, 107, 0.12);
-}
-
-/* FAQ ITEMS */
-.pricing-faq-item {
-    transition: border-color 0.3s ease,
-                box-shadow 0.3s ease;
 }
 
 .pricing-faq-item:hover {
-    border-color: #00B8B0;
-    box-shadow: 0 6px 18px rgba(0, 111, 107, 0.08);
+border-color: var(--price-border);
 }
 
-/* ALL PRICING BUTTONS */
-.pricing-hero-actions .pricing-btn,
-.pricing-plan-btn,
-.pricing-advantages-content > .pricing-btn,
-.pricing-faq-intro .pricing-btn,
-.pricing-final-cta .pricing-btn,
-.pricing-table td a {
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+.pricing-faq-item summary {
+position: relative;
+padding: 20px 32px 20px 0;
+
+color: var(--price-primary);
+font-size: 15px;
+font-weight: 800;
+line-height: 1.6;
+
+list-style: none;
+cursor: pointer;
+
 }
 
-.pricing-hero-actions .pricing-btn:hover,
-.pricing-plan-btn:hover,
-.pricing-advantages-content > .pricing-btn:hover,
-.pricing-faq-intro .pricing-btn:hover,
-.pricing-final-cta .pricing-btn:hover,
-.pricing-table td a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0, 111, 107, 0.16);
+.pricing-faq-item summary::-webkit-details-marker {
+display: none;
 }
 
-/* FINAL CTA */
+.pricing-faq-item summary::after {
+content: "+";
+position: absolute;
+top: 50%;
+right: 0;
+
+color: var(--price-accent);
+font-size: 24px;
+font-weight: 500;
+line-height: 1;
+
+transform: translateY(-50%);
+
+}
+
+.pricing-faq-item[open] summary::after {
+content: "−";
+}
+
+.pricing-faq-item summary:focus-visible {
+outline: 2px solid var(--price-accent);
+outline-offset: 4px;
+}
+
+.pricing-faq-item > p {
+margin: 0;
+padding: 0 0 20px;
+
+color: var(--price-muted);
+font-size: 14px;
+line-height: 1.8;
+
+}
+
+/* =========================================================
+13. FINAL CALL TO ACTION
+========================================================= */
+
+.pricing-final-cta {
+position: relative;
+isolation: isolate;
+overflow: hidden;
+
+padding: 82px 0;
+
+background: var(--price-primary);
+border: none;
+text-align: left;
+
+}
+
 .pricing-final-cta-inner {
-    animation: pricingFadeUp 0.8s ease both;
+position: relative;
+display: grid;
+grid-template-columns: minmax(0, 1fr) 220px;
+align-items: center;
+gap: 40px;
+overflow: hidden;
+
+padding: 20px 0;
+
 }
 
-/* ANIMATION KEYFRAMES */
-@keyframes pricingFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.pricing-cta-content {
+position: relative;
+z-index: 2;
+max-width: 760px;
 }
 
-@keyframes pricingFadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.pricing-cta-content .pricing-eyebrow {
+color: #D68A68;
+background: transparent;
+padding: 0;
+margin-bottom: 18px;
 }
 
-@keyframes pricingFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
+.pricing-cta-content h2 {
+margin: 0 0 20px;
+
+color: #FFFFFF;
+font-size: clamp(30px, 4vw, 46px);
+font-weight: 850;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
 }
 
-/* ACCESSIBILITY */
+.pricing-cta-content > p {
+max-width: 660px;
+margin: 0 0 30px;
+
+color: rgba(255, 255, 255, 0.86);
+font-size: 15px;
+
+}
+
+.pricing-cta-content .pricing-hero-actions {
+gap: 14px;
+}
+
+.pricing-cta-decoration {
+position: relative;
+width: 220px;
+height: 220px;
+opacity: 0.75;
+}
+
+.pricing-cta-box {
+position: absolute;
+width: 115px;
+height: 115px;
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+border-radius: 18px;
+transform: rotate(12deg);
+
+}
+
+.pricing-cta-box-one {
+top: 8px;
+right: 8px;
+background: rgba(255, 255, 255, 0.06);
+}
+
+.pricing-cta-box-two {
+top: 54px;
+right: 55px;
+background: rgba(185, 102, 67, 0.24);
+}
+
+.pricing-cta-box-three {
+top: 100px;
+right: 5px;
+background: rgba(255, 255, 255, 0.04);
+}
+
+/* =========================================================
+14. DARK MODE
+Supports common theme class conventions
+========================================================= */
+
+/* Main light sections become dark */
+
+html.dark-mode .pricing-hero,
+body.dark-mode .pricing-hero,
+html[data-theme="dark"] .pricing-hero,
+body[data-theme="dark"] .pricing-hero,
+body.dark .pricing-hero,
+html.dark-mode .pricing-advantages,
+body.dark-mode .pricing-advantages,
+html[data-theme="dark"] .pricing-advantages,
+body[data-theme="dark"] .pricing-advantages,
+body.dark .pricing-advantages,
+html.dark-mode .pricing-process,
+body.dark-mode .pricing-process,
+html[data-theme="dark"] .pricing-process,
+body[data-theme="dark"] .pricing-process,
+body.dark .pricing-process {
+background: var(--price-dark-bg) !important;
+background-image: none !important;
+}
+
+/* Alternate sections */
+
+html.dark-mode .pricing-intro,
+body.dark-mode .pricing-intro,
+html[data-theme="dark"] .pricing-intro,
+body[data-theme="dark"] .pricing-intro,
+body.dark .pricing-intro,
+html.dark-mode .pricing-plans,
+body.dark-mode .pricing-plans,
+html[data-theme="dark"] .pricing-plans,
+body[data-theme="dark"] .pricing-plans,
+body.dark .pricing-plans,
+html.dark-mode .pricing-comparison,
+body.dark-mode .pricing-comparison,
+html[data-theme="dark"] .pricing-comparison,
+body[data-theme="dark"] .pricing-comparison,
+body.dark .pricing-comparison,
+html.dark-mode .pricing-faq,
+body.dark-mode .pricing-faq,
+html[data-theme="dark"] .pricing-faq,
+body[data-theme="dark"] .pricing-faq,
+body.dark .pricing-faq {
+background: var(--price-dark-alt) !important;
+}
+
+/* Dark mode headings */
+
+html.dark-mode .pricing-hero-content h1,
+body.dark-mode .pricing-hero-content h1,
+html[data-theme="dark"] .pricing-hero-content h1,
+body[data-theme="dark"] .pricing-hero-content h1,
+body.dark .pricing-hero-content h1,
+html.dark-mode .pricing-section-heading h2,
+body.dark-mode .pricing-section-heading h2,
+html[data-theme="dark"] .pricing-section-heading h2,
+body[data-theme="dark"] .pricing-section-heading h2,
+body.dark .pricing-section-heading h2,
+html.dark-mode .pricing-advantages-content h2,
+body.dark-mode .pricing-advantages-content h2,
+html[data-theme="dark"] .pricing-advantages-content h2,
+body[data-theme="dark"] .pricing-advantages-content h2,
+body.dark .pricing-advantages-content h2,
+html.dark-mode .pricing-plan-body h3,
+body.dark-mode .pricing-plan-body h3,
+html[data-theme="dark"] .pricing-plan-body h3,
+body[data-theme="dark"] .pricing-plan-body h3,
+body.dark .pricing-plan-body h3,
+html.dark-mode .pricing-plan-body h4,
+body.dark-mode .pricing-plan-body h4,
+html[data-theme="dark"] .pricing-plan-body h4,
+body[data-theme="dark"] .pricing-plan-body h4,
+body.dark .pricing-plan-body h4,
+html.dark-mode .pricing-price strong,
+body.dark-mode .pricing-price strong,
+html[data-theme="dark"] .pricing-price strong,
+body[data-theme="dark"] .pricing-price strong,
+body.dark .pricing-price strong,
+html.dark-mode .pricing-advantage-item h3,
+body.dark-mode .pricing-advantage-item h3,
+html[data-theme="dark"] .pricing-advantage-item h3,
+body[data-theme="dark"] .pricing-advantage-item h3,
+body.dark .pricing-advantage-item h3,
+html.dark-mode .pricing-process-card h3,
+body.dark-mode .pricing-process-card h3,
+html[data-theme="dark"] .pricing-process-card h3,
+body[data-theme="dark"] .pricing-process-card h3,
+body.dark .pricing-process-card h3,
+html.dark-mode .pricing-faq-intro h2,
+body.dark-mode .pricing-faq-intro h2,
+html[data-theme="dark"] .pricing-faq-intro h2,
+body[data-theme="dark"] .pricing-faq-intro h2,
+body.dark .pricing-faq-intro h2,
+html.dark-mode .pricing-faq-item summary,
+body.dark-mode .pricing-faq-item summary,
+html[data-theme="dark"] .pricing-faq-item summary,
+body[data-theme="dark"] .pricing-faq-item summary,
+body.dark .pricing-faq-item summary {
+color: var(--price-dark-text) !important;
+}
+
+/* Highlighted hero title */
+
+html.dark-mode .pricing-hero-content h1 span,
+body.dark-mode .pricing-hero-content h1 span,
+html[data-theme="dark"] .pricing-hero-content h1 span,
+body[data-theme="dark"] .pricing-hero-content h1 span,
+body.dark .pricing-hero-content h1 span {
+color: #D68A68 !important;
+}
+
+/* Dark mode paragraphs */
+
+html.dark-mode .pricing-hero-content > p,
+body.dark-mode .pricing-hero-content > p,
+html[data-theme="dark"] .pricing-hero-content > p,
+body[data-theme="dark"] .pricing-hero-content > p,
+body.dark .pricing-hero-content > p,
+html.dark-mode .pricing-section-heading > p,
+body.dark-mode .pricing-section-heading > p,
+html[data-theme="dark"] .pricing-section-heading > p,
+body[data-theme="dark"] .pricing-section-heading > p,
+body.dark .pricing-section-heading > p,
+html.dark-mode .pricing-plan-description,
+body.dark-mode .pricing-plan-description,
+html[data-theme="dark"] .pricing-plan-description,
+body[data-theme="dark"] .pricing-plan-description,
+body.dark .pricing-plan-description,
+html.dark-mode .pricing-price > span:last-child,
+body.dark-mode .pricing-price > span:last-child,
+html[data-theme="dark"] .pricing-price > span:last-child,
+body[data-theme="dark"] .pricing-price > span:last-child,
+body.dark .pricing-price > span:last-child,
+html.dark-mode .pricing-feature-list li,
+body.dark-mode .pricing-feature-list li,
+html[data-theme="dark"] .pricing-feature-list li,
+body[data-theme="dark"] .pricing-feature-list li,
+body.dark .pricing-feature-list li,
+html.dark-mode .pricing-advantages-content > p,
+body.dark-mode .pricing-advantages-content > p,
+html[data-theme="dark"] .pricing-advantages-content > p,
+body[data-theme="dark"] .pricing-advantages-content > p,
+body.dark .pricing-advantages-content > p,
+html.dark-mode .pricing-advantage-item p,
+body.dark-mode .pricing-advantage-item p,
+html[data-theme="dark"] .pricing-advantage-item p,
+body[data-theme="dark"] .pricing-advantage-item p,
+body.dark .pricing-advantage-item p,
+html.dark-mode .pricing-process-card p,
+body.dark-mode .pricing-process-card p,
+html[data-theme="dark"] .pricing-process-card p,
+body[data-theme="dark"] .pricing-process-card p,
+body.dark .pricing-process-card p,
+html.dark-mode .pricing-faq-intro > p,
+body.dark-mode .pricing-faq-intro > p,
+html[data-theme="dark"] .pricing-faq-intro > p,
+body[data-theme="dark"] .pricing-faq-intro > p,
+body.dark .pricing-faq-intro > p,
+html.dark-mode .pricing-faq-item > p,
+body.dark-mode .pricing-faq-item > p,
+html[data-theme="dark"] .pricing-faq-item > p,
+body[data-theme="dark"] .pricing-faq-item > p,
+body.dark .pricing-faq-item > p {
+color: var(--price-dark-muted) !important;
+}
+
+/* Dark mode benefit text */
+
+html.dark-mode .pricing-hero-benefits > div,
+body.dark-mode .pricing-hero-benefits > div,
+html[data-theme="dark"] .pricing-hero-benefits > div,
+body[data-theme="dark"] .pricing-hero-benefits > div,
+body.dark .pricing-hero-benefits > div {
+color: var(--price-dark-text);
+}
+
+/* Dark mode eyebrow labels retain cream and terracotta */
+
+html.dark-mode .pricing-eyebrow,
+body.dark-mode .pricing-eyebrow,
+html[data-theme="dark"] .pricing-eyebrow,
+body[data-theme="dark"] .pricing-eyebrow,
+body.dark .pricing-eyebrow {
+color: var(--price-label-text);
+background: var(--price-label-bg);
+}
+
+/* Final CTA eyebrow is transparent in both themes */
+
+html.dark-mode .pricing-cta-content .pricing-eyebrow,
+body.dark-mode .pricing-cta-content .pricing-eyebrow,
+html[data-theme="dark"] .pricing-cta-content .pricing-eyebrow,
+body[data-theme="dark"] .pricing-cta-content .pricing-eyebrow,
+body.dark .pricing-cta-content .pricing-eyebrow {
+color: #D68A68 !important;
+background: transparent !important;
+}
+
+/* Dark mode cards */
+
+html.dark-mode .pricing-plan-card,
+body.dark-mode .pricing-plan-card,
+html[data-theme="dark"] .pricing-plan-card,
+body[data-theme="dark"] .pricing-plan-card,
+body.dark .pricing-plan-card,
+html.dark-mode .pricing-advantage-item,
+body.dark-mode .pricing-advantage-item,
+html[data-theme="dark"] .pricing-advantage-item,
+body[data-theme="dark"] .pricing-advantage-item,
+body.dark .pricing-advantage-item,
+html.dark-mode .pricing-process-card,
+body.dark-mode .pricing-process-card,
+html[data-theme="dark"] .pricing-process-card,
+body[data-theme="dark"] .pricing-process-card,
+body.dark .pricing-process-card {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+box-shadow: none;
+}
+
+html.dark-mode .pricing-plan-card:hover,
+body.dark-mode .pricing-plan-card:hover,
+html[data-theme="dark"] .pricing-plan-card:hover,
+body[data-theme="dark"] .pricing-plan-card:hover,
+body.dark .pricing-plan-card:hover,
+html.dark-mode .pricing-advantage-item:hover,
+body.dark-mode .pricing-advantage-item:hover,
+html[data-theme="dark"] .pricing-process-card:hover,
+body[data-theme="dark"] .pricing-process-card:hover,
+body.dark .pricing-advantage-item:hover,
+body.dark .pricing-process-card:hover {
+border-color: #52675F;
+}
+
+/* Featured plan */
+
+html.dark-mode .pricing-plan-featured,
+body.dark-mode .pricing-plan-featured,
+html[data-theme="dark"] .pricing-plan-featured,
+body[data-theme="dark"] .pricing-plan-featured,
+body.dark .pricing-plan-featured {
+border-color: var(--price-accent);
+}
+
+/* Dark mode price panels */
+
+html.dark-mode .pricing-price,
+body.dark-mode .pricing-price,
+html[data-theme="dark"] .pricing-price,
+body[data-theme="dark"] .pricing-price,
+body.dark .pricing-price {
+background: var(--price-dark-alt);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-price-label,
+body.dark-mode .pricing-price-label,
+html[data-theme="dark"] .pricing-price-label,
+body[data-theme="dark"] .pricing-price-label,
+body.dark .pricing-price-label {
+color: var(--price-dark-muted);
+}
+
+/* Dark mode dividers */
+
+html.dark-mode .pricing-plan-divider,
+body.dark-mode .pricing-plan-divider,
+html[data-theme="dark"] .pricing-plan-divider,
+body[data-theme="dark"] .pricing-plan-divider,
+body.dark .pricing-plan-divider {
+background: var(--price-dark-border);
+}
+
+/* Dark mode icons */
+
+html.dark-mode .pricing-hero-benefits > div > span,
+body.dark-mode .pricing-hero-benefits > div > span,
+html[data-theme="dark"] .pricing-hero-benefits > div > span,
+body[data-theme="dark"] .pricing-hero-benefits > div > span,
+body.dark .pricing-hero-benefits > div > span,
+html.dark-mode .pricing-advantage-icon,
+body.dark-mode .pricing-advantage-icon,
+html[data-theme="dark"] .pricing-advantage-icon,
+body[data-theme="dark"] .pricing-advantage-icon,
+body.dark .pricing-advantage-icon {
+color: #EAF2EF;
+background: #28443B;
+}
+
+/* Dark mode plan badges */
+
+html.dark-mode .pricing-plan-badge,
+body.dark-mode .pricing-plan-badge,
+html[data-theme="dark"] .pricing-plan-badge,
+body[data-theme="dark"] .pricing-plan-badge,
+body.dark .pricing-plan-badge {
+color: var(--price-dark-text);
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+/* Dark mode comparison table */
+
+html.dark-mode .pricing-table-wrap,
+body.dark-mode .pricing-table-wrap,
+html[data-theme="dark"] .pricing-table-wrap,
+body[data-theme="dark"] .pricing-table-wrap,
+body.dark .pricing-table-wrap {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-table,
+body.dark-mode .pricing-table,
+html[data-theme="dark"] .pricing-table,
+body[data-theme="dark"] .pricing-table,
+body.dark .pricing-table {
+color: var(--price-dark-text);
+}
+
+html.dark-mode .pricing-table th,
+body.dark-mode .pricing-table th,
+html.dark-mode .pricing-table td,
+body.dark-mode .pricing-table td,
+html[data-theme="dark"] .pricing-table th,
+body[data-theme="dark"] .pricing-table th,
+html[data-theme="dark"] .pricing-table td,
+body[data-theme="dark"] .pricing-table td,
+body.dark .pricing-table th,
+body.dark .pricing-table td {
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-table tbody th,
+body.dark-mode .pricing-table tbody th,
+html[data-theme="dark"] .pricing-table tbody th,
+body[data-theme="dark"] .pricing-table tbody th,
+body.dark .pricing-table tbody th {
+color: var(--price-dark-text);
+background: var(--price-dark-alt);
+}
+
+html.dark-mode .pricing-table tbody td,
+body.dark-mode .pricing-table tbody td,
+html[data-theme="dark"] .pricing-table tbody td,
+body[data-theme="dark"] .pricing-table tbody td,
+body.dark .pricing-table tbody td {
+color: var(--price-dark-muted);
+background: var(--price-dark-card);
+}
+
+html.dark-mode .pricing-table tbody tr:hover th,
+body.dark-mode .pricing-table tbody tr:hover th,
+html.dark-mode .pricing-table tbody tr:hover td,
+body.dark-mode .pricing-table tbody tr:hover td,
+html[data-theme="dark"] .pricing-table tbody tr:hover th,
+body[data-theme="dark"] .pricing-table tbody tr:hover th,
+html[data-theme="dark"] .pricing-table tbody tr:hover td,
+body[data-theme="dark"] .pricing-table tbody tr:hover td,
+body.dark .pricing-table tbody tr:hover th,
+body.dark .pricing-table tbody tr:hover td {
+background: #223B33;
+}
+
+html.dark-mode .pricing-table tbody td a,
+body.dark-mode .pricing-table tbody td a,
+html[data-theme="dark"] .pricing-table tbody td a,
+body[data-theme="dark"] .pricing-table tbody td a,
+body.dark .pricing-table tbody td a {
+color: #EAF2EF;
+}
+
+html.dark-mode .pricing-table tbody td a:hover,
+body.dark-mode .pricing-table tbody td a:hover,
+html[data-theme="dark"] .pricing-table tbody td a:hover,
+body[data-theme="dark"] .pricing-table tbody td a:hover,
+body.dark .pricing-table tbody td a:hover {
+color: #D68A68;
+}
+
+/* Dark mode FAQ */
+
+html.dark-mode .pricing-faq-item,
+body.dark-mode .pricing-faq-item,
+html[data-theme="dark"] .pricing-faq-item,
+body[data-theme="dark"] .pricing-faq-item,
+body.dark .pricing-faq-item {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-faq-item:hover,
+body.dark-mode .pricing-faq-item:hover,
+html[data-theme="dark"] .pricing-faq-item:hover,
+body[data-theme="dark"] .pricing-faq-item:hover,
+body.dark .pricing-faq-item:hover {
+border-color: #52675F;
+}
+
+/* Dark mode final CTA */
+
+html.dark-mode .pricing-final-cta,
+body.dark-mode .pricing-final-cta,
+html[data-theme="dark"] .pricing-final-cta,
+body[data-theme="dark"] .pricing-final-cta,
+body.dark .pricing-final-cta {
+background: var(--price-cta-dark) !important;
+background-image: none !important;
+}
+
+/* =========================================================
+15. TABLET RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: min(100% - 40px, 900px);
+}
+
+.pricing-hero {
+    padding: 70px 0 78px;
+}
+
+.pricing-hero-grid {
+    gap: 38px;
+}
+
+.pricing-hero-content h1 {
+    font-size: clamp(36px, 4.5vw, 48px);
+    letter-spacing: -1.2px;
+}
+
+.pricing-hero-visual > img {
+    height: 380px;
+}
+
+.pricing-plan-grid {
+    gap: 18px;
+}
+
+.pricing-plan-body {
+    padding: 23px 19px 24px;
+}
+
+.pricing-plan-body h3 {
+    font-size: 21px;
+}
+
+.pricing-plan-image > img {
+    height: 205px;
+}
+
+.pricing-advantages-grid {
+    gap: 40px;
+}
+
+.pricing-faq-grid {
+    gap: 40px;
+}
+
+.pricing-cta-decoration {
+    transform: scale(0.85);
+    transform-origin: center;
+}
+
+}
+
+/* =========================================================
+16. MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: calc(100% - 36px);
+}
+
+.pricing-eyebrow {
+    margin-bottom: 16px;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+}
+
+.pricing-section-heading {
+    margin-bottom: 32px;
+}
+
+.pricing-section-heading h2 {
+    font-size: clamp(27px, 7vw, 34px);
+    letter-spacing: -0.5px;
+}
+
+.pricing-section-heading > p {
+    font-size: 14px;
+}
+
+/* Hero */
+
+.pricing-hero {
+    padding: 55px 0 64px;
+}
+
+.pricing-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+}
+
+.pricing-hero-content h1 {
+    font-size: clamp(35px, 9vw, 46px);
+    line-height: 1.13;
+    letter-spacing: -1px;
+}
+
+.pricing-hero-content > p {
+    font-size: 14px;
+}
+
+.pricing-hero-actions {
+    gap: 12px;
+}
+
+.pricing-hero-content .pricing-hero-actions > a {
+    flex: 1 1 150px;
+    padding: 12px 15px;
+    font-size: 13px;
+}
+
+.pricing-hero-visual {
+    padding: 0 8px 8px 0;
+}
+
+.pricing-hero-visual > img {
+    height: 320px;
+    border-radius: 18px;
+}
+
+.pricing-floating-card {
+    bottom: 18px;
+    gap: 11px;
+    padding: 14px 16px;
+}
+
+.pricing-floating-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+}
+
+.pricing-floating-card strong {
+    font-size: 13px;
+}
+
+.pricing-floating-card p {
+    font-size: 11px;
+}
+
+.pricing-hero-benefits {
+    gap: 11px;
+    margin-top: 23px;
+}
+
+.pricing-hero-benefits > div {
+    font-size: 13px;
+}
+
+/* Intro and plans */
+
+.pricing-intro {
+    padding: 60px 0 12px;
+}
+
+.pricing-plans {
+    padding: 36px 0 65px;
+}
+
+.pricing-plan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+}
+
+.pricing-plan-image > img {
+    height: 235px;
+}
+
+.pricing-plan-body {
+    padding: 23px;
+}
+
+.pricing-plan-body h3 {
+    font-size: 22px;
+}
+
+.pricing-disclaimer {
+    margin-top: 25px;
+    font-size: 12px;
+    text-align: left;
+}
+
+/* Advantages */
+
+.pricing-advantages {
+    padding: 66px 0;
+}
+
+.pricing-advantages-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+}
+
+.pricing-advantages-content h2 {
+    font-size: clamp(28px, 7vw, 36px);
+}
+
+.pricing-advantages-content > p {
+    font-size: 14px;
+}
+
+.pricing-advantage-list {
+    gap: 14px;
+}
+
+.pricing-advantage-item {
+    gap: 13px;
+    padding: 17px;
+}
+
+.pricing-advantage-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 12px;
+}
+
+.pricing-advantage-item h3 {
+    font-size: 16px;
+}
+
+/* Comparison */
+
+.pricing-comparison {
+    padding: 65px 0;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 15px 16px;
+    font-size: 12px;
+}
+
+/* Process */
+
+.pricing-process {
+    padding: 65px 0;
+}
+
+.pricing-process-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.pricing-process-card {
+    padding: 26px 23px;
+}
+
+.pricing-process-card h3 {
+    font-size: 19px;
+}
+
+/* FAQ */
+
+.pricing-faq {
+    padding: 65px 0;
+}
+
+.pricing-faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+}
+
+.pricing-faq-intro h2 {
+    font-size: clamp(28px, 7vw, 36px);
+}
+
+.pricing-faq-intro > p {
+    font-size: 14px;
+}
+
+.pricing-faq-item {
+    padding-inline: 16px;
+}
+
+.pricing-faq-item summary {
+    padding-block: 17px;
+    font-size: 14px;
+}
+
+.pricing-faq-item > p {
+    font-size: 13px;
+}
+
+/* Final CTA */
+
+.pricing-final-cta {
+    padding: 62px 0;
+}
+
+.pricing-final-cta-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 0;
+}
+
+.pricing-cta-content h2 {
+    font-size: clamp(29px, 7.5vw, 38px);
+    letter-spacing: -0.5px;
+}
+
+.pricing-cta-content > p {
+    font-size: 14px;
+}
+
+.pricing-cta-content .pricing-hero-actions {
+    gap: 12px;
+}
+
+.pricing-cta-content .pricing-hero-actions > a {
+    flex: 1 1 145px;
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.pricing-cta-decoration {
+    display: none;
+}
+
+}
+
+/* =========================================================
+17. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: calc(100% - 28px);
+}
+
+.pricing-hero-content h1 {
+    font-size: 33px;
+}
+
+.pricing-hero-content .pricing-hero-actions,
+.pricing-cta-content .pricing-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.pricing-hero-content .pricing-hero-actions > a,
+.pricing-cta-content .pricing-hero-actions > a {
+    width: 100%;
+    flex: auto;
+}
+
+.pricing-hero-visual > img,
+.pricing-plan-image > img {
+    height: 270px;
+}
+
+.pricing-floating-card {
+    width: calc(100% - 8px);
+}
+
+.pricing-plan-body {
+    padding: 21px;
+}
+
+.pricing-advantage-item {
+    padding: 14px;
+}
+
+.pricing-advantage-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+}
+
+.pricing-cta-content h2 {
+    font-size: 29px;
+}
+
+}
+
+/* =========================================================
+18. REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
-    .pricing-hero-content,
-    .pricing-hero-visual,
-    .pricing-floating-card,
-    .pricing-section-heading,
-    .pricing-final-cta-inner {
-        animation: none !important;
-    }
-
-    .pricing-plan-card,
-    .pricing-plan-image img,
-    .pricing-advantage-item,
-    .pricing-process-card,
-    .pricing-faq-item,
-    .pricing-btn,
-    .pricing-plan-btn,
-    .pricing-table td a {
-        transition: none !important;
-    }
+.pricing-hero *,
+.pricing-intro *,
+.pricing-plans *,
+.pricing-advantages *,
+.pricing-comparison *,
+.pricing-process *,
+.pricing-faq *,
+.pricing-final-cta * {
+scroll-behavior: auto !important;
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
 }
 
 
-/* =========================================
-   PRICING CTA — SECOND BUTTON
-   White background, teal text
-   No teal hover background
-========================================= */
+/* STOREVAULT — PRICING CTA PRIMARY BUTTON */
 
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline,
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:hover,
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:focus,
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:active {
-    background: #FFFFFF !important;
-    background-color: #FFFFFF !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border: 2px solid #00B8B0 !important;
-    box-shadow: none !important;
+.pricing-final-cta .pricing-btn-primary {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border: 1px solid #B96643 !important;
 }
 
-/* Animation only */
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline {
-    transition: transform 0.3s ease !important;
-}
-
-.pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:hover {
-    transform: translateY(-3px);
+.pricing-final-cta .pricing-btn-primary:hover {
+    color: #FFFFFF !important;
+    background: #984B30 !important;
+    border-color: #984B30 !important;
 }
 
 
-/* PRICING HERO — SECOND BUTTON */
-.pricing-hero .pricing-btn-cta-outline {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border: 2px solid #00B8B0 !important;
-}
+/* STOREVAULT — PRICING FINAL CTA PRIMARY BUTTON FIX */
 
-/* HERO BUTTON HOVER */
-.pricing-hero .pricing-btn-cta-outline:hover {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-}
-
-/* =========================================
-   PRICING HERO — SECOND BUTTON FIX
-========================================= */
-
-.pricing-hero .pricing-hero-actions a.pricing-btn-cta-outline {
-    background: transparent !important;
-    background-color: transparent !important;
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-light {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    background-color: #B96643 !important;
     background-image: none !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border: 2px solid #00B8B0 !important;
-    box-shadow: none !important;
-}
-
-.pricing-hero .pricing-hero-actions a.pricing-btn-cta-outline:hover,
-.pricing-hero .pricing-hero-actions a.pricing-btn-cta-outline:focus,
-.pricing-hero .pricing-hero-actions a.pricing-btn-cta-outline:active {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border-color: #00B8B0 !important;
-    box-shadow: none !important;
-}
-
-
-/* HERO SECONDARY BUTTON — KEEP TEAL ON HOVER */
-
-.pricing-hero-actions .pricing-btn-outline,
-.pricing-hero-actions .pricing-btn-outline:hover,
-.pricing-hero-actions .pricing-btn-outline:focus,
-.pricing-hero-actions .pricing-btn-outline:active,
-.pricing-hero-actions .pricing-btn-outline:visited {
-    background: transparent !important;
-    background-color: transparent !important;
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89 !important;
-    border: 2px solid #00B8B0 !important;
-    box-shadow: none !important;
-    transform: none !important;
-    filter: none !important;
+    border: 1px solid #B96643 !important;
     opacity: 1 !important;
+    box-shadow: none !important;
+}
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-light:hover {
+    color: #FFFFFF !important;
+    background: #984B30 !important;
+    background-color: #984B30 !important;
+    background-image: none !important;
+    border-color: #984B30 !important;
+}
+
+/* KEEP THE SECONDARY CTA BUTTON OUTLINED */
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-cta-outline {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    background-image: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* =========================================================
+STOREVAULT — PRICING PAGE
+Complete Responsive Stylesheet
+Matches About + Facilities + Home 2 Brand Colors
+========================================================= */
+
+/* =========================================================
+
+1. BRAND TOKENS
+   ========================================================= */
+
+:root {
+--price-primary: #123C38;
+--price-primary-dark: #0B2C29;
+--price-primary-light: #EAF2EF;
+
+--price-accent: #B96643;
+--price-accent-dark: #984B30;
+
+--price-border: #C9D5CE;
+--price-text: #263B36;
+--price-muted: #64736D;
+
+--price-surface: #FFFFFF;
+--price-surface-alt: #F5F8F6;
+
+--price-label-bg: #F8F1ED;
+--price-label-text: #984B30;
+
+--price-dark-bg: #101B19;
+--price-dark-alt: #14221F;
+--price-dark-card: #192A26;
+--price-dark-border: #30433D;
+--price-dark-text: #F1F6F3;
+--price-dark-muted: #B7C7C0;
+
+--price-cta-dark: #285943;
+
+--price-radius-sm: 10px;
+--price-radius-md: 16px;
+--price-radius-lg: 24px;
+
+--price-shadow: 0 12px 35px rgba(18, 60, 56, 0.08);
+--price-transition: 0.25s ease;
+
+}
+
+/* =========================================================
+2. PAGE DEFAULTS
+========================================================= */
+
+.pricing-hero,
+.pricing-intro,
+.pricing-plans,
+.pricing-advantages,
+.pricing-comparison,
+.pricing-process,
+.pricing-faq,
+.pricing-final-cta {
+box-sizing: border-box;
+width: 100%;
+border-top: none;
+border-bottom: none;
+box-shadow: none;
+}
+
+.pricing-hero *,
+.pricing-intro *,
+.pricing-plans *,
+.pricing-advantages *,
+.pricing-comparison *,
+.pricing-process *,
+.pricing-faq *,
+.pricing-final-cta * {
+box-sizing: border-box;
+}
+
+.pricing-hero img,
+.pricing-plans img {
+display: block;
+max-width: 100%;
+}
+
+.pricing-hero p,
+.pricing-intro p,
+.pricing-plans p,
+.pricing-advantages p,
+.pricing-comparison p,
+.pricing-process p,
+.pricing-faq p,
+.pricing-final-cta p {
+line-height: 1.8;
+}
+
+.pricing-hero a,
+.pricing-plans a,
+.pricing-advantages a,
+.pricing-comparison a,
+.pricing-faq a,
+.pricing-final-cta a {
+-webkit-tap-highlight-color: transparent;
+}
+
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: min(1180px, calc(100% - 48px));
+margin-inline: auto;
+}
+
+/* =========================================================
+3. TAGLINE LABELS
+Cream background + terracotta text
+========================================================= */
+
+.pricing-eyebrow {
+display: inline-block;
+width: fit-content;
+margin: 0 0 22px;
+padding: 4px 10px;
+
+color: var(--price-label-text);
+background: var(--price-label-bg);
+
+border: none;
+border-radius: 0;
+box-shadow: none;
+
+font-size: 12px;
+font-weight: 800;
+line-height: 1.6;
+letter-spacing: 1.2px;
+text-transform: uppercase;
+
+}
+
+/* Keep labels free of decorative lines */
+
+.pricing-eyebrow::before,
+.pricing-eyebrow::after {
+content: none !important;
+display: none !important;
+}
+
+/* =========================================================
+4. SECTION HEADINGS
+========================================================= */
+
+.pricing-section-heading {
+width: 100%;
+max-width: 740px;
+margin: 0 auto 48px;
+text-align: center;
+}
+
+.pricing-section-heading .pricing-eyebrow {
+margin-bottom: 18px;
+}
+
+.pricing-section-heading h2 {
+margin: 0 0 16px;
+
+color: var(--price-primary);
+font-size: clamp(29px, 3.5vw, 43px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
+}
+
+.pricing-section-heading > p {
+max-width: 650px;
+margin: 0 auto;
+
+color: var(--price-muted);
+font-size: 15px;
+
+}
+
+/* =========================================================
+5. BUTTONS
+========================================================= */
+
+.pricing-btn,
+.pricing-plan-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 9px;
+
+min-height: 48px;
+padding: 13px 24px;
+
+border: 1px solid transparent;
+border-radius: 8px;
+
+font-family: inherit;
+font-size: 14px;
+font-weight: 700;
+line-height: 1.4;
+text-align: center;
+text-decoration: none !important;
+
+cursor: pointer;
+
+transition:
+    color var(--price-transition),
+    background-color var(--price-transition),
+    border-color var(--price-transition),
+    transform var(--price-transition);
+
+}
+
+.pricing-btn-primary {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
+
+.pricing-btn-primary:hover {
+color: #FFFFFF !important;
+background: var(--price-accent-dark) !important;
+border-color: var(--price-accent-dark) !important;
+transform: translateY(-2px);
+}
+
+.pricing-btn-outline {
+color: var(--price-primary) !important;
+background: transparent !important;
+border-color: var(--price-border) !important;
+}
+
+.pricing-btn-outline:hover {
+color: #FFFFFF !important;
+background: var(--price-primary) !important;
+border-color: var(--price-primary) !important;
+}
+
+.pricing-btn-light {
+color: var(--price-primary) !important;
+background: #FFFFFF !important;
+border-color: #FFFFFF !important;
+}
+
+.pricing-btn-light:hover {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
+
+.pricing-btn-cta-outline {
+color: #FFFFFF !important;
+background: transparent !important;
+border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.pricing-btn-cta-outline:hover {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
+
+.pricing-btn:focus-visible,
+.pricing-plan-btn:focus-visible,
+.pricing-comparison a:focus-visible,
+.pricing-faq a:focus-visible {
+outline: 3px solid var(--price-accent);
+outline-offset: 4px;
+}
+
+/* =========================================================
+6. PRICING HERO
+========================================================= */
+
+.pricing-hero {
+position: relative;
+overflow: hidden;
+padding: 88px 0 96px;
+
+background:
+    radial-gradient(
+        circle at 5% 5%,
+        rgba(234, 242, 239, 0.9),
+        transparent 38%
+    ),
+    #FFFFFF;
+
+}
+
+.pricing-hero-grid {
+display: grid;
+grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+align-items: center;
+gap: 72px;
+}
+
+.pricing-hero-content {
+min-width: 0;
+}
+
+.pricing-hero-content h1 {
+max-width: 650px;
+margin: 0 0 24px;
+
+color: var(--price-primary);
+font-size: clamp(38px, 4.5vw, 58px);
+font-weight: 850;
+line-height: 1.12;
+letter-spacing: -1.8px;
+
+}
+
+.pricing-hero-content h1 span {
+display: block;
+color: var(--price-accent);
+}
+
+.pricing-hero-content > p {
+max-width: 570px;
+margin: 0 0 30px;
+
+color: var(--price-muted);
+font-size: 16px;
+line-height: 1.9;
+
+}
+
+.pricing-hero-actions {
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 14px;
+}
+
+.pricing-hero-visual {
+position: relative;
+min-width: 0;
+padding: 0 12px 12px 0;
+}
+
+.pricing-hero-visual > img {
+width: 100%;
+height: 440px;
+object-fit: cover;
+object-position: center;
+
+border: none;
+border-radius: var(--price-radius-lg);
+box-shadow: var(--price-shadow);
+
+}
+
+.pricing-floating-card {
+position: absolute;
+right: 0;
+bottom: 30px;
+
+display: flex;
+align-items: center;
+gap: 14px;
+
+width: min(320px, calc(100% - 15px));
+padding: 19px 22px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+
+border: 1px solid rgba(255, 255, 255, 0.12);
+border-radius: 12px;
+box-shadow: 0 14px 30px rgba(11, 44, 41, 0.18);
+
+}
+
+.pricing-floating-icon {
+display: flex;
+flex: 0 0 44px;
+align-items: center;
+justify-content: center;
+
+width: 44px;
+height: 44px;
+
+color: #FFFFFF;
+background: rgba(255, 255, 255, 0.12);
+border-radius: 10px;
+font-size: 24px;
+
+}
+
+.pricing-floating-card strong {
+display: block;
+margin-bottom: 5px;
+
+color: #FFFFFF;
+font-size: 15px;
+font-weight: 800;
+
+}
+
+.pricing-floating-card p {
+margin: 0;
+color: rgba(255, 255, 255, 0.82);
+font-size: 12px;
+line-height: 1.6;
+}
+
+.pricing-hero-benefits {
+display: grid;
+gap: 12px;
+margin-top: 28px;
+}
+
+.pricing-hero-benefits > div {
+display: flex;
+align-items: center;
+gap: 11px;
+
+color: var(--price-text);
+font-size: 14px;
+line-height: 1.6;
+
+}
+
+.pricing-hero-benefits > div > span {
+display: inline-flex;
+flex: 0 0 24px;
+align-items: center;
+justify-content: center;
+
+width: 24px;
+height: 24px;
+
+color: var(--price-primary);
+background: var(--price-primary-light);
+border-radius: 50%;
+
+font-size: 13px;
+font-weight: 900;
+
+}
+
+/* =========================================================
+7. PRICING INTRO
+========================================================= */
+
+.pricing-intro {
+padding: 76px 0 24px;
+background: var(--price-surface-alt);
+}
+
+.pricing-intro .pricing-section-heading {
+margin-bottom: 30px;
+}
+
+/* =========================================================
+8. STORAGE PLAN CARDS
+========================================================= */
+
+.pricing-plans {
+padding: 52px 0 96px;
+background: var(--price-surface-alt);
+}
+
+.pricing-plan-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+align-items: stretch;
+gap: 24px;
+}
+
+.pricing-plan-card {
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+overflow: hidden;
+
+background: #FFFFFF;
+border: 1px solid #E4EBE6;
+border-radius: var(--price-radius-md);
+box-shadow: 0 8px 22px rgba(18, 60, 56, 0.035);
+
+transition:
+    transform var(--price-transition),
+    box-shadow var(--price-transition),
+    border-color var(--price-transition);
+
+}
+
+.pricing-plan-card:hover {
+transform: translateY(-5px);
+border-color: var(--price-border);
+box-shadow: var(--price-shadow);
+}
+
+.pricing-plan-featured {
+border: 2px solid var(--price-primary);
+box-shadow: 0 12px 32px rgba(18, 60, 56, 0.09);
+}
+
+.pricing-featured-label {
+position: absolute;
+z-index: 2;
+top: 14px;
+right: 14px;
+
+padding: 7px 11px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+border-radius: 6px;
+
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+
+}
+
+.pricing-plan-image {
+position: relative;
+overflow: hidden;
+background: var(--price-primary-light);
+}
+
+.pricing-plan-image > img {
+width: 100%;
+height: 235px;
+object-fit: cover;
+object-position: center;
+
+transition: transform 0.45s ease;
+
+}
+
+.pricing-plan-card:hover .pricing-plan-image > img {
+transform: scale(1.035);
+}
+
+.pricing-plan-badge {
+position: absolute;
+bottom: 14px;
+left: 14px;
+
+padding: 7px 11px;
+
+color: var(--price-primary);
+background: #FFFFFF;
+border: 1px solid rgba(18, 60, 56, 0.08);
+border-radius: 6px;
+
+font-size: 10px;
+font-weight: 800;
+letter-spacing: 1px;
+
+}
+
+.pricing-plan-body {
+display: flex;
+flex: 1;
+flex-direction: column;
+align-items: flex-start;
+
+padding: 27px 25px 28px;
+
+}
+
+.pricing-plan-kicker {
+display: inline-block;
+margin-bottom: 10px;
+
+color: var(--price-accent);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+
+}
+
+.pricing-plan-body h3 {
+margin: 0 0 12px;
+
+color: var(--price-primary);
+font-size: 24px;
+font-weight: 800;
+line-height: 1.35;
+
+}
+
+.pricing-plan-description {
+margin: 0 0 20px;
+
+color: var(--price-muted);
+font-size: 14px;
+
+}
+
+.pricing-price {
+display: flex;
+flex-direction: column;
+gap: 5px;
+
+width: 100%;
+margin: 0 0 20px;
+padding: 17px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: 10px;
+
+}
+
+.pricing-price-label {
+color: var(--price-muted);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.pricing-price strong {
+color: var(--price-primary);
+font-size: 19px;
+font-weight: 800;
+line-height: 1.4;
+}
+
+.pricing-price > span:last-child {
+color: var(--price-muted);
+font-size: 12px;
+line-height: 1.6;
+}
+
+.pricing-plan-divider {
+width: 100%;
+height: 1px;
+margin: 0 0 21px;
+background: #E5ECE7;
+}
+
+.pricing-plan-body h4 {
+margin: 0 0 15px;
+
+color: var(--price-primary);
+font-size: 15px;
+font-weight: 800;
+
+}
+
+.pricing-feature-list {
+display: grid;
+gap: 12px;
+
+width: 100%;
+margin: 0 0 25px;
+padding: 0;
+
+list-style: none;
+
+}
+
+.pricing-feature-list li {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+
+color: var(--price-text);
+font-size: 13px;
+line-height: 1.7;
+
+}
+
+.pricing-feature-list li > span {
+flex: 0 0 auto;
+color: var(--price-accent);
+font-weight: 900;
+}
+
+.pricing-plan-btn {
+justify-content: space-between;
+width: 100%;
+margin-top: auto;
+padding: 13px 15px;
+
+color: var(--price-primary) !important;
+background: transparent !important;
+border-color: var(--price-border) !important;
+
+font-size: 13px;
+
+}
+
+.pricing-plan-btn > span {
+margin-left: 5px;
+font-size: 18px;
+transition: transform var(--price-transition);
+}
+
+.pricing-plan-btn:hover {
+color: #FFFFFF !important;
+background: var(--price-primary) !important;
+border-color: var(--price-primary) !important;
+}
+
+.pricing-plan-btn:hover > span {
+transform: translateX(3px);
+}
+
+.pricing-plan-btn-featured {
+color: #FFFFFF !important;
+background: var(--price-accent) !important;
+border-color: var(--price-accent) !important;
+}
+
+.pricing-plan-btn-featured:hover {
+color: #FFFFFF !important;
+background: var(--price-accent-dark) !important;
+border-color: var(--price-accent-dark) !important;
+}
+
+.pricing-disclaimer {
+max-width: 850px;
+margin: 32px auto 0;
+
+color: var(--price-muted);
+font-size: 12px;
+text-align: center;
+
+}
+
+/* =========================================================
+9. PRICING ADVANTAGES
+========================================================= */
+
+.pricing-advantages {
+padding: 100px 0;
+background: #FFFFFF;
+}
+
+.pricing-advantages-grid {
+display: grid;
+grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+align-items: center;
+gap: 75px;
+}
+
+.pricing-advantages-content {
+min-width: 0;
+}
+
+.pricing-advantages-content h2 {
+margin: 0 0 20px;
+
+color: var(--price-primary);
+font-size: clamp(30px, 3.5vw, 43px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
+}
+
+.pricing-advantages-content > p {
+margin: 0 0 27px;
+
+color: var(--price-muted);
+font-size: 15px;
+
+}
+
+.pricing-advantage-list {
+display: grid;
+gap: 20px;
+min-width: 0;
+}
+
+.pricing-advantage-item {
+display: flex;
+align-items: flex-start;
+gap: 17px;
+
+padding: 20px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: 12px;
+
+transition:
+    border-color var(--price-transition),
+    transform var(--price-transition);
+
+}
+
+.pricing-advantage-item:hover {
+transform: translateY(-3px);
+border-color: var(--price-border);
+}
+
+.pricing-advantage-icon {
+display: flex;
+flex: 0 0 48px;
+align-items: center;
+justify-content: center;
+
+width: 48px;
+height: 48px;
+
+color: var(--price-primary);
+background: var(--price-primary-light);
+border-radius: 10px;
+
+font-size: 14px;
+font-weight: 900;
+
+}
+
+.pricing-advantage-item h3 {
+margin: 0 0 7px;
+
+color: var(--price-primary);
+font-size: 17px;
+font-weight: 800;
+line-height: 1.4;
+
+}
+
+.pricing-advantage-item p {
+margin: 0;
+
+color: var(--price-muted);
+font-size: 13px;
+
+}
+
+/* =========================================================
+10. COMPARISON TABLE
+========================================================= */
+
+.pricing-comparison {
+padding: 96px 0 100px;
+background: var(--price-surface-alt);
+}
+
+.pricing-table-wrap {
+width: 100%;
+overflow-x: auto;
+
+background: #FFFFFF;
+border: 1px solid #E2EAE4;
+border-radius: var(--price-radius-md);
+box-shadow: 0 8px 25px rgba(18, 60, 56, 0.035);
+
+-webkit-overflow-scrolling: touch;
+
+}
+
+.pricing-table {
+width: 100%;
+min-width: 690px;
+border-collapse: collapse;
+border-spacing: 0;
+
+color: var(--price-text);
+font-size: 13px;
+text-align: left;
+
+}
+
+.pricing-table th,
+.pricing-table td {
+padding: 18px 20px;
+border-bottom: 1px solid #E5ECE7;
+vertical-align: middle;
+}
+
+.pricing-table thead th {
+color: #FFFFFF;
+background: var(--price-primary);
+
+font-size: 12px;
+font-weight: 800;
+line-height: 1.6;
+
+}
+
+.pricing-table thead th:first-child {
+border-top-left-radius: 0;
+}
+
+.pricing-table tbody th {
+width: 22%;
+
+color: var(--price-primary);
+background: #F8FAF8;
+
+font-weight: 800;
+
+}
+
+.pricing-table tbody td {
+color: var(--price-muted);
+background: #FFFFFF;
+line-height: 1.7;
+}
+
+.pricing-table tbody tr:last-child th,
+.pricing-table tbody tr:last-child td {
+border-bottom: none;
+}
+
+.pricing-table tbody tr:hover td,
+.pricing-table tbody tr:hover th {
+background: var(--price-primary-light);
+}
+
+.pricing-table tbody td a {
+color: var(--price-primary);
+font-weight: 800;
+text-decoration: none;
+
+transition: color var(--price-transition);
+
+}
+
+.pricing-table tbody td a:hover {
+color: var(--price-accent);
+}
+
+/* =========================================================
+11. PRICING PROCESS
+========================================================= */
+
+.pricing-process {
+padding: 96px 0 100px;
+background: #FFFFFF;
+}
+
+.pricing-process-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 24px;
+}
+
+.pricing-process-card {
+position: relative;
+min-width: 0;
+padding: 32px 28px;
+
+background: var(--price-surface-alt);
+border: 1px solid #E5ECE7;
+border-radius: var(--price-radius-md);
+
+transition:
+    transform var(--price-transition),
+    border-color var(--price-transition),
+    background-color var(--price-transition);
+
+}
+
+.pricing-process-card:hover {
+transform: translateY(-5px);
+background: #FFFFFF;
+border-color: var(--price-border);
+}
+
+.pricing-process-number {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 52px;
+height: 52px;
+margin-bottom: 24px;
+
+color: #FFFFFF;
+background: var(--price-primary);
+border-radius: 12px;
+
+font-size: 17px;
+font-weight: 850;
+
+}
+
+.pricing-process-card h3 {
+margin: 0 0 13px;
+
+color: var(--price-primary);
+font-size: 20px;
+font-weight: 800;
+line-height: 1.4;
+
+}
+
+.pricing-process-card p {
+margin: 0;
+
+color: var(--price-muted);
+font-size: 14px;
+
+}
+
+/* =========================================================
+12. PRICING FAQ
+========================================================= */
+
+.pricing-faq {
+padding: 96px 0 100px;
+background: var(--price-surface-alt);
+}
+
+.pricing-faq-grid {
+display: grid;
+grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+align-items: start;
+gap: 75px;
+}
+
+.pricing-faq-intro {
+min-width: 0;
+}
+
+.pricing-faq-intro h2 {
+margin: 0 0 18px;
+
+color: var(--price-primary);
+font-size: clamp(29px, 3.4vw, 40px);
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.7px;
+
+}
+
+.pricing-faq-intro > p {
+margin: 0 0 25px;
+
+color: var(--price-muted);
+font-size: 15px;
+
+}
+
+.pricing-faq-list {
+display: grid;
+gap: 12px;
+min-width: 0;
+}
+
+.pricing-faq-item {
+padding: 0 21px;
+overflow: hidden;
+
+background: #FFFFFF;
+border: 1px solid #E4EBE6;
+border-radius: 12px;
+
+transition:
+    border-color var(--price-transition),
+    background-color var(--price-transition);
+
+}
+
+.pricing-faq-item:hover {
+border-color: var(--price-border);
+}
+
+.pricing-faq-item summary {
+position: relative;
+padding: 20px 32px 20px 0;
+
+color: var(--price-primary);
+font-size: 15px;
+font-weight: 800;
+line-height: 1.6;
+
+list-style: none;
+cursor: pointer;
+
+}
+
+.pricing-faq-item summary::-webkit-details-marker {
+display: none;
+}
+
+.pricing-faq-item summary::after {
+content: "+";
+position: absolute;
+top: 50%;
+right: 0;
+
+color: var(--price-accent);
+font-size: 24px;
+font-weight: 500;
+line-height: 1;
+
+transform: translateY(-50%);
+
+}
+
+.pricing-faq-item[open] summary::after {
+content: "−";
+}
+
+.pricing-faq-item summary:focus-visible {
+outline: 2px solid var(--price-accent);
+outline-offset: 4px;
+}
+
+.pricing-faq-item > p {
+margin: 0;
+padding: 0 0 20px;
+
+color: var(--price-muted);
+font-size: 14px;
+line-height: 1.8;
+
+}
+
+/* =========================================================
+13. FINAL CALL TO ACTION
+========================================================= */
+
+.pricing-final-cta {
+position: relative;
+isolation: isolate;
+overflow: hidden;
+
+padding: 82px 0;
+
+background: var(--price-primary);
+border: none;
+text-align: left;
+
+}
+
+.pricing-final-cta-inner {
+position: relative;
+display: grid;
+grid-template-columns: minmax(0, 1fr) 220px;
+align-items: center;
+gap: 40px;
+overflow: hidden;
+
+padding: 20px 0;
+
+}
+
+.pricing-cta-content {
+position: relative;
+z-index: 2;
+max-width: 760px;
+}
+
+.pricing-cta-content .pricing-eyebrow {
+color: #D68A68;
+background: transparent;
+padding: 0;
+margin-bottom: 18px;
+}
+
+.pricing-cta-content h2 {
+margin: 0 0 20px;
+
+color: #FFFFFF;
+font-size: clamp(30px, 4vw, 46px);
+font-weight: 850;
+line-height: 1.2;
+letter-spacing: -0.8px;
+
+}
+
+.pricing-cta-content > p {
+max-width: 660px;
+margin: 0 0 30px;
+
+color: rgba(255, 255, 255, 0.86);
+font-size: 15px;
+
+}
+
+.pricing-cta-content .pricing-hero-actions {
+gap: 14px;
+}
+
+.pricing-cta-decoration {
+position: relative;
+width: 220px;
+height: 220px;
+opacity: 0.75;
+}
+
+.pricing-cta-box {
+position: absolute;
+width: 115px;
+height: 115px;
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+border-radius: 18px;
+transform: rotate(12deg);
+
+}
+
+.pricing-cta-box-one {
+top: 8px;
+right: 8px;
+background: rgba(255, 255, 255, 0.06);
+}
+
+.pricing-cta-box-two {
+top: 54px;
+right: 55px;
+background: rgba(185, 102, 67, 0.24);
+}
+
+.pricing-cta-box-three {
+top: 100px;
+right: 5px;
+background: rgba(255, 255, 255, 0.04);
+}
+
+/* =========================================================
+14. DARK MODE
+Supports common theme class conventions
+========================================================= */
+
+/* Main light sections become dark */
+
+html.dark-mode .pricing-hero,
+body.dark-mode .pricing-hero,
+html[data-theme="dark"] .pricing-hero,
+body[data-theme="dark"] .pricing-hero,
+body.dark .pricing-hero,
+html.dark-mode .pricing-advantages,
+body.dark-mode .pricing-advantages,
+html[data-theme="dark"] .pricing-advantages,
+body[data-theme="dark"] .pricing-advantages,
+body.dark .pricing-advantages,
+html.dark-mode .pricing-process,
+body.dark-mode .pricing-process,
+html[data-theme="dark"] .pricing-process,
+body[data-theme="dark"] .pricing-process,
+body.dark .pricing-process {
+background: var(--price-dark-bg) !important;
+background-image: none !important;
+}
+
+/* Alternate sections */
+
+html.dark-mode .pricing-intro,
+body.dark-mode .pricing-intro,
+html[data-theme="dark"] .pricing-intro,
+body[data-theme="dark"] .pricing-intro,
+body.dark .pricing-intro,
+html.dark-mode .pricing-plans,
+body.dark-mode .pricing-plans,
+html[data-theme="dark"] .pricing-plans,
+body[data-theme="dark"] .pricing-plans,
+body.dark .pricing-plans,
+html.dark-mode .pricing-comparison,
+body.dark-mode .pricing-comparison,
+html[data-theme="dark"] .pricing-comparison,
+body[data-theme="dark"] .pricing-comparison,
+body.dark .pricing-comparison,
+html.dark-mode .pricing-faq,
+body.dark-mode .pricing-faq,
+html[data-theme="dark"] .pricing-faq,
+body[data-theme="dark"] .pricing-faq,
+body.dark .pricing-faq {
+background: var(--price-dark-alt) !important;
+}
+
+/* Dark mode headings */
+
+html.dark-mode .pricing-hero-content h1,
+body.dark-mode .pricing-hero-content h1,
+html[data-theme="dark"] .pricing-hero-content h1,
+body[data-theme="dark"] .pricing-hero-content h1,
+body.dark .pricing-hero-content h1,
+html.dark-mode .pricing-section-heading h2,
+body.dark-mode .pricing-section-heading h2,
+html[data-theme="dark"] .pricing-section-heading h2,
+body[data-theme="dark"] .pricing-section-heading h2,
+body.dark .pricing-section-heading h2,
+html.dark-mode .pricing-advantages-content h2,
+body.dark-mode .pricing-advantages-content h2,
+html[data-theme="dark"] .pricing-advantages-content h2,
+body[data-theme="dark"] .pricing-advantages-content h2,
+body.dark .pricing-advantages-content h2,
+html.dark-mode .pricing-plan-body h3,
+body.dark-mode .pricing-plan-body h3,
+html[data-theme="dark"] .pricing-plan-body h3,
+body[data-theme="dark"] .pricing-plan-body h3,
+body.dark .pricing-plan-body h3,
+html.dark-mode .pricing-plan-body h4,
+body.dark-mode .pricing-plan-body h4,
+html[data-theme="dark"] .pricing-plan-body h4,
+body[data-theme="dark"] .pricing-plan-body h4,
+body.dark .pricing-plan-body h4,
+html.dark-mode .pricing-price strong,
+body.dark-mode .pricing-price strong,
+html[data-theme="dark"] .pricing-price strong,
+body[data-theme="dark"] .pricing-price strong,
+body.dark .pricing-price strong,
+html.dark-mode .pricing-advantage-item h3,
+body.dark-mode .pricing-advantage-item h3,
+html[data-theme="dark"] .pricing-advantage-item h3,
+body[data-theme="dark"] .pricing-advantage-item h3,
+body.dark .pricing-advantage-item h3,
+html.dark-mode .pricing-process-card h3,
+body.dark-mode .pricing-process-card h3,
+html[data-theme="dark"] .pricing-process-card h3,
+body[data-theme="dark"] .pricing-process-card h3,
+body.dark .pricing-process-card h3,
+html.dark-mode .pricing-faq-intro h2,
+body.dark-mode .pricing-faq-intro h2,
+html[data-theme="dark"] .pricing-faq-intro h2,
+body[data-theme="dark"] .pricing-faq-intro h2,
+body.dark .pricing-faq-intro h2,
+html.dark-mode .pricing-faq-item summary,
+body.dark-mode .pricing-faq-item summary,
+html[data-theme="dark"] .pricing-faq-item summary,
+body[data-theme="dark"] .pricing-faq-item summary,
+body.dark .pricing-faq-item summary {
+color: var(--price-dark-text) !important;
+}
+
+/* Highlighted hero title */
+
+html.dark-mode .pricing-hero-content h1 span,
+body.dark-mode .pricing-hero-content h1 span,
+html[data-theme="dark"] .pricing-hero-content h1 span,
+body[data-theme="dark"] .pricing-hero-content h1 span,
+body.dark .pricing-hero-content h1 span {
+color: #D68A68 !important;
+}
+
+/* Dark mode paragraphs */
+
+html.dark-mode .pricing-hero-content > p,
+body.dark-mode .pricing-hero-content > p,
+html[data-theme="dark"] .pricing-hero-content > p,
+body[data-theme="dark"] .pricing-hero-content > p,
+body.dark .pricing-hero-content > p,
+html.dark-mode .pricing-section-heading > p,
+body.dark-mode .pricing-section-heading > p,
+html[data-theme="dark"] .pricing-section-heading > p,
+body[data-theme="dark"] .pricing-section-heading > p,
+body.dark .pricing-section-heading > p,
+html.dark-mode .pricing-plan-description,
+body.dark-mode .pricing-plan-description,
+html[data-theme="dark"] .pricing-plan-description,
+body[data-theme="dark"] .pricing-plan-description,
+body.dark .pricing-plan-description,
+html.dark-mode .pricing-price > span:last-child,
+body.dark-mode .pricing-price > span:last-child,
+html[data-theme="dark"] .pricing-price > span:last-child,
+body[data-theme="dark"] .pricing-price > span:last-child,
+body.dark .pricing-price > span:last-child,
+html.dark-mode .pricing-feature-list li,
+body.dark-mode .pricing-feature-list li,
+html[data-theme="dark"] .pricing-feature-list li,
+body[data-theme="dark"] .pricing-feature-list li,
+body.dark .pricing-feature-list li,
+html.dark-mode .pricing-advantages-content > p,
+body.dark-mode .pricing-advantages-content > p,
+html[data-theme="dark"] .pricing-advantages-content > p,
+body[data-theme="dark"] .pricing-advantages-content > p,
+body.dark .pricing-advantages-content > p,
+html.dark-mode .pricing-advantage-item p,
+body.dark-mode .pricing-advantage-item p,
+html[data-theme="dark"] .pricing-advantage-item p,
+body[data-theme="dark"] .pricing-advantage-item p,
+body.dark .pricing-advantage-item p,
+html.dark-mode .pricing-process-card p,
+body.dark-mode .pricing-process-card p,
+html[data-theme="dark"] .pricing-process-card p,
+body[data-theme="dark"] .pricing-process-card p,
+body.dark .pricing-process-card p,
+html.dark-mode .pricing-faq-intro > p,
+body.dark-mode .pricing-faq-intro > p,
+html[data-theme="dark"] .pricing-faq-intro > p,
+body[data-theme="dark"] .pricing-faq-intro > p,
+body.dark .pricing-faq-intro > p,
+html.dark-mode .pricing-faq-item > p,
+body.dark-mode .pricing-faq-item > p,
+html[data-theme="dark"] .pricing-faq-item > p,
+body[data-theme="dark"] .pricing-faq-item > p,
+body.dark .pricing-faq-item > p {
+color: var(--price-dark-muted) !important;
+}
+
+/* Dark mode benefit text */
+
+html.dark-mode .pricing-hero-benefits > div,
+body.dark-mode .pricing-hero-benefits > div,
+html[data-theme="dark"] .pricing-hero-benefits > div,
+body[data-theme="dark"] .pricing-hero-benefits > div,
+body.dark .pricing-hero-benefits > div {
+color: var(--price-dark-text);
+}
+
+/* Dark mode eyebrow labels retain cream and terracotta */
+
+html.dark-mode .pricing-eyebrow,
+body.dark-mode .pricing-eyebrow,
+html[data-theme="dark"] .pricing-eyebrow,
+body[data-theme="dark"] .pricing-eyebrow,
+body.dark .pricing-eyebrow {
+color: var(--price-label-text);
+background: var(--price-label-bg);
+}
+
+/* Final CTA eyebrow is transparent in both themes */
+
+html.dark-mode .pricing-cta-content .pricing-eyebrow,
+body.dark-mode .pricing-cta-content .pricing-eyebrow,
+html[data-theme="dark"] .pricing-cta-content .pricing-eyebrow,
+body[data-theme="dark"] .pricing-cta-content .pricing-eyebrow,
+body.dark .pricing-cta-content .pricing-eyebrow {
+color: #D68A68 !important;
+background: transparent !important;
+}
+
+/* Dark mode cards */
+
+html.dark-mode .pricing-plan-card,
+body.dark-mode .pricing-plan-card,
+html[data-theme="dark"] .pricing-plan-card,
+body[data-theme="dark"] .pricing-plan-card,
+body.dark .pricing-plan-card,
+html.dark-mode .pricing-advantage-item,
+body.dark-mode .pricing-advantage-item,
+html[data-theme="dark"] .pricing-advantage-item,
+body[data-theme="dark"] .pricing-advantage-item,
+body.dark .pricing-advantage-item,
+html.dark-mode .pricing-process-card,
+body.dark-mode .pricing-process-card,
+html[data-theme="dark"] .pricing-process-card,
+body[data-theme="dark"] .pricing-process-card,
+body.dark .pricing-process-card {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+box-shadow: none;
+}
+
+html.dark-mode .pricing-plan-card:hover,
+body.dark-mode .pricing-plan-card:hover,
+html[data-theme="dark"] .pricing-plan-card:hover,
+body[data-theme="dark"] .pricing-plan-card:hover,
+body.dark .pricing-plan-card:hover,
+html.dark-mode .pricing-advantage-item:hover,
+body.dark-mode .pricing-advantage-item:hover,
+html[data-theme="dark"] .pricing-process-card:hover,
+body[data-theme="dark"] .pricing-process-card:hover,
+body.dark .pricing-advantage-item:hover,
+body.dark .pricing-process-card:hover {
+border-color: #52675F;
+}
+
+/* Featured plan */
+
+html.dark-mode .pricing-plan-featured,
+body.dark-mode .pricing-plan-featured,
+html[data-theme="dark"] .pricing-plan-featured,
+body[data-theme="dark"] .pricing-plan-featured,
+body.dark .pricing-plan-featured {
+border-color: var(--price-accent);
+}
+
+/* Dark mode price panels */
+
+html.dark-mode .pricing-price,
+body.dark-mode .pricing-price,
+html[data-theme="dark"] .pricing-price,
+body[data-theme="dark"] .pricing-price,
+body.dark .pricing-price {
+background: var(--price-dark-alt);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-price-label,
+body.dark-mode .pricing-price-label,
+html[data-theme="dark"] .pricing-price-label,
+body[data-theme="dark"] .pricing-price-label,
+body.dark .pricing-price-label {
+color: var(--price-dark-muted);
+}
+
+/* Dark mode dividers */
+
+html.dark-mode .pricing-plan-divider,
+body.dark-mode .pricing-plan-divider,
+html[data-theme="dark"] .pricing-plan-divider,
+body[data-theme="dark"] .pricing-plan-divider,
+body.dark .pricing-plan-divider {
+background: var(--price-dark-border);
+}
+
+/* Dark mode icons */
+
+html.dark-mode .pricing-hero-benefits > div > span,
+body.dark-mode .pricing-hero-benefits > div > span,
+html[data-theme="dark"] .pricing-hero-benefits > div > span,
+body[data-theme="dark"] .pricing-hero-benefits > div > span,
+body.dark .pricing-hero-benefits > div > span,
+html.dark-mode .pricing-advantage-icon,
+body.dark-mode .pricing-advantage-icon,
+html[data-theme="dark"] .pricing-advantage-icon,
+body[data-theme="dark"] .pricing-advantage-icon,
+body.dark .pricing-advantage-icon {
+color: #EAF2EF;
+background: #28443B;
+}
+
+/* Dark mode plan badges */
+
+html.dark-mode .pricing-plan-badge,
+body.dark-mode .pricing-plan-badge,
+html[data-theme="dark"] .pricing-plan-badge,
+body[data-theme="dark"] .pricing-plan-badge,
+body.dark .pricing-plan-badge {
+color: var(--price-dark-text);
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+/* Dark mode comparison table */
+
+html.dark-mode .pricing-table-wrap,
+body.dark-mode .pricing-table-wrap,
+html[data-theme="dark"] .pricing-table-wrap,
+body[data-theme="dark"] .pricing-table-wrap,
+body.dark .pricing-table-wrap {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-table,
+body.dark-mode .pricing-table,
+html[data-theme="dark"] .pricing-table,
+body[data-theme="dark"] .pricing-table,
+body.dark .pricing-table {
+color: var(--price-dark-text);
+}
+
+html.dark-mode .pricing-table th,
+body.dark-mode .pricing-table th,
+html.dark-mode .pricing-table td,
+body.dark-mode .pricing-table td,
+html[data-theme="dark"] .pricing-table th,
+body[data-theme="dark"] .pricing-table th,
+html[data-theme="dark"] .pricing-table td,
+body[data-theme="dark"] .pricing-table td,
+body.dark .pricing-table th,
+body.dark .pricing-table td {
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-table tbody th,
+body.dark-mode .pricing-table tbody th,
+html[data-theme="dark"] .pricing-table tbody th,
+body[data-theme="dark"] .pricing-table tbody th,
+body.dark .pricing-table tbody th {
+color: var(--price-dark-text);
+background: var(--price-dark-alt);
+}
+
+html.dark-mode .pricing-table tbody td,
+body.dark-mode .pricing-table tbody td,
+html[data-theme="dark"] .pricing-table tbody td,
+body[data-theme="dark"] .pricing-table tbody td,
+body.dark .pricing-table tbody td {
+color: var(--price-dark-muted);
+background: var(--price-dark-card);
+}
+
+html.dark-mode .pricing-table tbody tr:hover th,
+body.dark-mode .pricing-table tbody tr:hover th,
+html.dark-mode .pricing-table tbody tr:hover td,
+body.dark-mode .pricing-table tbody tr:hover td,
+html[data-theme="dark"] .pricing-table tbody tr:hover th,
+body[data-theme="dark"] .pricing-table tbody tr:hover th,
+html[data-theme="dark"] .pricing-table tbody tr:hover td,
+body[data-theme="dark"] .pricing-table tbody tr:hover td,
+body.dark .pricing-table tbody tr:hover th,
+body.dark .pricing-table tbody tr:hover td {
+background: #223B33;
+}
+
+html.dark-mode .pricing-table tbody td a,
+body.dark-mode .pricing-table tbody td a,
+html[data-theme="dark"] .pricing-table tbody td a,
+body[data-theme="dark"] .pricing-table tbody td a,
+body.dark .pricing-table tbody td a {
+color: #EAF2EF;
+}
+
+html.dark-mode .pricing-table tbody td a:hover,
+body.dark-mode .pricing-table tbody td a:hover,
+html[data-theme="dark"] .pricing-table tbody td a:hover,
+body[data-theme="dark"] .pricing-table tbody td a:hover,
+body.dark .pricing-table tbody td a:hover {
+color: #D68A68;
+}
+
+/* Dark mode FAQ */
+
+html.dark-mode .pricing-faq-item,
+body.dark-mode .pricing-faq-item,
+html[data-theme="dark"] .pricing-faq-item,
+body[data-theme="dark"] .pricing-faq-item,
+body.dark .pricing-faq-item {
+background: var(--price-dark-card);
+border-color: var(--price-dark-border);
+}
+
+html.dark-mode .pricing-faq-item:hover,
+body.dark-mode .pricing-faq-item:hover,
+html[data-theme="dark"] .pricing-faq-item:hover,
+body[data-theme="dark"] .pricing-faq-item:hover,
+body.dark .pricing-faq-item:hover {
+border-color: #52675F;
+}
+
+/* Dark mode final CTA */
+
+html.dark-mode .pricing-final-cta,
+body.dark-mode .pricing-final-cta,
+html[data-theme="dark"] .pricing-final-cta,
+body[data-theme="dark"] .pricing-final-cta,
+body.dark .pricing-final-cta {
+background: var(--price-cta-dark) !important;
+background-image: none !important;
+}
+
+/* =========================================================
+15. TABLET RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: min(100% - 40px, 900px);
+}
+
+.pricing-hero {
+    padding: 70px 0 78px;
+}
+
+.pricing-hero-grid {
+    gap: 38px;
+}
+
+.pricing-hero-content h1 {
+    font-size: clamp(36px, 4.5vw, 48px);
+    letter-spacing: -1.2px;
+}
+
+.pricing-hero-visual > img {
+    height: 380px;
+}
+
+.pricing-plan-grid {
+    gap: 18px;
+}
+
+.pricing-plan-body {
+    padding: 23px 19px 24px;
+}
+
+.pricing-plan-body h3 {
+    font-size: 21px;
+}
+
+.pricing-plan-image > img {
+    height: 205px;
+}
+
+.pricing-advantages-grid {
+    gap: 40px;
+}
+
+.pricing-faq-grid {
+    gap: 40px;
+}
+
+.pricing-cta-decoration {
+    transform: scale(0.85);
+    transform-origin: center;
+}
+
+}
+
+/* =========================================================
+16. MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: calc(100% - 36px);
+}
+
+.pricing-eyebrow {
+    margin-bottom: 16px;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+}
+
+.pricing-section-heading {
+    margin-bottom: 32px;
+}
+
+.pricing-section-heading h2 {
+    font-size: clamp(27px, 7vw, 34px);
+    letter-spacing: -0.5px;
+}
+
+.pricing-section-heading > p {
+    font-size: 14px;
+}
+
+/* Hero */
+
+.pricing-hero {
+    padding: 55px 0 64px;
+}
+
+.pricing-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+}
+
+.pricing-hero-content h1 {
+    font-size: clamp(35px, 9vw, 46px);
+    line-height: 1.13;
+    letter-spacing: -1px;
+}
+
+.pricing-hero-content > p {
+    font-size: 14px;
+}
+
+.pricing-hero-actions {
+    gap: 12px;
+}
+
+.pricing-hero-content .pricing-hero-actions > a {
+    flex: 1 1 150px;
+    padding: 12px 15px;
+    font-size: 13px;
+}
+
+.pricing-hero-visual {
+    padding: 0 8px 8px 0;
+}
+
+.pricing-hero-visual > img {
+    height: 320px;
+    border-radius: 18px;
+}
+
+.pricing-floating-card {
+    bottom: 18px;
+    gap: 11px;
+    padding: 14px 16px;
+}
+
+.pricing-floating-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+}
+
+.pricing-floating-card strong {
+    font-size: 13px;
+}
+
+.pricing-floating-card p {
+    font-size: 11px;
+}
+
+.pricing-hero-benefits {
+    gap: 11px;
+    margin-top: 23px;
+}
+
+.pricing-hero-benefits > div {
+    font-size: 13px;
+}
+
+/* Intro and plans */
+
+.pricing-intro {
+    padding: 60px 0 12px;
+}
+
+.pricing-plans {
+    padding: 36px 0 65px;
+}
+
+.pricing-plan-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+}
+
+.pricing-plan-image > img {
+    height: 235px;
+}
+
+.pricing-plan-body {
+    padding: 23px;
+}
+
+.pricing-plan-body h3 {
+    font-size: 22px;
+}
+
+.pricing-disclaimer {
+    margin-top: 25px;
+    font-size: 12px;
+    text-align: left;
+}
+
+/* Advantages */
+
+.pricing-advantages {
+    padding: 66px 0;
+}
+
+.pricing-advantages-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+}
+
+.pricing-advantages-content h2 {
+    font-size: clamp(28px, 7vw, 36px);
+}
+
+.pricing-advantages-content > p {
+    font-size: 14px;
+}
+
+.pricing-advantage-list {
+    gap: 14px;
+}
+
+.pricing-advantage-item {
+    gap: 13px;
+    padding: 17px;
+}
+
+.pricing-advantage-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 12px;
+}
+
+.pricing-advantage-item h3 {
+    font-size: 16px;
+}
+
+/* Comparison */
+
+.pricing-comparison {
+    padding: 65px 0;
+}
+
+.pricing-table th,
+.pricing-table td {
+    padding: 15px 16px;
+    font-size: 12px;
+}
+
+/* Process */
+
+.pricing-process {
+    padding: 65px 0;
+}
+
+.pricing-process-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.pricing-process-card {
+    padding: 26px 23px;
+}
+
+.pricing-process-card h3 {
+    font-size: 19px;
+}
+
+/* FAQ */
+
+.pricing-faq {
+    padding: 65px 0;
+}
+
+.pricing-faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+}
+
+.pricing-faq-intro h2 {
+    font-size: clamp(28px, 7vw, 36px);
+}
+
+.pricing-faq-intro > p {
+    font-size: 14px;
+}
+
+.pricing-faq-item {
+    padding-inline: 16px;
+}
+
+.pricing-faq-item summary {
+    padding-block: 17px;
+    font-size: 14px;
+}
+
+.pricing-faq-item > p {
+    font-size: 13px;
+}
+
+/* Final CTA */
+
+.pricing-final-cta {
+    padding: 62px 0;
+}
+
+.pricing-final-cta-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 0;
+}
+
+.pricing-cta-content h2 {
+    font-size: clamp(29px, 7.5vw, 38px);
+    letter-spacing: -0.5px;
+}
+
+.pricing-cta-content > p {
+    font-size: 14px;
+}
+
+.pricing-cta-content .pricing-hero-actions {
+    gap: 12px;
+}
+
+.pricing-cta-content .pricing-hero-actions > a {
+    flex: 1 1 145px;
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.pricing-cta-decoration {
+    display: none;
+}
+
+}
+
+/* =========================================================
+17. SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+.pricing-hero .site-container,
+.pricing-intro .site-container,
+.pricing-plans .site-container,
+.pricing-advantages .site-container,
+.pricing-comparison .site-container,
+.pricing-process .site-container,
+.pricing-faq .site-container,
+.pricing-final-cta .site-container {
+width: calc(100% - 28px);
+}
+
+.pricing-hero-content h1 {
+    font-size: 33px;
+}
+
+.pricing-hero-content .pricing-hero-actions,
+.pricing-cta-content .pricing-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.pricing-hero-content .pricing-hero-actions > a,
+.pricing-cta-content .pricing-hero-actions > a {
+    width: 100%;
+    flex: auto;
+}
+
+.pricing-hero-visual > img,
+.pricing-plan-image > img {
+    height: 270px;
+}
+
+.pricing-floating-card {
+    width: calc(100% - 8px);
+}
+
+.pricing-plan-body {
+    padding: 21px;
+}
+
+.pricing-advantage-item {
+    padding: 14px;
+}
+
+.pricing-advantage-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+}
+
+.pricing-cta-content h2 {
+    font-size: 29px;
+}
+
+}
+
+/* =========================================================
+18. REDUCED MOTION ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.pricing-hero *,
+.pricing-intro *,
+.pricing-plans *,
+.pricing-advantages *,
+.pricing-comparison *,
+.pricing-process *,
+.pricing-faq *,
+.pricing-final-cta * {
+scroll-behavior: auto !important;
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+}
+
+
+/* STOREVAULT — PRICING CTA PRIMARY BUTTON */
+
+.pricing-final-cta .pricing-btn-primary {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border: 1px solid #B96643 !important;
+}
+
+.pricing-final-cta .pricing-btn-primary:hover {
+    color: #FFFFFF !important;
+    background: #984B30 !important;
+    border-color: #984B30 !important;
+}
+
+
+/* STOREVAULT — PRICING FINAL CTA PRIMARY BUTTON FIX */
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-light {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    background-color: #B96643 !important;
+    background-image: none !important;
+    border: 1px solid #B96643 !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+}
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-light:hover {
+    color: #FFFFFF !important;
+    background: #984B30 !important;
+    background-color: #984B30 !important;
+    background-image: none !important;
+    border-color: #984B30 !important;
+}
+
+/* KEEP THE SECONDARY CTA BUTTON OUTLINED */
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-cta-outline {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    background-image: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+}
+
+/* PRICING PAGE — DARK MODE ONLY */
+html.dark-mode .pricing-btn.pricing-btn-outline,
+body.dark-mode .pricing-btn.pricing-btn-outline,
+html[data-theme="dark"] .pricing-btn.pricing-btn-outline,
+body[data-theme="dark"] .pricing-btn.pricing-btn-outline,
+body.dark .pricing-btn.pricing-btn-outline {
+    background: transparent;
+    color: #F1F6F3;
+    border: 1px solid #B7C7C0;
+    transition: all 0.25s ease;
+}
+
+html.dark-mode .pricing-btn.pricing-btn-outline:hover,
+body.dark-mode .pricing-btn.pricing-btn-outline:hover,
+html[data-theme="dark"] .pricing-btn.pricing-btn-outline:hover,
+body[data-theme="dark"] .pricing-btn.pricing-btn-outline:hover,
+body.dark .pricing-btn.pricing-btn-outline:hover {
+    background: #285943;
+    color: #FFFFFF;
+    border-color: #285943;
+    transform: translateY(-2px);
+}
+
+
+/* PRICING PAGE — DARK MODE SECONDARY BUTTON */
+html.dark-mode .pricing-btn.pricing-btn-outline,
+body.dark-mode .pricing-btn.pricing-btn-outline,
+html[data-theme="dark"] .pricing-btn.pricing-btn-outline,
+body[data-theme="dark"] .pricing-btn.pricing-btn-outline,
+body.dark .pricing-btn.pricing-btn-outline {
+    background: transparent !important;
+    color: #F1F6F3 !important;
+    border-color: #B7C7C0 !important;
+    transition: all 0.25s ease;
+}
+
+/* DARK MODE HOVER */
+html.dark-mode .pricing-btn.pricing-btn-outline:hover,
+body.dark-mode .pricing-btn.pricing-btn-outline:hover,
+html[data-theme="dark"] .pricing-btn.pricing-btn-outline:hover,
+body[data-theme="dark"] .pricing-btn.pricing-btn-outline:hover,
+body.dark .pricing-btn.pricing-btn-outline:hover {
+    background: #285943 !important;
+    color: #FFFFFF !important;
+    border-color: #285943 !important;
+    transform: translateY(-2px);
+}
+
+/* PRICING — DARK MODE OUTLINE SECONDARY BUTTON */
+/* Match Facilities page */
+
+html.dark-mode .pricing-btn.pricing-btn-outline,
+body.dark-mode .pricing-btn.pricing-btn-outline {
+    background: transparent !important;
+    color: #B96643 !important;
+    border: 1px solid #B96643 !important;
+    transition: all 0.25s ease;
+}
+
+html.dark-mode .pricing-btn.pricing-btn-outline:hover,
+body.dark-mode .pricing-btn.pricing-btn-outline:hover {
+    background: #123C38 !important;
+    color: #FFFFFF !important;
+    border-color: #123C38 !important;
+}
+
+/* PRICING — DARK MODE OUTLINE SECONDARY BUTTON */
+
+html.dark-mode .pricing-btn.pricing-btn-outline,
+body.dark-mode .pricing-btn.pricing-btn-outline {
+    background: transparent !important;
+    color: #FFFFFF !important;
+    border: 1px solid #B96643 !important;
+    transition: all 0.25s ease;
+}
+
+html.dark-mode .pricing-btn.pricing-btn-outline:hover,
+body.dark-mode .pricing-btn.pricing-btn-outline:hover {
+    background: #123C38 !important;
+    color: #FFFFFF !important;
+    border-color: #123C38 !important;
+}
+
+/* =========================================
+   STO​REVAULT PRICING — SECONDARY BUTTONS
+   Terracotta: #B96643
+========================================= */
+
+main .pricing-hero .pricing-btn-outline,
+main .pricing-final-cta .pricing-btn-cta-outline {
+    background: transparent !important;
+    color: #B96643 !important;
+    border: 1px solid #B96643 !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease !important;
+}
+
+main .pricing-hero .pricing-btn-outline:hover,
+main .pricing-final-cta .pricing-btn-cta-outline:hover {
+    background: #B96643 !important;
+    color: #FFFFFF !important;
+    border-color: #B96643 !important;
+    transform: translateY(-2px);
+}
+
+/* FIX: PRICING FINAL CTA — SECOND BUTTON */
+
+main .pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #B96643 !important;
+    border: 2px solid #B96643 !important;
+    box-shadow: none !important;
     text-decoration: none !important;
 }
 
-
-/* SUBTLE HOVER — REQUEST A QUOTE BUTTON */
-
-.pricing-hero-actions .pricing-btn-outline {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+main .pricing-final-cta .pricing-hero-actions a.pricing-btn-cta-outline:hover {
+    background: #B96643 !important;
+    background-color: #B96643 !important;
+    color: #FFFFFF !important;
+    border-color: #B96643 !important;
 }
 
-.pricing-hero-actions .pricing-btn-outline:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 6px 16px rgba(0, 184, 176, 0.18) !important;
+/* Dark mode */
+body.dark-mode main .pricing-final-cta
+.pricing-hero-actions a.pricing-btn-cta-outline {
+    color: #B96643 !important;
+    border-color: #B96643 !important;
+    background: transparent !important;
 }
 
+body.dark-mode main .pricing-final-cta
+.pricing-hero-actions a.pricing-btn-cta-outline:hover {
+    background: #B96643 !important;
+    color: #FFFFFF !important;
+}
 
-/* Our Storage Options — Enquiry link */
-.pricing-plan-btn {
-    display: inline-flex !important;
-    width: fit-content !important;
-    align-items: center;
-    justify-content: flex-start !important;
-    gap: 6px;
+/* =========================================
+   SECONDARY BUTTON — LIGHT MODE
+   Terracotta Color
+========================================= */
 
+body:not(.dark-mode) .secondary-btn,
+body:not(.dark-mode) .btn-secondary,
+body:not(.dark-mode) .hero-buttons .btn-secondary {
+    border: 1px solid #C66B4E !important;
+    color: #C66B4E !important;
+    background: transparent !important;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+body:not(.dark-mode) .secondary-btn:hover,
+body:not(.dark-mode) .btn-secondary:hover,
+body:not(.dark-mode) .hero-buttons .btn-secondary:hover {
+    background: #C66B4E !important;
+    border-color: #C66B4E !important;
+    color: #FFFFFF !important;
+}
+
+/* SECONDARY BUTTON — LIGHT MODE TERRACOTTA */
+
+body:not(.dark-mode) a.btn-secondary,
+body:not(.dark-mode) a.secondary-btn,
+body:not(.dark-mode) .btn-outline,
+body:not(.dark-mode) .hero-buttons a:nth-child(2),
+body:not(.dark-mode) .hero-buttons .btn:last-child,
+body:not(.dark-mode) .pricing-card a:last-child {
+    border: 1px solid #C66B4E !important;
+    color: #C66B4E !important;
+}
+
+/* HOVER */
+body:not(.dark-mode) a.btn-secondary:hover,
+body:not(.dark-mode) a.secondary-btn:hover,
+body:not(.dark-mode) .btn-outline:hover,
+body:not(.dark-mode) .hero-buttons a:nth-child(2):hover,
+body:not(.dark-mode) .hero-buttons .btn:last-child:hover,
+body:not(.dark-mode) .pricing-card a:last-child:hover {
+    background-color: #C66B4E !important;
+    border-color: #C66B4E !important;
+    color: #FFFFFF !important;
+}
+
+/* PRICING FINAL CTA — SECONDARY BUTTON */
+.pricing-final-cta a.pricing-btn-cta-outline {
+    color: #B96643 !important;
+    background: transparent !important;
+    border: 1px solid #B96643 !important;
+}
+
+.pricing-final-cta a.pricing-btn-cta-outline:hover {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border-color: #B96643 !important;
+}
+
+/* FORCE PRICING CTA SECONDARY BUTTON */
+.pricing-final-cta .pricing-cta-buttons a:last-child,
+.pricing-final-cta .pricing-cta-actions a:last-child,
+.pricing-final-cta .pricing-final-buttons a:last-child,
+.pricing-final-cta a.pricing-btn-cta-outline {
+    color: #B96643 !important;
+    background: transparent !important;
+    border: 2px solid #B96643 !important;
+    box-shadow: none !important;
+}
+
+.pricing-final-cta .pricing-cta-buttons a:last-child:hover,
+.pricing-final-cta .pricing-cta-actions a:last-child:hover,
+.pricing-final-cta .pricing-final-buttons a:last-child:hover,
+.pricing-final-cta a.pricing-btn-cta-outline:hover {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border-color: #B96643 !important;
+}
+
+/* =========================================
+   PRICING CTA — SECONDARY BUTTON
+   Terracotta border and hover
+========================================= */
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-cta-outline {
+    color: #B96643 !important;
+    background-color: transparent !important;
+    border: 2px solid #B96643 !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-cta-outline:hover,
+.pricing-final-cta .pricing-cta-content .pricing-hero-actions a.pricing-btn-cta-outline:focus {
+    color: #FFFFFF !important;
+    background-color: #B96643 !important;
+    border-color: #B96643 !important;
+}
+
+/* =========================================
+   PRICING CARDS — HOVER EFFECTS
+========================================= */
+
+.pricing-plan-card,
+.pricing-advantage-item,
+.pricing-process-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.pricing-plan-card:hover,
+.pricing-advantage-item:hover,
+.pricing-process-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* Image zoom */
+
+.pricing-plan-image,
+.pricing-hero-visual {
+    overflow: hidden;
+}
+
+.pricing-plan-image img,
+.pricing-hero-visual > img {
+    transition: transform 0.5s ease;
+}
+
+.pricing-plan-card:hover .pricing-plan-image img,
+.pricing-hero-visual:hover > img {
+    transform: scale(1.04);
+}
+
+/* Featured plan remains visually prominent */
+
+.pricing-plan-featured {
+    position: relative;
+}
+
+/* =========================================
+   PRICING — SCROLL REVEAL ANIMATIONS
+   Main content only; header/footer excluded
+========================================= */
+
+main .pricing-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+main .pricing-reveal.pricing-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    main .pricing-reveal,
+    main .pricing-reveal.pricing-revealed {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .pricing-plan-card,
+    .pricing-advantage-item,
+    .pricing-process-card,
+    .pricing-plan-image img,
+    .pricing-hero-visual > img {
+        transition: none;
+    }
+}
+
+/* =========================================
+   PRICING TAGLINES — REMOVE BOXES
+   Keep hero tagline unchanged
+========================================= */
+
+/* Remove tagline boxes from all non-hero sections */
+.pricing-intro .pricing-eyebrow,
+.pricing-advantages .pricing-eyebrow,
+.pricing-comparison .pricing-eyebrow,
+.pricing-process .pricing-eyebrow,
+.pricing-faq .pricing-eyebrow,
+.pricing-final-cta .pricing-eyebrow {
+    display: inline-block !important;
     background: transparent !important;
     border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
-
-    color: var(--primary, #174A3B) !important;
-    -webkit-text-fill-color: var(--primary, #174A3B);
-
-    padding: 14px 0 !important;
-    transition: color 0.3s ease;
+    padding: 0 !important;
 }
 
-.pricing-plan-btn:hover {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    color: var(--accent, #D8893D) !important;
-    -webkit-text-fill-color: var(--accent, #D8893D);
-}
-
-.pricing-plan-btn span {
-    color: inherit;
-    -webkit-text-fill-color: inherit;
-}
-
-
-/* Our Storage Options — Enquiry link */
-
-.pricing-plan-btn {
-    display: inline-flex !important;
-    width: fit-content !important;
-    align-items: center;
-    justify-content: flex-start !important;
-    gap: 6px;
-
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    color: #008F89 !important;
-    -webkit-text-fill-color: #008F89;
-
-    padding: 14px 0 !important;
-    transition: color 0.3s ease, gap 0.3s ease;
-}
-
-.pricing-plan-btn:hover {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    color: #E47718 !important;
-    -webkit-text-fill-color: #E47718;
-    gap: 10px;
-}
-
-.pricing-plan-btn span {
-    color: inherit !important;
-    -webkit-text-fill-color: inherit;
+/* Keep the hero tagline styling unchanged */
+.pricing-hero .pricing-eyebrow {
+    /* Preserve existing hero styles */
 }

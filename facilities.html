@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="Explore StoreVault warehouse and storage facilities, including flexible storage spaces, organized inventory areas, loading access and facility features.">
     <title>Our Facilities | StoreVault Warehouse &amp; Storage Solutions</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -32,6 +32,8 @@
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">
 <div class="home-dropdown">
     <a href="index.html"
+       class=" home-link"
+
        aria-haspopup="true"
        aria-expanded="false">
         Home <span class="dropdown-arrow">▾</span>
@@ -746,6 +748,48 @@
 
 <script src="script.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const selectors = [
+        ".facilities-overview .section-heading",
+        ".facility-feature-card",
+        ".facility-types .section-heading",
+        ".facility-type-card",
+        ".facility-details-image",
+        ".facility-details-content",
+        ".facility-process .section-heading",
+        ".facility-process-card",
+        ".facility-faq-intro",
+        ".facility-faq-item",
+        ".final-cta-content"
+    ];
+
+    const elements = document.querySelectorAll(
+        selectors.map(s => "main " + s).join(", ")
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(el => el.classList.add("facility-revealed"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("facility-revealed");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    elements.forEach(function (el) {
+        el.classList.add("facility-reveal");
+        observer.observe(el);
+    });
+});
+</script>
+</body>
+</html>
 
 </body>
 </html>

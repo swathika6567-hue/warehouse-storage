@@ -1,26 +1,38 @@
-/* ============================================================
-   STOREVAULT — COMPLETE ABOUT PAGE CSS
-   Teal + Orange | Light/Dark Mode | RTL | Responsive
-   Header and footer use the existing shared style.css rules
-============================================================ */
+/* =========================================================
+   STOREVAULT — ABOUT PAGE
+   Complete about.css
+   Brand colors matched to Home 2
+   ========================================================= */
 
-/* ============================================================
-   1. ABOUT PAGE BASE
-============================================================ */
+/* =========================================================
+   1. BRAND TOKENS AND PAGE DEFAULTS
+   ========================================================= */
 
-main {
-    width: 100%;
-}
+:root {
+    --about-primary: #123C38;
+    --about-primary-dark: #0B2C29;
+    --about-primary-light: #EAF2EF;
 
-main .about-page,
-main .about-story,
-main .about-purpose,
-main .about-values,
-main .about-audience,
-main .about-difference,
-main .final-cta {
-    position: relative;
-    isolation: isolate;
+    --about-accent: #B96643;
+    --about-accent-dark: #984B30;
+
+    --about-border: #C9D5CE;
+    --about-text: #263B36;
+    --about-muted: #64736D;
+    --about-surface: #FFFFFF;
+    --about-surface-alt: #F5F8F6;
+
+    --about-cta-dark: #285943;
+
+    --about-radius-sm: 10px;
+    --about-radius-md: 16px;
+    --about-radius-lg: 24px;
+
+    --about-shadow:
+        0 12px 35px rgba(18, 60, 56, 0.08);
+
+    --about-transition:
+        0.25s ease;
 }
 
 .about-page,
@@ -30,19 +42,7 @@ main .final-cta {
 .about-audience,
 .about-difference,
 .final-cta {
-    --about-teal: #00B8B0;
-    --about-teal-dark: #008F89;
-    --about-teal-light: #E0F8F6;
-    --about-orange: #FF8A36;
-    --about-orange-dark: #E47718;
-
-    --about-bg: var(--background, #F7F9F8);
-    --about-surface: var(--surface, #FFFFFF);
-    --about-surface-soft: var(--surface-soft, #E8F6F5);
-    --about-surface-alt: var(--surface-alt, #F0F5F4);
-    --about-text: var(--text, #202D30);
-    --about-muted: var(--muted, #657477);
-    --about-border: var(--border, #DCE7E5);
+    box-sizing: border-box;
 }
 
 .about-page *,
@@ -80,7 +80,22 @@ main .final-cta {
 .about-audience p,
 .about-difference p,
 .final-cta p {
-    overflow-wrap: anywhere;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   2. SHARED SECTION STYLES
+   ========================================================= */
+
+.about-page,
+.about-story,
+.about-purpose,
+.about-values,
+.about-audience,
+.about-difference {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .about-page .site-container,
@@ -88,242 +103,93 @@ main .final-cta {
 .about-purpose .site-container,
 .about-values .site-container,
 .about-audience .site-container,
-.about-difference .site-container,
-.final-cta .site-container,
-.final-cta-container {
+.about-difference .site-container {
     width: min(1180px, calc(100% - 48px));
     margin-inline: auto;
 }
 
-/* ============================================================
-2. SECTION LABELS AND ORANGE DIVIDERS
-Uniform size: 25px × 2px on all screen sizes
-============================================================ */
-
-.about-page .section-label,
-.about-story .section-label,
-.about-purpose .section-label,
-.about-values .section-label,
-.about-audience .section-label,
-.about-difference .section-label,
-.final-cta .cta-label {
-display: inline-flex;
-align-items: center;
-gap: 9px;
-}
-
-.about-page .section-label::before,
-.about-story .section-label::before,
-.about-purpose .section-label::before,
-.about-values .section-label::before,
-.about-audience .section-label::before,
-.about-difference .section-label::before,
-.final-cta .cta-label::before {
-content: "" !important;
-display: inline-block !important;
-flex: 0 0 25px !important;
-width: 25px !important;
-min-width: 25px !important;
-max-width: 25px !important;
-height: 2px !important;
-min-height: 2px !important;
-max-height: 2px !important;
-margin: 0 !important;
-padding: 0 !important;
-border: 0 !important;
-border-radius: 0 !important;
-background: #FF8A36 !important;
-box-shadow: none !important;
-transform: none !important;
-}
-/* ============================================================
-   3. HERO SECTION
-============================================================ */
-
-.about-page.about-hero {
-    padding: 90px 0;
-    overflow: hidden;
-    background:
-        radial-gradient(
-            circle at 8% 12%,
-            rgba(0, 184, 176, 0.12),
-            transparent 35%
-        ),
-        var(--about-bg);
-}
-
-.about-hero-container {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+.section-label {
+    display: inline-flex;
     align-items: center;
-    gap: 64px;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: var(--about-accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
-.about-hero-content,
-.about-story-content,
-.about-difference-content {
-    min-width: 0;
-}
-
-.about-hero-content h1 {
-    margin: 0 0 24px;
-    color: var(--about-text);
-    font-size: clamp(38px, 5vw, 62px);
-    font-weight: 850;
-    line-height: 1.12;
-    letter-spacing: -1.8px;
-}
-
-.about-hero-content h1 span {
-    color: var(--about-teal-dark);
-}
-
-.about-hero-content > p {
-    max-width: 570px;
-    margin: 0 0 30px;
-    color: var(--about-muted);
-    font-size: 17px;
-    line-height: 1.9;
-}
-
-.about-hero-image {
-    position: relative;
-    min-width: 0;
-    padding: 0 8px 8px 0;
-}
-
-.about-hero-image::before {
+.section-label::before {
     content: "";
-    position: absolute;
-    z-index: -1;
-    top: 22px;
-    right: -8px;
-    bottom: -8px;
-    left: 24px;
-    background: var(--about-teal-light);
-    border-radius: 26px;
+    display: inline-block;
+    width: 25px;
+    height: 2px;
+    flex: 0 0 25px;
+    background: var(--about-accent);
 }
 
-.about-hero-image > img {
-    width: 100%;
-    height: 440px;
-    object-fit: cover;
-    object-position: center;
-    border: 1px solid var(--about-border);
-    border-radius: 24px;
-    box-shadow: 0 22px 55px rgba(25, 58, 58, 0.13);
-}
-
-.about-image-badge {
-    position: absolute;
-    right: -8px;
-    bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    max-width: 230px;
-    padding: 19px 23px;
-    color: #FFFFFF;
-    background: #008F89;
-    border: 4px solid var(--about-bg);
-    border-radius: 15px;
-    box-shadow: 0 12px 30px rgba(0, 90, 85, 0.2);
-}
-
-.about-image-badge strong {
-    font-size: 16px;
-    font-weight: 800;
-}
-
-.about-image-badge span {
-    color: #E4FFFC;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 13px;
-    margin-top: 8px;
-}
-
-/* ============================================================
-   4. BUTTONS
-============================================================ */
-
-/* Primary orange button */
-
-.about-page a.cta-primary,
-.about-story a.cta-primary,
-.about-purpose a.cta-primary,
-.about-values a.cta-primary,
-.about-audience a.cta-primary,
-.about-difference a.cta-primary,
-.final-cta a.cta-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    padding: 14px 25px;
-
-    color: #172B32 !important;
-    background: #FF8A36 !important;
-    border: 2px solid #FF8A36 !important;
-    border-radius: 9px;
-
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.4;
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 48px;
     text-align: center;
-    text-decoration: none !important;
-
-    box-shadow: 0 5px 14px rgba(228, 119, 24, 0.15);
-    cursor: pointer;
-
-    transition:
-        background-color 0.22s ease,
-        border-color 0.22s ease,
-        box-shadow 0.22s ease,
-        transform 0.22s ease;
 }
 
-.about-page a.cta-primary:hover,
-.about-story a.cta-primary:hover,
-.about-purpose a.cta-primary:hover,
-.about-values a.cta-primary:hover,
-.about-audience a.cta-primary:hover,
-.about-difference a.cta-primary:hover,
-.final-cta a.cta-primary:hover {
-    color: #172B32 !important;
-    background: #E47718 !important;
-    border-color: #E47718 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(228, 119, 24, 0.25);
+.section-heading .section-label {
+    justify-content: center;
 }
 
-/* Secondary teal outlined buttons */
+.section-heading h2 {
+    margin: 0 0 16px;
+    color: var(--about-primary);
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+}
 
-.about-page a.cta-secondary,
-.about-story a.cta-secondary,
-.about-purpose a.cta-secondary,
-.about-values a.cta-secondary,
-.about-audience a.cta-secondary,
-.about-difference a.cta-secondary {
+.section-heading > p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--about-muted);
+    font-size: 16px;
+}
+
+/* =========================================================
+   3. BUTTONS — HOME 2 COLOR SYSTEM
+   ========================================================= */
+
+/* Primary terracotta buttons */
+
+.about-page .cta-primary,
+.about-story .cta-primary,
+.about-purpose .cta-primary,
+.about-values .cta-primary,
+.about-audience .cta-primary,
+.about-difference .cta-primary,
+.about-page .hero-buttons a,
+.about-audience .center-button a,
+.about-difference-content > a,
+.final-cta .cta-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
-    padding: 14px 25px;
+    gap: 8px;
 
-    color: #008F89 !important;
-    background: transparent !important;
-    border: 2px solid #00B8B0 !important;
-    border-radius: 9px;
+    min-height: 48px;
+    padding: 13px 24px;
 
+    color: #FFFFFF !important;
+    background-color: #B96643 !important;
+    background-image: none !important;
+
+    border: 1px solid #B96643 !important;
+    border-radius: 8px;
+
+    font-family: inherit;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.4;
     text-align: center;
     text-decoration: none !important;
@@ -332,135 +198,270 @@ transform: none !important;
     cursor: pointer;
 
     transition:
-        color 0.22s ease,
-        background-color 0.22s ease,
-        border-color 0.22s ease,
-        transform 0.22s ease;
+        color var(--about-transition),
+        background-color var(--about-transition),
+        border-color var(--about-transition),
+        transform var(--about-transition);
 }
 
-.about-page a.cta-secondary:hover,
-.about-story a.cta-secondary:hover,
-.about-purpose a.cta-secondary:hover,
-.about-values a.cta-secondary:hover,
-.about-audience a.cta-secondary:hover,
-.about-difference a.cta-secondary:hover {
+/* Primary button hover */
+
+.about-page .cta-primary:hover,
+.about-story .cta-primary:hover,
+.about-purpose .cta-primary:hover,
+.about-values .cta-primary:hover,
+.about-audience .cta-primary:hover,
+.about-difference .cta-primary:hover,
+.about-page .hero-buttons a:hover,
+.about-audience .center-button a:hover,
+.about-difference-content > a:hover,
+.final-cta .cta-primary:hover {
     color: #FFFFFF !important;
-    background: #008F89 !important;
-    border-color: #008F89 !important;
-    transform: translateY(-2px);
+    background-color: #984B30 !important;
+    background-image: none !important;
+    border-color: #984B30 !important;
+    text-decoration: none !important;
 }
 
-/* Hero outlined button */
+/* Hero outline button */
 
-.about-page a.hero-outline-btn {
+.about-hero .hero-buttons .hero-outline-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
-    padding: 14px 25px;
 
-    color: #008F89 !important;
-    background: transparent !important;
-    border: 2px solid #00B8B0 !important;
-    border-radius: 9px;
+    min-height: 48px;
+    padding: 13px 24px;
 
+    color: #123C38 !important;
+    background-color: transparent !important;
+    background-image: none !important;
+
+    border: 1px solid #C9D5CE !important;
+    border-radius: 8px;
+
+    font-family: inherit;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.4;
     text-align: center;
     text-decoration: none !important;
 
     transition:
-        color 0.22s ease,
-        background-color 0.22s ease,
-        border-color 0.22s ease,
-        transform 0.22s ease;
+        color var(--about-transition),
+        background-color var(--about-transition),
+        border-color var(--about-transition);
 }
 
-.about-page a.hero-outline-btn:hover {
+.about-hero .hero-buttons .hero-outline-btn:hover {
     color: #FFFFFF !important;
-    background: #008F89 !important;
-    border-color: #008F89 !important;
-    transform: translateY(-2px);
+    background-color: #123C38 !important;
+    background-image: none !important;
+    border-color: #123C38 !important;
 }
 
-/* ============================================================
+/* Shared keyboard focus */
+
+.about-page a:focus-visible,
+.about-story a:focus-visible,
+.about-audience a:focus-visible,
+.about-difference a:focus-visible,
+.final-cta a:focus-visible {
+    outline: 3px solid var(--about-accent);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   4. ABOUT HERO
+   ========================================================= */
+
+.about-hero {
+    padding: 88px 0 96px;
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(234, 242, 239, 0.9),
+            transparent 38%
+        ),
+        #FFFFFF;
+}
+
+.about-hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 72px;
+}
+
+.about-hero-content {
+    min-width: 0;
+}
+
+.about-hero-content h1 {
+    max-width: 650px;
+    margin: 0 0 24px;
+    color: var(--about-primary);
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 850;
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+}
+
+.about-hero-content h1 span {
+    color: var(--about-accent);
+}
+
+.about-hero-content > p {
+    max-width: 570px;
+    margin: 0 0 30px;
+    color: var(--about-muted);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.about-hero .hero-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.about-hero-image {
+    position: relative;
+    min-width: 0;
+    min-height: 420px;
+}
+
+.about-hero-image > img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--about-radius-lg);
+    box-shadow: var(--about-shadow);
+}
+
+.about-image-badge {
+    position: absolute;
+    right: -18px;
+    bottom: 26px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    max-width: calc(100% - 24px);
+    padding: 19px 24px;
+
+    color: #FFFFFF;
+    background: var(--about-primary);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    box-shadow: 0 14px 30px rgba(11, 44, 41, 0.18);
+}
+
+.about-image-badge strong {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.about-image-badge span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================================================
    5. OUR STORY
-============================================================ */
+   ========================================================= */
 
 .about-story {
-    padding: 88px 0;
-    background: var(--about-surface);
+    padding: 96px 0;
+    background: #FFFFFF;
 }
 
 .about-story-container {
     display: grid;
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     align-items: center;
-    gap: 70px;
+    gap: 76px;
 }
 
 .about-story-image {
     position: relative;
     min-width: 0;
-    padding: 0 0 16px 16px;
+    padding: 0 16px 16px 0;
 }
 
-.about-story-image img {
+.about-story-image > img {
     position: relative;
     z-index: 1;
+
     width: 100%;
-    height: 430px;
+    height: 470px;
     object-fit: cover;
-    border: 1px solid var(--about-border);
-    border-radius: 22px;
-    box-shadow: 0 15px 38px rgba(25, 58, 58, 0.1);
+    object-position: center;
+
+    border-radius: var(--about-radius-lg);
+    box-shadow: var(--about-shadow);
 }
 
 .about-story-accent {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 55%;
-    height: 45%;
-    background: var(--about-teal-light);
-    border-radius: 20px;
+    width: 65%;
+    height: 58%;
+    background: var(--about-primary-light);
+    border-radius: var(--about-radius-lg);
+}
+
+.about-story-content {
+    min-width: 0;
+}
+
+.about-story-content h2 {
+    margin: 0 0 22px;
+    color: var(--about-primary);
+    font-size: clamp(30px, 3.5vw, 43px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
 }
 
 .about-story-content > p {
-    margin: 0 0 17px;
+    margin: 0 0 18px;
     color: var(--about-muted);
     font-size: 15px;
-    line-height: 1.95;
 }
 
 .about-story-content .text-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
-    color: #008F89;
-    font-size: 15px;
+    margin-top: 8px;
+
+    color: var(--about-primary);
+    font-size: 14px;
     font-weight: 800;
     line-height: 1.7;
     text-decoration: none;
-    transition: color 0.2s ease, gap 0.2s ease;
+
+    transition: color var(--about-transition);
 }
 
 .about-story-content .text-link:hover {
-    gap: 13px;
-    color: #006F6A;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+    color: var(--about-accent);
 }
 
-/* ============================================================
+/* =========================================================
    6. MISSION AND VISION
-============================================================ */
+   ========================================================= */
 
 .about-purpose {
-    padding: 88px 0;
-    background: var(--about-surface-soft);
+    padding: 94px 0 100px;
+    background: var(--about-surface-alt);
 }
 
 .about-purpose-grid {
@@ -471,46 +472,38 @@ transform: none !important;
 
 .about-purpose-card {
     position: relative;
-    padding: 35px 32px;
-    overflow: hidden;
-    background: var(--about-surface);
-    border: 1px solid var(--about-border);
-    border-radius: 20px;
-    box-shadow: 0 7px 24px rgba(24, 69, 69, 0.04);
+    padding: 34px 32px;
+
+    background: #FFFFFF;
+    border: 1px solid #E5ECE7;
+    border-radius: var(--about-radius-md);
+
+    box-shadow: 0 8px 24px rgba(18, 60, 56, 0.035);
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.about-purpose-card::after {
-    content: "";
-    position: absolute;
-    right: -45px;
-    bottom: -60px;
-    width: 145px;
-    height: 145px;
-    background: rgba(0, 184, 176, 0.07);
-    border-radius: 50%;
-    pointer-events: none;
+        transform var(--about-transition),
+        box-shadow var(--about-transition),
+        border-color var(--about-transition);
 }
 
 .about-purpose-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(0, 184, 176, 0.6);
-    box-shadow: 0 16px 38px rgba(24, 69, 69, 0.1);
+    border-color: #C9D5CE;
+    box-shadow: var(--about-shadow);
 }
 
 .about-purpose-icon {
-    display: grid;
-    place-items: center;
-    width: 62px;
-    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
     margin-bottom: 24px;
-    color: #008F89;
-    background: #E0F8F6;
-    border-radius: 17px;
+
+    color: var(--about-primary);
+    background: var(--about-primary-light);
+    border-radius: 14px;
 }
 
 .about-purpose-icon svg {
@@ -518,44 +511,41 @@ transform: none !important;
     height: 30px;
     fill: none;
     stroke: currentColor;
-    stroke-width: 1.7;
+    stroke-width: 1.6;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 .about-card-label {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: #008F89;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--about-accent);
     font-size: 11px;
-    font-weight: 850;
-    letter-spacing: 1.6px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
 }
 
 .about-purpose-card h3 {
     margin: 0 0 14px;
-    color: var(--about-text);
-    font-size: 23px;
+    color: var(--about-primary);
+    font-size: 24px;
     font-weight: 800;
-    line-height: 1.35;
+    line-height: 1.3;
 }
 
 .about-purpose-card p {
-    position: relative;
-    z-index: 1;
     margin: 0;
     color: var(--about-muted);
-    font-size: 15px;
-    line-height: 1.9;
+    font-size: 14px;
 }
 
-/* ============================================================
+/* =========================================================
    7. OUR VALUES
-============================================================ */
+   ========================================================= */
 
 .about-values {
-    padding: 88px 0;
-    background: var(--about-bg);
+    padding: 94px 0 100px;
+    background: #FFFFFF;
 }
 
 .about-values-grid {
@@ -565,60 +555,56 @@ transform: none !important;
 }
 
 .about-value-card {
-    padding: 28px 23px;
-    background: var(--about-surface);
-    border: 1px solid var(--about-border);
-    border-radius: 17px;
-    box-shadow: 0 5px 18px rgba(24, 69, 69, 0.035);
+    min-width: 0;
+    padding: 27px 23px 30px;
+
+    background: var(--about-surface-alt);
+    border: 1px solid #E6EDE8;
+    border-radius: var(--about-radius-md);
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform var(--about-transition),
+        background-color var(--about-transition),
+        border-color var(--about-transition);
 }
 
 .about-value-card:hover {
-    transform: translateY(-5px);
-    border-color: #00B8B0;
-    box-shadow: 0 12px 28px rgba(24, 69, 69, 0.09);
+    transform: translateY(-4px);
+    background: #FFFFFF;
+    border-color: var(--about-border);
 }
 
 .about-value-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    margin-bottom: 23px;
-    color: #008F89;
-    background: #E0F8F6;
-    border-radius: 14px;
-    font-size: 19px;
+    margin-bottom: 24px;
+    color: var(--about-accent);
+    font-size: 31px;
     font-weight: 850;
+    line-height: 1;
+    letter-spacing: -1px;
 }
 
 .about-value-card h3 {
-    margin: 0 0 13px;
-    color: var(--about-text);
+    margin: 0 0 12px;
+    color: var(--about-primary);
     font-size: 18px;
     font-weight: 800;
-    line-height: 1.45;
+    line-height: 1.4;
 }
 
 .about-value-card p {
     margin: 0;
     color: var(--about-muted);
-    font-size: 14px;
-    line-height: 1.85;
+    font-size: 13px;
+    line-height: 1.8;
 }
 
-/* ============================================================
+/* =========================================================
    8. WHO WE SERVE
-============================================================ */
+   ========================================================= */
 
 .about-audience {
-    padding: 88px 0;
-    background: var(--about-surface);
+    padding: 94px 0 100px;
+    background: var(--about-surface-alt);
 }
 
 .about-audience-grid {
@@ -628,22 +614,23 @@ transform: none !important;
 }
 
 .about-audience-card {
+    min-width: 0;
     overflow: hidden;
-    background: var(--about-surface);
-    border: 1px solid var(--about-border);
-    border-radius: 19px;
-    box-shadow: 0 6px 22px rgba(24, 69, 69, 0.045);
+
+    background: #FFFFFF;
+    border: 1px solid #E4EBE6;
+    border-radius: var(--about-radius-md);
+
+    box-shadow: 0 8px 22px rgba(18, 60, 56, 0.035);
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform var(--about-transition),
+        box-shadow var(--about-transition);
 }
 
 .about-audience-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0, 184, 176, 0.65);
-    box-shadow: 0 17px 35px rgba(24, 69, 69, 0.11);
+    transform: translateY(-5px);
+    box-shadow: var(--about-shadow);
 }
 
 .about-audience-card > img {
@@ -651,7 +638,8 @@ transform: none !important;
     height: 225px;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.4s ease;
+
+    transition: transform 0.45s ease;
 }
 
 .about-audience-card:hover > img {
@@ -659,25 +647,22 @@ transform: none !important;
 }
 
 .about-audience-content {
-    position: relative;
-    padding: 25px 24px 28px;
-    background: var(--about-surface);
+    padding: 25px 25px 28px;
 }
 
 .about-audience-content > span {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: #008F89;
+    display: block;
+    margin-bottom: 11px;
+    color: var(--about-accent);
     font-size: 10px;
-    font-weight: 850;
+    font-weight: 800;
     letter-spacing: 1.5px;
-    line-height: 1.6;
 }
 
 .about-audience-content h3 {
     margin: 0 0 12px;
-    color: var(--about-text);
-    font-size: 21px;
+    color: var(--about-primary);
+    font-size: 22px;
     font-weight: 800;
     line-height: 1.35;
 }
@@ -686,7 +671,6 @@ transform: none !important;
     margin: 0;
     color: var(--about-muted);
     font-size: 14px;
-    line-height: 1.9;
 }
 
 .about-audience .center-button {
@@ -695,33 +679,45 @@ transform: none !important;
     margin-top: 38px;
 }
 
-/* ============================================================
-   9. THE STO​REVAULT DIFFERENCE
-============================================================ */
+/* =========================================================
+   9. WHY STOREVAULT
+   ========================================================= */
 
 .about-difference {
-    padding: 88px 0;
-    background: var(--about-surface-soft);
+    padding: 100px 0;
+    background: #FFFFFF;
 }
 
 .about-difference-container {
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
     align-items: center;
-    gap: 62px;
+    gap: 72px;
+}
+
+.about-difference-content {
+    min-width: 0;
+}
+
+.about-difference-content h2 {
+    margin: 0 0 22px;
+    color: var(--about-primary);
+    font-size: clamp(30px, 3.5vw, 43px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
 }
 
 .about-difference-content > p {
-    margin: 0 0 25px;
+    margin: 0 0 24px;
     color: var(--about-muted);
     font-size: 15px;
-    line-height: 1.95;
 }
 
 .about-check-list {
     display: grid;
-    gap: 17px;
-    margin: 27px 0 30px;
+    gap: 15px;
+    margin: 0 0 30px;
 }
 
 .about-check-list > div {
@@ -731,16 +727,19 @@ transform: none !important;
 }
 
 .about-check-list > div > span {
-    display: inline-flex;
+    display: flex;
     flex: 0 0 25px;
     align-items: center;
     justify-content: center;
+
     width: 25px;
     height: 25px;
-    margin-top: 1px;
-    color: #FFFFFF;
-    background: #008F89;
+    margin-top: 2px;
+
+    color: var(--about-primary);
+    background: var(--about-primary-light);
     border-radius: 50%;
+
     font-size: 13px;
     font-weight: 900;
 }
@@ -749,473 +748,404 @@ transform: none !important;
     margin: 0;
     color: var(--about-text);
     font-size: 14px;
-    line-height: 1.8;
-}
-
-.about-difference-content > a.cta-primary {
-    margin-top: 2px;
+    line-height: 1.7;
 }
 
 .about-difference-image {
-    position: relative;
     min-width: 0;
-}
-
-.about-difference-image::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 20px;
-    right: -15px;
-    bottom: -15px;
-    left: 20px;
-    background: rgba(0, 184, 176, 0.18);
-    border-radius: 23px;
 }
 
 .about-difference-image img {
     width: 100%;
-    height: 430px;
+    height: 475px;
     object-fit: cover;
-    border: 1px solid var(--about-border);
-    border-radius: 22px;
-    box-shadow: 0 18px 42px rgba(25, 58, 58, 0.12);
+    object-position: center;
+    border-radius: var(--about-radius-lg);
+    box-shadow: var(--about-shadow);
 }
 
-/* ============================================================
-   10. FINAL CALL TO ACTION
-============================================================ */
+/* =========================================================
+   10. FINAL CTA
+   Light mode: teal #123C38
+   ========================================================= */
 
 .final-cta {
     position: relative;
+    isolation: isolate;
     overflow: hidden;
-    padding: 88px 0;
-    color: #FFFFFF;
-    background: #17383C;
+
+    width: 100%;
+    padding: 82px 24px;
+
+    background: #123C38 !important;
+    background-image: none !important;
+
+    text-align: center;
 }
 
 .final-cta::before {
     content: "";
     position: absolute;
     z-index: -1;
-    top: -150px;
-    right: -100px;
+
     width: 380px;
     height: 380px;
-    background: rgba(0, 184, 176, 0.17);
+    top: -230px;
+    left: -110px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 50%;
-    pointer-events: none;
+
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.025),
+        0 0 0 70px rgba(255, 255, 255, 0.02);
 }
 
 .final-cta::after {
     content: "";
     position: absolute;
     z-index: -1;
-    bottom: -190px;
-    left: -100px;
-    width: 420px;
-    height: 420px;
-    background: rgba(255, 138, 54, 0.10);
+
+    width: 320px;
+    height: 320px;
+    right: -140px;
+    bottom: -220px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 50%;
-    pointer-events: none;
+
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.025),
+        0 0 0 70px rgba(255, 255, 255, 0.02);
 }
 
 .final-cta-container {
     position: relative;
     z-index: 1;
+    width: min(800px, 100%);
+    margin-inline: auto;
 }
 
 .final-cta-content {
-    max-width: 790px;
-    margin-inline: auto;
-    text-align: center;
+    width: 100%;
 }
 
 .final-cta .cta-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 19px;
-    color: #32DED5;
-    font-size: 12px;
-    font-weight: 850;
+    display: inline-block;
+    margin-bottom: 18px;
+
+    color: #FFFFFF !important;
+    font-size: 11px;
+    font-weight: 800;
     letter-spacing: 2px;
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 .final-cta h2 {
     margin: 0 0 20px;
-    color: #FFFFFF;
-    font-size: clamp(32px, 4.5vw, 49px);
+    color: #FFFFFF !important;
+    font-size: clamp(30px, 4vw, 46px);
     font-weight: 850;
-    line-height: 1.18;
-    letter-spacing: -1px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
 }
 
-.final-cta-content > p {
+.final-cta p {
     max-width: 660px;
-    margin: 0 auto;
-    color: #D2E4E2;
-    font-size: 16px;
+    margin: 0 auto 30px;
+    color: rgba(255, 255, 255, 0.86) !important;
+    font-size: 15px;
     line-height: 1.9;
 }
 
 .final-cta .cta-buttons {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-top: 32px;
+    flex-wrap: wrap;
+    gap: 14px;
 }
 
-/* White outlined secondary button in final CTA */
+/* Final CTA primary button */
 
-.final-cta a.cta-secondary {
+.final-cta .cta-buttons .cta-primary {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    background-image: none !important;
+    border: 1px solid #B96643 !important;
+}
+
+.final-cta .cta-buttons .cta-primary:hover {
+    color: #FFFFFF !important;
+    background: #984B30 !important;
+    border-color: #984B30 !important;
+}
+
+/* Final CTA secondary button */
+
+.final-cta .cta-buttons .cta-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 50px;
-    padding: 14px 25px;
+
+    min-height: 48px;
+    padding: 13px 24px;
 
     color: #FFFFFF !important;
     background: transparent !important;
-    border: 2px solid #FFFFFF !important;
-    border-radius: 9px;
+    background-image: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.55) !important;
+    border-radius: 8px;
 
+    font-family: inherit;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.4;
     text-align: center;
     text-decoration: none !important;
 
     transition:
-        color 0.22s ease,
-        background-color 0.22s ease,
-        border-color 0.22s ease,
-        transform 0.22s ease;
+        color var(--about-transition),
+        background-color var(--about-transition),
+        border-color var(--about-transition);
 }
 
-.final-cta a.cta-secondary:hover {
-    color: #17383C !important;
-    background: #FFFFFF !important;
-    border-color: #FFFFFF !important;
-    transform: translateY(-2px);
+.final-cta .cta-buttons .cta-secondary:hover {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border-color: #B96643 !important;
 }
 
-/* ============================================================
+/* =========================================================
    11. DARK MODE
-============================================================ */
+   Supports common body/html theme class conventions.
+   ========================================================= */
 
-body.dark-mode .about-page {
-    --about-bg: var(--background, #121C20);
-    --about-surface: var(--surface, #1C2B30);
-    --about-surface-soft: var(--surface-soft, #203438);
-    --about-surface-alt: var(--surface-alt, #26383D);
-    --about-text: var(--text, #E8F3F2);
-    --about-muted: var(--muted, #A8BCBE);
-    --about-border: var(--border, #354A4E);
+/* Main page sections */
 
-    background:
-        radial-gradient(
-            circle at 8% 12%,
-            rgba(50, 222, 213, 0.07),
-            transparent 36%
-        ),
-        var(--about-bg);
-}
-
+html.dark-mode .about-hero,
+body.dark-mode .about-hero,
+html[data-theme="dark"] .about-hero,
+body[data-theme="dark"] .about-hero,
+body.dark .about-hero,
+html.dark-mode .about-story,
 body.dark-mode .about-story,
-body.dark-mode .about-purpose,
+html[data-theme="dark"] .about-story,
+body[data-theme="dark"] .about-story,
+body.dark .about-story,
+html.dark-mode .about-values,
 body.dark-mode .about-values,
-body.dark-mode .about-audience,
-body.dark-mode .about-difference {
-    --about-surface: var(--surface, #1C2B30);
-    --about-surface-soft: var(--surface-soft, #203438);
-    --about-bg: var(--background, #121C20);
-    --about-text: var(--text, #E8F3F2);
-    --about-muted: var(--muted, #A8BCBE);
-    --about-border: var(--border, #354A4E);
+html[data-theme="dark"] .about-values,
+body[data-theme="dark"] .about-values,
+body.dark .about-values,
+html.dark-mode .about-difference,
+body.dark-mode .about-difference,
+html[data-theme="dark"] .about-difference,
+body[data-theme="dark"] .about-difference,
+body.dark .about-difference {
+    background: #101B19;
 }
 
-body.dark-mode .about-story,
-body.dark-mode .about-audience {
-    background: var(--about-surface);
-}
+/* Alternate section backgrounds */
 
+html.dark-mode .about-purpose,
 body.dark-mode .about-purpose,
-body.dark-mode .about-difference {
-    background: var(--about-surface-soft);
+html[data-theme="dark"] .about-purpose,
+body[data-theme="dark"] .about-purpose,
+body.dark .about-purpose,
+html.dark-mode .about-audience,
+body.dark-mode .about-audience,
+html[data-theme="dark"] .about-audience,
+body[data-theme="dark"] .about-audience,
+body.dark .about-audience {
+    background: #14221F;
 }
 
-body.dark-mode .about-values {
-    background: var(--about-bg);
-}
+/* Dark mode headings */
 
-/* Dark-mode section labels */
-
-body.dark-mode .about-page .section-label,
-body.dark-mode .about-story .section-label,
-body.dark-mode .about-purpose .section-label,
-body.dark-mode .about-values .section-label,
-body.dark-mode .about-audience .section-label,
-body.dark-mode .about-difference .section-label {
-    color: #32DED5;
-}
-
-/* Dark-mode headings */
-
+html.dark-mode .section-heading h2,
+body.dark-mode .section-heading h2,
+html.dark-mode .about-hero-content h1,
 body.dark-mode .about-hero-content h1,
-body.dark-mode .about-story h2,
-body.dark-mode .about-purpose h2,
-body.dark-mode .about-values h2,
-body.dark-mode .about-audience h2,
-body.dark-mode .about-difference h2 {
-    color: var(--text, #E8F3F2);
-}
-
-body.dark-mode .about-hero-content h1 span {
-    color: #32DED5;
-}
-
-body.dark-mode .about-hero-content > p,
-body.dark-mode .about-story-content > p,
-body.dark-mode .about-purpose .section-heading > p,
-body.dark-mode .about-values .section-heading > p,
-body.dark-mode .about-audience .section-heading > p,
-body.dark-mode .about-difference-content > p {
-    color: var(--muted, #A8BCBE);
-}
-
-/* Dark-mode image decorations */
-
-body.dark-mode .about-hero-image::before,
-body.dark-mode .about-story-accent {
-    background: rgba(50, 222, 213, 0.12);
-}
-
-body.dark-mode .about-hero-image > img,
-body.dark-mode .about-story-image img,
-body.dark-mode .about-difference-image img {
-    border-color: var(--border, #354A4E);
-}
-
-body.dark-mode .about-image-badge {
-    color: #FFFFFF;
-    background: #006F6A;
-    border-color: var(--background, #121C20);
-}
-
-body.dark-mode .about-image-badge span {
-    color: #D8FFFC;
-}
-
-/* Dark-mode cards */
-
-body.dark-mode .about-purpose-card,
-body.dark-mode .about-value-card,
-body.dark-mode .about-audience-card {
-    background: var(--surface, #1C2B30);
-    border-color: var(--border, #354A4E);
-}
-
+html.dark-mode .about-story-content h2,
+body.dark-mode .about-story-content h2,
+html.dark-mode .about-purpose-card h3,
 body.dark-mode .about-purpose-card h3,
+html.dark-mode .about-value-card h3,
 body.dark-mode .about-value-card h3,
-body.dark-mode .about-audience-content h3 {
-    color: var(--text, #E8F3F2);
+html.dark-mode .about-audience-content h3,
+body.dark-mode .about-audience-content h3,
+html.dark-mode .about-difference-content h2,
+body.dark-mode .about-difference-content h2,
+html[data-theme="dark"] .section-heading h2,
+body[data-theme="dark"] .section-heading h2,
+body.dark .section-heading h2,
+body.dark .about-hero-content h1,
+body.dark .about-story-content h2,
+body.dark .about-purpose-card h3,
+body.dark .about-value-card h3,
+body.dark .about-audience-content h3,
+body.dark .about-difference-content h2 {
+    color: #F1F6F3;
 }
 
+/* Dark mode body text */
+
+html.dark-mode .about-hero-content > p,
+body.dark-mode .about-hero-content > p,
+html.dark-mode .about-story-content > p,
+body.dark-mode .about-story-content > p,
+html.dark-mode .section-heading > p,
+body.dark-mode .section-heading > p,
+html.dark-mode .about-purpose-card p,
 body.dark-mode .about-purpose-card p,
+html.dark-mode .about-value-card p,
 body.dark-mode .about-value-card p,
-body.dark-mode .about-audience-content p {
-    color: var(--muted, #A8BCBE);
+html.dark-mode .about-audience-content p,
+body.dark-mode .about-audience-content p,
+html.dark-mode .about-difference-content > p,
+body.dark-mode .about-difference-content > p,
+html.dark-mode .about-check-list > div > p,
+body.dark-mode .about-check-list > div > p,
+html[data-theme="dark"] .about-hero-content > p,
+body[data-theme="dark"] .about-hero-content > p,
+body.dark .about-hero-content > p,
+body.dark .about-story-content > p,
+body.dark .section-heading > p,
+body.dark .about-purpose-card p,
+body.dark .about-value-card p,
+body.dark .about-audience-content p,
+body.dark .about-difference-content > p,
+body.dark .about-check-list > div > p {
+    color: #B7C7C0;
 }
 
+/* Dark mode cards */
+
+html.dark-mode .about-purpose-card,
+body.dark-mode .about-purpose-card,
+html.dark-mode .about-audience-card,
+body.dark-mode .about-audience-card,
+html[data-theme="dark"] .about-purpose-card,
+body[data-theme="dark"] .about-purpose-card,
+body.dark .about-purpose-card,
+body.dark .about-audience-card {
+    background: #192A26;
+    border-color: #30433D;
+    box-shadow: none;
+}
+
+html.dark-mode .about-value-card,
+body.dark-mode .about-value-card,
+html[data-theme="dark"] .about-value-card,
+body[data-theme="dark"] .about-value-card,
+body.dark .about-value-card {
+    background: #192A26;
+    border-color: #30433D;
+}
+
+html.dark-mode .about-value-card:hover,
+body.dark-mode .about-value-card:hover,
+html.dark-mode .about-purpose-card:hover,
+body.dark-mode .about-purpose-card:hover,
+html.dark-mode .about-audience-card:hover,
+body.dark-mode .about-audience-card:hover {
+    border-color: #52675F;
+}
+
+html.dark-mode .about-purpose-icon,
 body.dark-mode .about-purpose-icon,
-body.dark-mode .about-value-number {
-    color: #32DED5;
-    background: #203F42;
+html.dark-mode .about-check-list > div > span,
+body.dark-mode .about-check-list > div > span,
+body.dark .about-purpose-icon,
+body.dark .about-check-list > div > span {
+    color: #EAF2EF;
+    background: #28443B;
 }
 
-body.dark-mode .about-card-label,
-body.dark-mode .about-audience-content > span {
-    color: #32DED5;
+/* Dark mode story accent */
+
+html.dark-mode .about-story-accent,
+body.dark-mode .about-story-accent,
+html[data-theme="dark"] .about-story-accent,
+body[data-theme="dark"] .about-story-accent,
+body.dark .about-story-accent {
+    background: #203A32;
 }
 
-body.dark-mode .about-audience-content {
-    background: var(--surface, #1C2B30);
+/* Dark mode story link */
+
+html.dark-mode .about-story-content .text-link,
+body.dark-mode .about-story-content .text-link,
+html[data-theme="dark"] .about-story-content .text-link,
+body[data-theme="dark"] .about-story-content .text-link,
+body.dark .about-story-content .text-link {
+    color: #EAF2EF;
 }
 
-/* Dark-mode checklist and text link */
-
-body.dark-mode .about-check-list > div > p {
-    color: var(--text, #E8F3F2);
+html.dark-mode .about-story-content .text-link:hover,
+body.dark-mode .about-story-content .text-link:hover,
+body.dark .about-story-content .text-link:hover {
+    color: #D68A68;
 }
 
-body.dark-mode .about-check-list > div > span {
-    color: #FFFFFF;
-    background: #008F89;
-}
+/* Dark mode hero outline button */
 
-body.dark-mode .about-story-content .text-link {
-    color: #32DED5;
-}
-
-body.dark-mode .about-story-content .text-link:hover {
-    color: #8BFFF8;
-}
-
-/* Dark-mode primary buttons */
-
-body.dark-mode .about-page a.cta-primary,
-body.dark-mode .about-story a.cta-primary,
-body.dark-mode .about-purpose a.cta-primary,
-body.dark-mode .about-values a.cta-primary,
-body.dark-mode .about-audience a.cta-primary,
-body.dark-mode .about-difference a.cta-primary,
-body.dark-mode .final-cta a.cta-primary {
-    color: #172B32 !important;
-    background: #FF8A36 !important;
-    border-color: #FF8A36 !important;
-}
-
-body.dark-mode .about-page a.cta-primary:hover,
-body.dark-mode .about-story a.cta-primary:hover,
-body.dark-mode .about-purpose a.cta-primary:hover,
-body.dark-mode .about-values a.cta-primary:hover,
-body.dark-mode .about-audience a.cta-primary:hover,
-body.dark-mode .about-difference a.cta-primary:hover,
-body.dark-mode .final-cta a.cta-primary:hover {
-    color: #172B32 !important;
-    background: #E47718 !important;
-    border-color: #E47718 !important;
-}
-
-/* Dark-mode secondary buttons */
-
-body.dark-mode .about-page a.cta-secondary,
-body.dark-mode .about-story a.cta-secondary,
-body.dark-mode .about-purpose a.cta-secondary,
-body.dark-mode .about-values a.cta-secondary,
-body.dark-mode .about-audience a.cta-secondary,
-body.dark-mode .about-difference a.cta-secondary,
-body.dark-mode .about-page a.hero-outline-btn {
-    color: #32DED5 !important;
-    background: transparent !important;
-    border-color: #32DED5 !important;
-}
-
-body.dark-mode .about-page a.cta-secondary:hover,
-body.dark-mode .about-story a.cta-secondary:hover,
-body.dark-mode .about-purpose a.cta-secondary:hover,
-body.dark-mode .about-values a.cta-secondary:hover,
-body.dark-mode .about-audience a.cta-secondary:hover,
-body.dark-mode .about-difference a.cta-secondary:hover,
-body.dark-mode .about-page a.hero-outline-btn:hover {
-    color: #FFFFFF !important;
-    background: #008F89 !important;
-    border-color: #008F89 !important;
-}
-
-body.dark-mode .final-cta a.cta-secondary {
+html.dark-mode .about-hero .hero-buttons .hero-outline-btn,
+body.dark-mode .about-hero .hero-buttons .hero-outline-btn,
+html[data-theme="dark"] .about-hero .hero-buttons .hero-outline-btn,
+body[data-theme="dark"] .about-hero .hero-buttons .hero-outline-btn,
+body.dark .about-hero .hero-buttons .hero-outline-btn {
     color: #FFFFFF !important;
     background: transparent !important;
-    border-color: #FFFFFF !important;
+    border-color: #B96643 !important;
 }
 
-body.dark-mode .final-cta a.cta-secondary:hover {
-    color: #17383C !important;
-    background: #FFFFFF !important;
-    border-color: #FFFFFF !important;
+html.dark-mode .about-hero .hero-buttons .hero-outline-btn:hover,
+body.dark-mode .about-hero .hero-buttons .hero-outline-btn:hover,
+html[data-theme="dark"] .about-hero .hero-buttons .hero-outline-btn:hover,
+body[data-theme="dark"] .about-hero .hero-buttons .hero-outline-btn:hover,
+body.dark .about-hero .hero-buttons .hero-outline-btn:hover {
+    color: #FFFFFF !important;
+    background: #B96643 !important;
+    border-color: #B96643 !important;
 }
 
-/* Keep orange dividers unchanged in dark mode */
+/* Dark mode final CTA: forest green */
 
-body.dark-mode .about-page .section-label::before,
-body.dark-mode .about-story .section-label::before,
-body.dark-mode .about-purpose .section-label::before,
-body.dark-mode .about-values .section-label::before,
-body.dark-mode .about-audience .section-label::before,
-body.dark-mode .about-difference .section-label::before,
-body.dark-mode .final-cta .cta-label::before {
-    background: #FF8A36 !important;
+html.dark-mode .final-cta,
+body.dark-mode .final-cta,
+html[data-theme="dark"] .final-cta,
+body[data-theme="dark"] .final-cta,
+body.dark .final-cta {
+    background: #285943 !important;
+    background-image: none !important;
 }
 
-/* ============================================================
-   12. RTL SUPPORT
-============================================================ */
+/* Preserve CTA text contrast */
 
-html[dir="rtl"] .about-hero-container,
-html[dir="rtl"] .about-story-container,
-html[dir="rtl"] .about-difference-container {
-    direction: rtl;
+html.dark-mode .final-cta h2,
+body.dark-mode .final-cta h2,
+html.dark-mode .final-cta .cta-label,
+body.dark-mode .final-cta .cta-label,
+html[data-theme="dark"] .final-cta h2,
+body[data-theme="dark"] .final-cta h2,
+body.dark .final-cta h2,
+body.dark .final-cta .cta-label {
+    color: #FFFFFF !important;
 }
 
-html[dir="rtl"] .about-hero-image {
-    padding: 0 0 8px 8px;
+html.dark-mode .final-cta p,
+body.dark-mode .final-cta p,
+html[data-theme="dark"] .final-cta p,
+body[data-theme="dark"] .final-cta p,
+body.dark .final-cta p {
+    color: rgba(255, 255, 255, 0.88) !important;
 }
 
-html[dir="rtl"] .about-hero-image::before {
-    right: 24px;
-    left: -8px;
-}
-
-html[dir="rtl"] .about-image-badge {
-    right: auto;
-    left: -8px;
-}
-
-html[dir="rtl"] .about-story-image {
-    padding: 0 16px 16px 0;
-}
-
-html[dir="rtl"] .about-story-accent {
-    right: auto;
-    left: 0;
-}
-
-html[dir="rtl"] .about-difference-image::before {
-    right: 20px;
-    left: -15px;
-}
-
-html[dir="rtl"] .about-story-content .text-link {
-    direction: rtl;
-}
-
-html[dir="rtl"] .about-hero-content,
-html[dir="rtl"] .about-story-content,
-html[dir="rtl"] .about-difference-content {
-    text-align: right;
-}
-
-html[dir="rtl"] .about-purpose .section-heading,
-html[dir="rtl"] .about-values .section-heading,
-html[dir="rtl"] .about-audience .section-heading,
-html[dir="rtl"] .final-cta-content {
-    text-align: center;
-}
-
-html[dir="rtl"] .about-check-list > div {
-    flex-direction: row;
-}
-
-/* Keep divider placement consistent for RTL */
-
-html[dir="rtl"] .about-page .section-label::before,
-html[dir="rtl"] .about-story .section-label::before,
-html[dir="rtl"] .about-purpose .section-label::before,
-html[dir="rtl"] .about-values .section-label::before,
-html[dir="rtl"] .about-audience .section-label::before,
-html[dir="rtl"] .about-difference .section-label::before,
-html[dir="rtl"] .final-cta .cta-label::before {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-}
-
-/* ============================================================
-   13. TABLET RESPONSIVE
-============================================================ */
+/* =========================================================
+   12. TABLET RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 1024px) {
     .about-page .site-container,
@@ -1223,59 +1153,67 @@ html[dir="rtl"] .final-cta .cta-label::before {
     .about-purpose .site-container,
     .about-values .site-container,
     .about-audience .site-container,
-    .about-difference .site-container,
-    .final-cta-container {
-        width: min(calc(100% - 40px), 900px);
+    .about-difference .site-container {
+        width: min(100% - 40px, 900px);
     }
 
-    .about-page.about-hero,
-    .about-story,
-    .about-purpose,
-    .about-values,
-    .about-audience,
-    .about-difference,
-    .final-cta {
-        padding-top: 70px;
-        padding-bottom: 70px;
+    .about-hero {
+        padding: 70px 0 78px;
     }
 
     .about-hero-container {
-        gap: 36px;
+        gap: 38px;
     }
 
     .about-hero-content h1 {
-        font-size: clamp(36px, 5vw, 49px);
+        font-size: clamp(36px, 4.5vw, 48px);
+        letter-spacing: -1.2px;
     }
 
-    .about-hero-image > img,
-    .about-story-image img,
-    .about-difference-image img {
-        height: 370px;
+    .about-hero-image {
+        min-height: 360px;
+    }
+
+    .about-hero-image > img {
+        height: 380px;
     }
 
     .about-story-container {
-        gap: 42px;
+        gap: 44px;
     }
 
-    .about-values-grid,
-    .about-audience-grid {
+    .about-story-image > img {
+        height: 420px;
+    }
+
+    .about-values-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .about-audience-card:last-child {
-        grid-column: 1 / -1;
-        width: calc(50% - 12px);
-        justify-self: center;
+    .about-audience-grid {
+        gap: 18px;
+    }
+
+    .about-audience-card > img {
+        height: 190px;
+    }
+
+    .about-audience-content {
+        padding: 22px 20px 25px;
     }
 
     .about-difference-container {
-        gap: 38px;
+        gap: 40px;
+    }
+
+    .about-difference-image img {
+        height: 430px;
     }
 }
 
-/* ============================================================
-   14. MOBILE RESPONSIVE
-============================================================ */
+/* =========================================================
+   13. MOBILE RESPONSIVE
+   ========================================================= */
 
 @media (max-width: 700px) {
     .about-page .site-container,
@@ -1283,248 +1221,221 @@ html[dir="rtl"] .final-cta .cta-label::before {
     .about-purpose .site-container,
     .about-values .site-container,
     .about-audience .site-container,
-    .about-difference .site-container,
-    .final-cta-container {
-        width: calc(100% - 32px);
+    .about-difference .site-container {
+        width: calc(100% - 36px);
     }
 
-    .about-page.about-hero,
-    .about-story,
-    .about-purpose,
-    .about-values,
-    .about-audience,
-    .about-difference,
-    .final-cta {
-        padding-top: 55px;
-        padding-bottom: 55px;
+    .section-label {
+        margin-bottom: 14px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
     }
 
-    .about-hero-container,
-    .about-story-container,
-    .about-difference-container {
+    .section-heading {
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(27px, 7vw, 34px);
+        letter-spacing: -0.5px;
+    }
+
+    .section-heading > p {
+        font-size: 14px;
+    }
+
+    /* Hero */
+
+    .about-hero {
+        padding: 55px 0 64px;
+    }
+
+    .about-hero-container {
         grid-template-columns: minmax(0, 1fr);
-        gap: 35px;
+        gap: 36px;
     }
 
     .about-hero-content h1 {
-        font-size: clamp(34px, 8.5vw, 46px);
+        max-width: 560px;
+        font-size: clamp(35px, 9vw, 46px);
+        line-height: 1.13;
         letter-spacing: -1px;
     }
 
     .about-hero-content > p {
-        font-size: 15px;
-        line-height: 1.85;
+        font-size: 14px;
+    }
+
+    .about-hero .hero-buttons {
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .about-hero .hero-buttons a {
+        min-height: 48px;
+        padding: 12px 16px;
+        font-size: 13px;
     }
 
     .about-hero-image {
-        margin-top: 3px;
-        padding: 0 5px 5px 0;
-    }
-
-    .about-hero-image::before {
-        top: 14px;
-        right: -5px;
-        bottom: -5px;
-        left: 15px;
+        min-height: 0;
+        padding-right: 8px;
     }
 
     .about-hero-image > img {
-        height: clamp(240px, 68vw, 360px);
+        height: 320px;
         border-radius: 18px;
     }
 
     .about-image-badge {
-        right: 4px;
-        bottom: 16px;
-        max-width: 200px;
-        padding: 13px 16px;
-        border-width: 3px;
+        right: 0;
+        bottom: 18px;
+        padding: 15px 18px;
     }
 
     .about-image-badge strong {
         font-size: 14px;
     }
 
-    .about-image-badge span {
-        font-size: 12px;
+    /* Story */
+
+    .about-story {
+        padding: 64px 0;
     }
 
-    .hero-buttons {
-        align-items: stretch;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .hero-buttons > a {
-        width: 100%;
+    .about-story-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
     }
 
     .about-story-image {
-        padding: 0 0 12px 12px;
+        padding: 0 10px 10px 0;
     }
 
-    .about-story-image img {
-        height: clamp(240px, 65vw, 340px);
+    .about-story-image > img {
+        height: 320px;
         border-radius: 18px;
     }
 
-    .about-story h2,
-    .about-difference h2,
-    .about-purpose .section-heading h2,
-    .about-values .section-heading h2,
-    .about-audience .section-heading h2 {
+    .about-story-content h2,
+    .about-difference-content h2 {
         font-size: clamp(28px, 7vw, 36px);
+        letter-spacing: -0.5px;
     }
 
-    .about-purpose .section-heading,
-    .about-values .section-heading,
-    .about-audience .section-heading {
-        margin-bottom: 30px;
-    }
-
-    .about-purpose .section-heading > p,
-    .about-values .section-heading > p,
-    .about-audience .section-heading > p {
+    .about-story-content > p,
+    .about-difference-content > p {
         font-size: 14px;
-        line-height: 1.8;
     }
 
-    .about-purpose-grid,
-    .about-values-grid,
-    .about-audience-grid {
+    /* Mission and vision */
+
+    .about-purpose {
+        padding: 64px 0;
+    }
+
+    .about-purpose-grid {
         grid-template-columns: minmax(0, 1fr);
-        gap: 17px;
+        gap: 18px;
     }
 
     .about-purpose-card {
-        padding: 27px 23px;
+        padding: 26px 23px;
     }
 
     .about-purpose-card h3 {
-        font-size: 21px;
+        font-size: 22px;
+    }
+
+    /* Values */
+
+    .about-values {
+        padding: 64px 0;
+    }
+
+    .about-values-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
     }
 
     .about-value-card {
-        padding: 24px 22px;
+        padding: 24px;
     }
 
-    .about-audience-card:last-child {
-        grid-column: auto;
-        width: 100%;
+    .about-value-number {
+        margin-bottom: 17px;
+        font-size: 28px;
+    }
+
+    /* Audience */
+
+    .about-audience {
+        padding: 64px 0;
+    }
+
+    .about-audience-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
     }
 
     .about-audience-card > img {
-        height: 220px;
+        height: 235px;
     }
 
     .about-audience-content {
-        padding: 22px;
+        padding: 23px;
     }
 
     .about-audience .center-button {
         margin-top: 28px;
     }
 
-    .about-audience .center-button > a {
-        width: 100%;
+    /* Difference */
+
+    .about-difference {
+        padding: 66px 0;
     }
 
-    .about-difference-image::before {
-        top: 13px;
-        right: -8px;
-        bottom: -8px;
-        left: 13px;
+    .about-difference-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
     }
 
     .about-difference-image img {
-        height: clamp(240px, 65vw, 340px);
+        height: 320px;
         border-radius: 18px;
     }
 
-    .about-check-list {
-        gap: 14px;
-    }
+    /* CTA */
 
-    .about-difference-content > a.cta-primary {
-        width: 100%;
+    .final-cta {
+        padding: 65px 20px;
     }
 
     .final-cta h2 {
-        font-size: clamp(30px, 8vw, 39px);
+        font-size: clamp(29px, 7.5vw, 38px);
+        letter-spacing: -0.5px;
     }
 
-    .final-cta-content > p {
+    .final-cta p {
         font-size: 14px;
-        line-height: 1.85;
     }
 
     .final-cta .cta-buttons {
         align-items: stretch;
-        flex-direction: column;
         gap: 12px;
     }
 
-    .final-cta .cta-buttons > a {
-        width: 100%;
-    }
-
-    /* Identical divider sizing on mobile */
-
-    .about-page .section-label,
-    .about-story .section-label,
-    .about-purpose .section-label,
-    .about-values .section-label,
-    .about-audience .section-label,
-    .about-difference .section-label,
-    .final-cta .cta-label {
-        gap: 9px;
-    }
-
-    .about-page .section-label::before,
-    .about-story .section-label::before,
-    .about-purpose .section-label::before,
-    .about-values .section-label::before,
-    .about-audience .section-label::before,
-    .about-difference .section-label::before,
-    .final-cta .cta-label::before {
-        flex-basis: 27px !important;
-        width: 27px !important;
-        min-width: 27px !important;
-        max-width: 27px !important;
-        height: 2px !important;
-        min-height: 2px !important;
-        max-height: 2px !important;
-    }
-
-    /* RTL mobile */
-
-    html[dir="rtl"] .about-hero-image {
-        padding: 0 0 5px 5px;
-    }
-
-    html[dir="rtl"] .about-hero-image::before {
-        right: 15px;
-        left: -5px;
-    }
-
-    html[dir="rtl"] .about-image-badge {
-        right: auto;
-        left: 4px;
-    }
-
-    html[dir="rtl"] .about-story-image {
-        padding: 0 12px 12px 0;
-    }
-
-    html[dir="rtl"] .about-difference-image::before {
-        right: 13px;
-        left: -8px;
+    .final-cta .cta-buttons a {
+        flex: 1 1 150px;
+        padding: 13px 16px;
+        font-size: 13px;
     }
 }
 
-/* ============================================================
-   15. SMALL MOBILE
-============================================================ */
+/* =========================================================
+   14. SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 380px) {
     .about-page .site-container,
@@ -1532,54 +1443,48 @@ html[dir="rtl"] .final-cta .cta-label::before {
     .about-purpose .site-container,
     .about-values .site-container,
     .about-audience .site-container,
-    .about-difference .site-container,
-    .final-cta-container {
-        width: calc(100% - 26px);
-    }
-
-    .about-page.about-hero,
-    .about-story,
-    .about-purpose,
-    .about-values,
-    .about-audience,
-    .about-difference,
-    .final-cta {
-        padding-top: 43px;
-        padding-bottom: 43px;
+    .about-difference .site-container {
+        width: calc(100% - 28px);
     }
 
     .about-hero-content h1 {
-        font-size: 32px;
+        font-size: 33px;
     }
 
-    .about-purpose-card {
-        padding: 23px 19px;
+    .about-hero .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .about-image-badge {
-        max-width: 175px;
-        padding: 11px 13px;
+    .about-hero .hero-buttons a {
+        width: 100%;
     }
 
-    .about-value-card {
-        padding: 22px 19px;
+    .about-hero-image > img,
+    .about-story-image > img,
+    .about-difference-image img {
+        height: 270px;
+    }
+
+    .about-purpose-card,
+    .about-value-card,
+    .about-audience-content {
+        padding: 21px;
+    }
+
+    .final-cta .cta-buttons {
+        flex-direction: column;
+    }
+
+    .final-cta .cta-buttons a {
+        width: 100%;
+        flex: auto;
     }
 }
 
-/* ============================================================
-   16. ACCESSIBILITY AND REDUCED MOTION
-============================================================ */
-
-.about-page a:focus-visible,
-.about-story a:focus-visible,
-.about-purpose a:focus-visible,
-.about-values a:focus-visible,
-.about-audience a:focus-visible,
-.about-difference a:focus-visible,
-.final-cta a:focus-visible {
-    outline: 3px solid #32DED5;
-    outline-offset: 4px;
-}
+/* =========================================================
+   15. REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
     .about-page *,
@@ -1589,283 +1494,177 @@ html[dir="rtl"] .final-cta .cta-label::before {
     .about-audience *,
     .about-difference *,
     .final-cta * {
+        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
 }
 
+/* ABOUT PAGE — REMOVE HORIZONTAL DIVIDER LINES */
 
-
-/* ABOUT PAGE TAGLINE SIZE */
-
-.section-label,
-.cta-label {
-font-size: 12px;
-font-weight: 800;
-letter-spacing: 1.8px;
-line-height: 1.7;
-text-transform: uppercase;
+/* Remove section border lines */
+.about-hero,
+.about-story,
+.about-purpose,
+.about-values,
+.about-audience,
+.about-difference,
+.final-cta {
+    border-top: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
-/* SMALL MOBILE */
-@media (max-width: 380px) {
-.section-label,
-.cta-label {
-font-size: 10px;
-letter-spacing: 1.3px;
-}
-}
-
-
-/* Fix mobile header overflow */
-@media (max-width: 768px) {
-    .site-header {
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .site-container.header-container {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding-left: 12px;
-        padding-right: 12px;
-        gap: 8px;
-    }
-
-    .brand {
-        flex: 1;
-        min-width: 0;
-        gap: 6px;
-    }
-
-    .brand img {
-        width: 42px;
-        height: auto;
-        flex-shrink: 0;
-    }
-
-    .brand-text {
-        min-width: 0;
-    }
-
-    .brand-name {
-        font-size: 21px;
-        white-space: nowrap;
-    }
-
-    .brand-tagline {
-        font-size: 7px;
-        letter-spacing: 1px;
-        white-space: nowrap;
-    }
-
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-    }
-
-    .rtl-btn,
-    .icon-btn,
-    .mobile-menu-btn {
-        width: 38px;
-        height: 38px;
-        min-width: 38px;
-        padding: 0;
-        flex-shrink: 0;
-        box-sizing: border-box;
-    }
-
-    .consultation-btn {
-        display: none;
-    }
-}
-
-/* GET A QUOTE - HIDDEN ON DESKTOP */
-#mainNav .nav-quote-btn {
+/* Remove horizontal divider pseudo-elements */
+.about-hero::before,
+.about-hero::after,
+.about-story::before,
+.about-story::after,
+.about-purpose::before,
+.about-purpose::after,
+.about-values::before,
+.about-values::after,
+.about-audience::before,
+.about-audience::after,
+.about-difference::before,
+.about-difference::after,
+.final-cta::before,
+.final-cta::after {
+    content: none !important;
     display: none !important;
 }
 
-/* GET A QUOTE - MOBILE HAMBURGER ONLY */
-@media screen and (max-width: 1100px) {
-    #mainNav.mobile-open .nav-quote-btn {
-        display: block !important;
-        width: fit-content;
-        margin: 16px auto;
-        padding: 12px 24px;
-        background-color: #F28C28;
-        color: #ffffff;
-        border: 1px solid #F28C28;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    #mainNav.mobile-open .nav-quote-btn:hover {
-        background-color: #D97706;
-        border-color: #D97706;
-        color: #ffffff;
-    }
+/* Remove horizontal rules inside About sections */
+.about-page hr,
+.about-story hr,
+.about-purpose hr,
+.about-values hr,
+.about-audience hr,
+.about-difference hr,
+.final-cta hr {
+    display: none !important;
 }
 
 
-/* CTA SECOND BUTTON - WHITE TEXT */
+/* ABOUT PAGE — REMOVE UNWANTED HORIZONTAL LINES */
 
-.final-cta a.cta-secondary {
-    color: #FFFFFF !important;
+/* Remove section divider borders */
+main > section.about-hero,
+main > section.about-story,
+main > section.about-purpose,
+main > section.about-values,
+main > section.about-audience,
+main > section.about-difference,
+main > section.final-cta {
+    border-top: none !important;
+    border-bottom: none !important;
 }
 
-.final-cta a.cta-secondary:hover {
-    color: #17383C !important;
+/* Remove horizontal rules inside About sections */
+main > section.about-hero hr,
+main > section.about-story hr,
+main > section.about-purpose hr,
+main > section.about-values hr,
+main > section.about-audience hr,
+main > section.about-difference hr,
+main > section.final-cta hr {
+    display: none !important;
+}
+/* Remove horizontal lines before About page taglines */
+
+.about-page .section-label::before,
+.about-hero .section-label::before,
+.about-story .section-label::before,
+.about-purpose .section-label::before,
+.about-values .section-label::before,
+.about-audience .section-label::before,
+.about-difference .section-label::before,
+.final-cta .section-label::before {
+display: none !important;
+content: none !important;
 }
 
+/* ABOUT HERO — TAGLINE MATCHES HOME PAGE */
 
-/* STOREVAULT ABOUT PAGE — FORCE SAME BUTTON COLORS */
+.about-hero .section-label {
+display: inline-block;
+margin: 0 0 24px;
+padding: 4px 10px;
 
-body a.cta-primary,
-body a.cta-secondary,
-body a.hero-outline-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+color: #984B30;
+background-color: #F8F1ED;
 
-    color: #172B32 !important;
-    background: #FF8A36 !important;
-    border: 2px solid #FF8A36 !important;
+border: none;
+border-radius: 0;
+box-shadow: none;
 
-    text-decoration: none !important;
+font-size: 13px;
+font-weight: 800;
+line-height: 1.6;
+letter-spacing: 1px;
+text-transform: uppercase;
+
 }
 
-/* Same hover color for every CTA button */
+/* Remove line before hero tagline only */
 
-body a.cta-primary:hover,
-body a.cta-secondary:hover,
-body a.hero-outline-btn:hover {
-    color: #172B32 !important;
-    background: #E47718 !important;
-    border-color: #E47718 !important;
+.about-hero .section-label::before {
+content: none !important;
+display: none !important;
 }
 
-/* Prevent shine effects from changing button appearance */
+/* ABOUT PAGE CTA — TAGLINE MATCHES HOME PAGE CTA */
 
-body a.cta-primary::before,
-body a.cta-primary::after,
-body a.cta-secondary::before,
-body a.cta-secondary::after,
-body a.hero-outline-btn::before,
-body a.hero-outline-btn::after {
-    animation: none !important;
+.final-cta .cta-label {
+display: block;
+width: fit-content;
+margin: 0 auto 18px;
+padding: 0;
+
+color: #D68A68 !important;
+background: transparent !important;
+
+border: none !important;
+border-radius: 0;
+box-shadow: none;
+
+font-size: 12px;
+font-weight: 800;
+line-height: 1.5;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+text-align: center;
+
 }
 
+/* Remove any line before the CTA tagline */
 
-/* FORCE ALL ABOUT PAGE CTA BUTTONS TO MATCH */
-
-body a.cta-primary,
-body a.hero-outline-btn,
-body .final-cta a.cta-secondary {
-    background: #FF8A36 !important;
-    color: #172B32 !important;
-    border: 2px solid #FF8A36 !important;
-    text-decoration: none !important;
-    opacity: 1 !important;
-    box-shadow: none !important;
+.final-cta .cta-label::before,
+.final-cta .cta-label::after {
+content: none !important;
+display: none !important;
 }
 
-/* HOVER EFFECT */
-body a.cta-primary:hover,
-body a.hero-outline-btn:hover,
-body .final-cta a.cta-secondary:hover {
-    background: #E47718 !important;
-    color: #172B32 !important;
-    border-color: #E47718 !important;
-}
+/* =========================================
+   ABOUT PAGE — ANIMATIONS
+   Header and footer remain unchanged
+========================================= */
 
-/* REMOVE BUTTON OVERLAY EFFECTS */
-body a.cta-primary::before,
-body a.cta-primary::after,
-body a.hero-outline-btn::before,
-body a.hero-outline-btn::after,
-body .final-cta a.cta-secondary::before,
-body .final-cta a.cta-secondary::after {
-    animation: none !important;
-}
-
-/* ABOUT HERO — SECONDARY CTA TRANSPARENT */
-
-.about-hero .hero-buttons .hero-outline-btn,
-.about-hero .hero-buttons .hero-outline-btn:hover,
-.about-hero .hero-buttons .hero-outline-btn:focus,
-.about-hero .hero-buttons .hero-outline-btn:active {
-    background: transparent !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    box-shadow: none !important;
-}
-
-/* ==========================================
-   STOREVAULT ABOUT PAGE — FULL PAGE ANIMATIONS
-========================================== */
-
-@keyframes aboutPageFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes aboutPageFadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes aboutPageSlideLeft {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* HERO SECTION */
+/* Hero entrance animations */
 .about-hero-content {
-    animation: aboutPageFadeUp 0.8s ease-out both;
+    animation: aboutSlideLeft 0.8s ease both;
 }
 
 .about-hero-image {
-    animation: aboutPageSlideLeft 0.9s ease-out both;
+    animation: aboutSlideRight 0.8s ease both;
 }
 
 .about-image-badge {
-    animation: aboutPageFadeUp 0.7s ease-out 0.3s both;
+    animation: aboutFadeUp 0.8s ease 0.3s both;
 }
 
-/* STORY SECTION */
-.about-story-image {
-    animation: aboutPageFadeIn 0.9s ease-out both;
-}
-
-.about-story-content {
-    animation: aboutPageFadeUp 0.8s ease-out both;
-}
-
-/* PURPOSE AND VALUES CARDS */
+/* Smooth card and image hover effects */
 .about-purpose-card,
 .about-value-card,
 .about-audience-card {
@@ -1875,57 +1674,72 @@ body .final-cta a.cta-secondary::after {
 .about-purpose-card:hover,
 .about-value-card:hover,
 .about-audience-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(21, 58, 57, 0.12);
+    transform: translateY(-7px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
 }
 
-/* DIFFERENCE SECTION */
-.about-difference-content {
-    animation: aboutPageFadeUp 0.8s ease-out both;
-}
-
-.about-difference-image {
-    animation: aboutPageSlideLeft 0.9s ease-out both;
-}
-
-/* IMAGE ZOOM ON HOVER */
-.about-hero-image img,
 .about-story-image img,
 .about-audience-card img,
 .about-difference-image img {
     transition: transform 0.5s ease;
 }
 
-.about-hero-image:hover img,
 .about-story-image:hover img,
 .about-audience-card:hover img,
 .about-difference-image:hover img {
     transform: scale(1.04);
 }
 
-/* BUTTONS — LIFT ONLY, NO BACKGROUND COLOR CHANGE */
-.about-hero .hero-buttons a,
-.about-story .text-link,
-.about-audience .center-button a,
-.about-difference a,
-.final-cta .cta-buttons a {
-    transition: transform 0.3s ease;
-}
-
-.about-hero .hero-buttons a:hover,
-.about-story .text-link:hover,
-.about-audience .center-button a:hover,
-.about-difference a:hover,
-.final-cta .cta-buttons a:hover {
-    transform: translateY(-3px);
-}
-
-/* FINAL CTA */
+/* Scroll reveal */
+.about-page .section-label,
+.about-story-content,
+.about-purpose .section-heading,
+.about-values .section-heading,
+.about-audience .section-heading,
+.about-purpose-card,
+.about-value-card,
+.about-audience-card,
+.about-difference-content,
+.about-difference-image,
 .final-cta-content {
-    animation: aboutPageFadeUp 0.8s ease-out both;
+    animation: aboutFadeUp 0.7s ease both;
 }
 
-/* ACCESSIBILITY */
+/* Keyframes */
+@keyframes aboutSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aboutSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes aboutFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     .about-page *,
     .about-story *,
@@ -1935,6 +1749,81 @@ body .final-cta a.cta-secondary::after {
     .about-difference *,
     .final-cta * {
         animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =========================================
+   SECONDARY BUTTONS — TERRACOTTA
+   Normal: transparent
+   Hover: terracotta with white text
+========================================= */
+
+.about-page .hero-outline-btn,
+.final-cta .cta-secondary {
+    background: transparent !important;
+    color: #B96643 !important;
+    border: 1px solid #B96643 !important;
+    box-shadow: none !important;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease !important;
+}
+
+.about-page .hero-outline-btn:hover,
+.final-cta .cta-secondary:hover {
+    background: #B96643 !important;
+    color: #FFFFFF !important;
+    border-color: #B96643 !important;
+    transform: translateY(-2px);
+}
+
+
+/* ABOUT PAGE — SECONDARY BUTTONS */
+main .about-hero .hero-buttons .hero-outline-btn,
+main .final-cta .cta-buttons .cta-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    color: #B96643 !important;
+    border: 1px solid #B96643 !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease !important;
+}
+
+main .about-hero .hero-buttons .hero-outline-btn:hover,
+main .final-cta .cta-buttons .cta-secondary:hover {
+    background: #B96643 !important;
+    color: #FFFFFF !important;
+    border-color: #B96643 !important;
+    transform: translateY(-2px);
+}
+
+/* ABOUT PAGE — SCROLL REVEAL */
+main .about-reveal {
+    opacity: 0 !important;
+    transform: translateY(30px) !important;
+    transition: opacity 0.7s ease,
+                transform 0.7s ease !important;
+    animation: none !important;
+}
+
+main .about-reveal.about-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main .about-reveal,
+    main .about-reveal.about-revealed {
+        opacity: 1 !important;
+        transform: none !important;
         transition: none !important;
     }
 }

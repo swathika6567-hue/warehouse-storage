@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="Explore the StoreVault Storage Guide for practical storage tips, space planning, packing advice and organized storage solutions.">
     <title>Storage Guide | StoreVault</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -31,6 +31,8 @@
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">
 <div class="home-dropdown">
     <a href="index.html"
+       class=" home-link"
+
        aria-haspopup="true"
        aria-expanded="false">
         Home <span class="dropdown-arrow">▾</span>
@@ -614,8 +616,130 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+/* =========================================
+   STOREVAULT STORAGE GUIDE
+   SCROLL REVEAL + STAGGERED ANIMATIONS
+========================================= */
 
+document.addEventListener("DOMContentLoaded", function () {
+    const page = document.querySelector(".storage-guide-page");
 
+    if (!page) return;
+
+    // Respect accessibility settings
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion) return;
+
+    // Sections to reveal while scrolling
+    const sections = page.querySelectorAll(
+        ".guide-benefits, " +
+        ".guide-categories, " +
+        ".guide-planning, " +
+        ".guide-packing, " +
+        ".guide-checklist-section, " +
+        ".guide-faq, " +
+        ".guide-final-cta"
+    );
+
+    // Cards to reveal with a staggered delay
+    const cards = page.querySelectorAll(
+        ".guide-benefit, " +
+        ".guide-category-card, " +
+        ".guide-packing-card, " +
+        ".guide-faq-item"
+    );
+
+    // Add animation styles
+    const style = document.createElement("style");
+
+    style.textContent = `
+        .storage-guide-page .guide-reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .storage-guide-page .guide-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .storage-guide-page .guide-card-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .storage-guide-page .guide-card-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .storage-guide-page .guide-reveal,
+            .storage-guide-page .guide-card-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+    `;
+
+    document.head.appendChild(style);
+
+    // Prepare sections
+    sections.forEach(function (section) {
+        section.classList.add("guide-reveal");
+    });
+
+    // Prepare cards with staggered delays
+    cards.forEach(function (card, index) {
+        card.classList.add("guide-card-reveal");
+        card.style.transitionDelay = (index % 4) * 100 + "ms";
+    });
+
+    // Reveal elements as they enter the viewport
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            function (entries, currentObserver) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        currentObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+        page.querySelectorAll(
+            ".guide-reveal, .guide-card-reveal"
+        ).forEach(function (element) {
+            observer.observe(element);
+        });
+    } else {
+        // Fallback for older browsers
+        page.querySelectorAll(
+            ".guide-reveal, .guide-card-reveal"
+        ).forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+    }
+});
+
+</script>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="StoreVault offers flexible warehouse and storage solutions for business inventory, equipment, household items and personal belongings.">
     <title>StoreVault | Smart Storage Solutions</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -291,15 +291,8 @@
             </article>
 
         </div>
-
-       
-
-
-
-
-
-
-
+        </section>
+    
     <!-- FEATURE -->
     <section class="h2-feature">
         <div class="site-container h2-feature-grid">
@@ -447,28 +440,48 @@
 
                 <article class="h2-process-card">
                     <span class="h2-process-number">01</span>
-                    <div class="h2-process-icon">☏</div>
+                    <div class="h2-process-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="4" width="14" height="17" rx="2"/>
+        <path d="M9 4V2h6v2M9 10h6M9 14h6M9 18h3"/>
+    </svg>
+</div>
                     <h3>Tell Us Your Needs</h3>
                     <p>Share what you need to store and your space requirements.</p>
                 </article>
 
                 <article class="h2-process-card">
                     <span class="h2-process-number">02</span>
-                    <div class="h2-process-icon">⌂</div>
+<div class="h2-process-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 10 12 4l9 6v10H3V10Z"/>
+        <path d="M7 20v-6h10v6M7 10h2M11 10h2M15 10h2"/>
+    </svg>
+</div>
                     <h3>Explore Facilities</h3>
                     <p>Review options that may suit your belongings or inventory.</p>
                 </article>
 
                 <article class="h2-process-card">
                     <span class="h2-process-number">03</span>
-                    <div class="h2-process-icon">₹</div>
+<div class="h2-process-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <path d="M8 6h8v4H8zM8 14h1M12 14h1M16 14h.1M8 18h1M12 18h1M16 18h.1"/>
+    </svg>
+</div>
                     <h3>Check Pricing</h3>
                     <p>Ask about rental rates and the applicable arrangements.</p>
                 </article>
 
                 <article class="h2-process-card">
                     <span class="h2-process-number">04</span>
-                    <div class="h2-process-icon">✓</div>
+                    <div class="h2-process-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="m8 12 3 3 5-6"/>
+    </svg>
+</div>
                     <h3>Plan Your Storage</h3>
                     <p>Choose your next step with the information available.</p>
                 </article>
@@ -767,6 +780,55 @@
 
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const selectors = [
+        ".h2-heading",
+        ".h2-storage-card",
+        ".h2-size-card",
+        ".h2-feature-image",
+        ".h2-feature-content",
+        ".h2-benefit-card",
+        ".h2-process-heading",
+        ".h2-process-card",
+        ".h2-idea-card",
+        ".h2-faq-intro",
+        ".h2-faq-item",
+        ".h2-final-cta-content"
+    ];
+
+    const elements = document.querySelectorAll(
+        selectors.map(selector =>
+            ".home2-page " + selector
+        ).join(", ")
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(element => {
+            element.classList.add("h2-scroll-reveal", "h2-visible");
+        });
+        return;
+    }
+
+    elements.forEach(element => {
+        element.classList.add("h2-scroll-reveal");
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("h2-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -25px 0px"
+    });
+
+    elements.forEach(element => observer.observe(element));
+});
+</script>
 
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="Discover the StoreVault story, our approach to flexible storage, and our commitment to helping businesses and individuals make room for what matters.">
     <title>About Us | StoreVault Warehouse &amp; Storage Solutions</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -32,6 +32,8 @@
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">
 <div class="home-dropdown">
     <a href="index.html"
+       class=" home-link"
+
        aria-haspopup="true"
        aria-expanded="false">
         Home <span class="dropdown-arrow">▾</span>
@@ -511,6 +513,47 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const selectors = [
+        ".about-story-image",
+        ".about-story-content",
+        ".about-purpose .section-heading",
+        ".about-purpose-card",
+        ".about-values .section-heading",
+        ".about-value-card",
+        ".about-audience .section-heading",
+        ".about-audience-card",
+        ".about-difference-content",
+        ".about-difference-image",
+        ".final-cta-content"
+    ];
 
+    const elements = document.querySelectorAll(
+        selectors.map(s => "main " + s).join(", ")
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(el => el.classList.add("about-revealed"));
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("about-revealed");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.05
+    });
+
+    elements.forEach(function (el) {
+        el.classList.add("about-reveal");
+        observer.observe(el);
+    });
+});
+</script>
 </body>
 </html>

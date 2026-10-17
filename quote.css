@@ -1,384 +1,472 @@
-/* =========================================================
-STOREVAULT
-QUOTE PAGE - COMPLETE CSS
-Professional Teal + Orange Theme
-========================================================= */
+/* ==========================================================
+STOREVAULT — GET A QUOTE PAGE
+Complete Responsive Stylesheet
+Soft Peach | Light/Dark Mode | Hover Animations
+========================================================== */
 
-/* =========================================================
-
-1. QUOTE PAGE VARIABLES
-   ========================================================= */
+/* ==================== BRAND COLORS ==================== */
 
 :root {
---quote-primary: #00B8B0;
---quote-primary-dark: #008F89;
---quote-primary-deep: #006F6B;
+--quote-primary: #123C38;
+--quote-primary-dark: #0B2C29;
+--quote-primary-light: #EAF2EF;
 
---quote-orange: #FF8A36;
---quote-orange-dark: #E47718;
+--quote-accent: #B96643;
+--quote-accent-dark: #984B30;
+--quote-accent-light: #F8EEE8;
 
---quote-background: #FFFDF9;
+--quote-peach: #F5DFD2;
+--quote-peach-light: #FBF0E9;
+--quote-peach-border: #E7C3B0;
+
+--quote-text: #263631;
+--quote-muted: #697771;
+
 --quote-surface: #FFFFFF;
---quote-section: #F0F8F7;
+--quote-surface-alt: #F8F7F3;
+--quote-border: #E0E7E2;
 
---quote-text: #17383C;
---quote-muted: #687C7E;
---quote-border: #DCE9E7;
+--quote-shadow:
+    0 18px 45px rgba(18, 60, 56, 0.09);
 
---quote-shadow: 0 12px 36px rgba(23, 56, 60, 0.08);
+--quote-shadow-hover:
+    0 24px 55px rgba(18, 60, 56, 0.15);
+
+--quote-radius: 18px;
+--quote-transition: 0.3s ease;
 
 }
 
-/* =========================================================
-2. PAGE BASE
-========================================================= */
+/* ==================== PAGE DEFAULTS ==================== */
 
 .quote-page {
-min-height: calc(100vh - 80px);
-background: var(--quote-background);
+width: 100%;
+min-height: 100vh;
+overflow: hidden;
 color: var(--quote-text);
-font-family: inherit;
+background: var(--quote-surface);
+transition:
+background-color var(--quote-transition),
+color var(--quote-transition);
 }
+
+.quote-page *,
+.quote-page *::before,
+.quote-page *::after {
+box-sizing: border-box;
+}
+
+.quote-page a {
+color: inherit;
+text-decoration: none;
+}
+
+.quote-page button,
+.quote-page input,
+.quote-page select,
+.quote-page textarea {
+font: inherit;
+}
+
+.quote-page button,
+.quote-page input,
+.quote-page select,
+.quote-page textarea,
+.quote-page a {
+-webkit-tap-highlight-color: transparent;
+}
+
+/* ==================== HEADER ==================== */
+
+.site-header {
+position: sticky;
+top: 0;
+z-index: 1000;
+width: 100%;
+background: rgba(255, 255, 255, 0.96);
+border-bottom: 1px solid var(--quote-border);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+transition:
+background-color var(--quote-transition),
+border-color var(--quote-transition);
+}
+
+.header-container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+min-height: 86px;
+padding-top: 12px;
+padding-bottom: 12px;
+}
+
+.brand {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+min-width: 0;
+}
+
+.brand img {
+display: block;
+width: 54px;
+height: 54px;
+object-fit: contain;
+flex-shrink: 0;
+}
+
+.brand-text {
+display: flex;
+flex-direction: column;
+gap: 4px;
+}
+
+.brand-name {
+font-size: 27px;
+font-weight: 800;
+line-height: 1.1;
+letter-spacing: -0.8px;
+}
+
+.brand-name .store {
+color: var(--quote-primary);
+}
+
+.brand-name .vault {
+color: var(--quote-accent);
+}
+
+.brand-tagline {
+color: var(--quote-muted);
+font-size: 9px;
+font-weight: 700;
+letter-spacing: 1.15px;
+line-height: 1.5;
+}
+
+.header-actions {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.rtl-btn,
+.icon-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 42px;
+height: 42px;
+padding: 0;
+color: var(--quote-primary);
+background: var(--quote-surface);
+border: 1px solid var(--quote-border);
+border-radius: 12px;
+cursor: pointer;
+font-size: 21px;
+transition:
+color var(--quote-transition),
+background-color var(--quote-transition),
+border-color var(--quote-transition),
+transform var(--quote-transition);
+}
+
+.rtl-btn:hover,
+.icon-btn:hover {
+color: #FFFFFF;
+background: var(--quote-primary);
+border-color: var(--quote-primary);
+transform: translateY(-2px);
+}
+
+.rtl-btn:focus-visible,
+.icon-btn:focus-visible {
+outline: 3px solid var(--quote-accent);
+outline-offset: 3px;
+}
+
+/* ==================== QUOTE SECTION ==================== */
 
 .quote-section {
-width: 100%;
-padding: 48px 24px;
-box-sizing: border-box;
-
+position: relative;
+isolation: isolate;
+padding: 76px 24px 84px;
 background:
-    radial-gradient(
-        circle at 5% 5%,
-        rgba(0, 184, 176, 0.08),
-        transparent 32%
-    ),
-    var(--quote-background);
-
+linear-gradient(
+125deg,
+#FBF0E9 0%,
+#F5DFD2 48%,
+#FAEDE5 100%
+);
+transition: background var(--quote-transition);
 }
 
-.quote-section *,
-.quote-section *::before,
-.quote-section *::after {
-box-sizing: border-box;
+/* Soft decorative background shapes */
+
+.quote-section::before {
+content: "";
+position: absolute;
+z-index: -1;
+top: 40px;
+left: -100px;
+width: 320px;
+height: 320px;
+border: 1px solid rgba(185, 102, 67, 0.16);
+border-radius: 50%;
+pointer-events: none;
+}
+
+.quote-section::after {
+content: "";
+position: absolute;
+z-index: -1;
+right: -100px;
+bottom: 10px;
+width: 350px;
+height: 350px;
+background: rgba(255, 255, 255, 0.25);
+border-radius: 50%;
+pointer-events: none;
 }
 
 .quote-container {
-width: 100%;
-max-width: 1200px;
-margin: 0 auto;
-
 display: grid;
-grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-align-items: stretch;
-gap: 28px;
-
+grid-template-columns:
+minmax(0, 0.92fr)
+minmax(0, 1.08fr);
+align-items: center;
+gap: 64px;
+width: 100%;
+max-width: 1240px;
+margin: 0 auto;
 }
 
-/* =========================================================
-3. LEFT TEXT PANEL
-========================================================= */
+/* ==================== LEFT CONTENT ==================== */
 
 .quote-content {
-position: relative;
-overflow: hidden;
-
 min-width: 0;
-height: 100%;
-padding: 38px 34px;
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-
-background: var(--quote-section);
-border: 1px solid var(--quote-border);
-border-radius: 18px;
-
+padding: 16px 0;
+animation: quoteFadeUp 0.7s ease both;
 }
 
-.quote-content::before {
-content: "";
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-
-width: 5px;
-
-background: linear-gradient(
-    180deg,
-    var(--quote-primary),
-    var(--quote-orange)
-);
-
+.quote-eyebrow,
+.quote-form-label,
+.quote-contact-label {
+display: inline-block;
+color: var(--quote-accent-dark);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 2px;
+line-height: 1.7;
 }
 
 .quote-eyebrow {
-display: inline-block;
-margin-bottom: 17px;
-
-color: var(--quote-primary-dark);
-
-font-size: 11px;
-font-weight: 800;
-letter-spacing: 1.8px;
-line-height: 1.6;
-
+margin-bottom: 20px;
+padding: 8px 14px;
+background: rgba(255, 255, 255, 0.65);
+border: 1px solid var(--quote-peach-border);
+border-radius: 30px;
 }
 
 .quote-content h1 {
-margin: 0 0 20px;
-
-color: var(--quote-text);
-
-font-size: clamp(32px, 3.2vw, 43px);
+margin: 0 0 24px;
+color: var(--quote-primary);
+font-size: clamp(42px, 4.5vw, 64px);
 font-weight: 800;
-line-height: 1.2;
-letter-spacing: -1px;
-
+line-height: 1.12;
+letter-spacing: -2px;
 }
 
 .quote-content h1 span {
 display: block;
-margin-top: 4px;
-color: var(--quote-primary-dark);
+color: var(--quote-accent);
 }
 
 .quote-description {
-max-width: 460px;
-margin: 0 0 25px;
-
-color: var(--quote-muted);
-
-font-size: 14px;
+max-width: 510px;
+margin: 0 0 32px;
+color: #52635B;
+font-size: 16px;
 line-height: 1.9;
-
 }
 
-/* =========================================================
-4. STORAGE BENEFITS
-========================================================= */
+/* ==================== BENEFITS ==================== */
 
 .quote-benefits {
-width: 100%;
 display: flex;
 flex-direction: column;
-gap: 0;
-margin-bottom: 24px;
+gap: 22px;
+margin: 0 0 34px;
 }
 
 .quote-benefit {
 display: flex;
 align-items: flex-start;
-gap: 15px;
-
-padding: 15px 0;
-
-border-bottom: 1px solid var(--quote-border);
-
+gap: 17px;
+padding: 14px 15px;
+border: 1px solid transparent;
+border-radius: 14px;
+transition:
+background-color var(--quote-transition),
+border-color var(--quote-transition),
+transform var(--quote-transition);
 }
 
-.quote-benefit:first-child {
-padding-top: 0;
+.quote-benefit:hover {
+background: rgba(255, 255, 255, 0.58);
+border-color: rgba(185, 102, 67, 0.22);
+transform: translateX(5px);
 }
 
-.quote-benefit:last-child {
-border-bottom: none;
-padding-bottom: 0;
-}
-
-.benefit-number {
-flex-shrink: 0;
-
-width: 38px;
-height: 38px;
-
+.quote-benefit .benefit-number {
 display: flex;
+flex-shrink: 0;
 align-items: center;
 justify-content: center;
-
-background: rgba(0, 184, 176, 0.12);
-color: var(--quote-primary-dark);
-
-border-radius: 10px;
-
-font-size: 12px;
+width: 43px;
+height: 43px;
+color: var(--quote-accent-dark);
+background: #FFFFFF;
+border: 1px solid var(--quote-peach-border);
+border-radius: 12px;
+font-size: 13px;
 font-weight: 800;
+transition:
+color var(--quote-transition),
+background-color var(--quote-transition),
+transform var(--quote-transition);
+}
 
+.quote-benefit:hover .benefit-number {
+color: #FFFFFF;
+background: var(--quote-accent);
+transform: scale(1.05);
 }
 
 .quote-benefit h3 {
-margin: 0 0 5px;
-
-color: var(--quote-text);
-
-font-size: 14px;
+margin: 1px 0 5px;
+color: var(--quote-primary);
+font-size: 16px;
 font-weight: 750;
 line-height: 1.5;
-
 }
 
 .quote-benefit p {
 margin: 0;
-
 color: var(--quote-muted);
-
-font-size: 12px;
+font-size: 13px;
 line-height: 1.7;
-
 }
 
-/* =========================================================
-5. CONTACT INFORMATION
-========================================================= */
+/* ==================== CONTACT DETAILS ==================== */
 
 .quote-contact {
-width: 100%;
-padding: 17px 19px;
-
-background: var(--quote-surface);
-border: 1px solid var(--quote-border);
-border-left: 3px solid var(--quote-orange);
-border-radius: 10px;
-
+padding-top: 24px;
+border-top: 1px solid rgba(18, 60, 56, 0.18);
 }
 
 .quote-contact-label {
-display: block;
-margin-bottom: 10px;
-
-color: var(--quote-orange-dark);
-
-font-size: 10px;
-font-weight: 800;
-letter-spacing: 1.4px;
-
+margin-bottom: 12px;
 }
 
 .quote-contact p {
-margin: 7px 0 0;
-
-color: var(--quote-muted);
-
-font-size: 12px;
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 7px;
+margin: 9px 0;
+color: #52635B;
+font-size: 14px;
 line-height: 1.7;
-overflow-wrap: anywhere;
-
 }
 
 .quote-contact a {
-color: var(--quote-primary-dark);
-font-weight: 700;
-text-decoration: none;
-transition: color 0.2s ease;
+color: var(--quote-primary);
+font-weight: 750;
+overflow-wrap: anywhere;
+transition: color var(--quote-transition);
 }
 
 .quote-contact a:hover {
-color: var(--quote-orange-dark);
+color: var(--quote-accent-dark);
+text-decoration: underline;
+text-underline-offset: 4px;
 }
 
-/* =========================================================
-6. RIGHT FORM PANEL
-========================================================= */
+/* ==================== FORM PANEL ==================== */
 
 .quote-form-panel {
 min-width: 0;
-height: 100%;
-
-display: flex;
-align-items: stretch;
-
+animation: quoteFadeUp 0.8s ease both;
 }
 
 .quote-form-card {
 width: 100%;
-height: 100%;
-min-width: 0;
-
-padding: 30px;
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-
+padding: 38px;
 background: var(--quote-surface);
-
-border: 1px solid var(--quote-border);
-border-top: 4px solid var(--quote-primary);
-border-radius: 18px;
-
+border: 1px solid rgba(185, 102, 67, 0.18);
+border-radius: 22px;
 box-shadow: var(--quote-shadow);
-
+transition:
+background-color var(--quote-transition),
+border-color var(--quote-transition),
+box-shadow var(--quote-transition),
+transform var(--quote-transition);
 }
 
-/* =========================================================
-7. FORM HEADING
-========================================================= */
+.quote-form-card:hover {
+box-shadow: var(--quote-shadow-hover);
+}
 
 .quote-form-heading {
-margin-bottom: 21px;
+margin-bottom: 27px;
+padding-bottom: 23px;
+border-bottom: 1px solid var(--quote-border);
 }
 
 .quote-form-label {
-display: inline-block;
-margin-bottom: 8px;
-
-color: var(--quote-orange-dark);
-
-font-size: 10px;
-font-weight: 800;
-letter-spacing: 1.6px;
-
+margin-bottom: 9px;
 }
 
 .quote-form-heading h2 {
-margin: 0 0 8px;
-
-color: var(--quote-text);
-
-font-size: 28px;
+margin: 0 0 9px;
+color: var(--quote-primary);
+font-size: 32px;
 font-weight: 800;
-line-height: 1.3;
-letter-spacing: -0.5px;
-
+line-height: 1.25;
+letter-spacing: -0.7px;
 }
 
 .quote-form-heading p {
 margin: 0;
-
 color: var(--quote-muted);
-
-font-size: 12px;
+font-size: 14px;
 line-height: 1.8;
-
 }
 
-/* =========================================================
-8. FORM GRID
-========================================================= */
+/* ==================== FORM ROWS ==================== */
 
 .quote-form-row {
 display: grid;
 grid-template-columns: repeat(2, minmax(0, 1fr));
-gap: 14px;
+gap: 18px;
 }
 
 .quote-field {
 display: flex;
 flex-direction: column;
 min-width: 0;
-margin-bottom: 14px;
+gap: 8px;
+margin-bottom: 19px;
 }
 
 .quote-field label {
-margin-bottom: 7px;
-
-color: var(--quote-text);
-
-font-size: 12px;
-font-weight: 700;
+color: var(--quote-primary);
+font-size: 13px;
+font-weight: 750;
 line-height: 1.5;
-
 }
 
 .quote-field input,
@@ -387,183 +475,362 @@ line-height: 1.5;
 display: block;
 width: 100%;
 min-width: 0;
-max-width: 100%;
-
-padding: 11px 12px;
-
-background: var(--quote-background);
+min-height: 49px;
+padding: 13px 14px;
 color: var(--quote-text);
-
-border: 1px solid var(--quote-border);
-border-radius: 8px;
+background: var(--quote-surface-alt);
+border: 1px solid #DCE3DD;
+border-radius: 10px;
 outline: none;
-
-font-family: inherit;
-font-size: 12px;
+font-size: 13px;
 line-height: 1.5;
-
 transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-
-}
-
-.quote-field input,
-.quote-field select {
-min-height: 43px;
-}
-
-.quote-field textarea {
-min-height: 76px;
-resize: vertical;
+background-color var(--quote-transition),
+color var(--quote-transition),
+border-color var(--quote-transition),
+box-shadow var(--quote-transition);
 }
 
 .quote-field input::placeholder,
 .quote-field textarea::placeholder {
-color: var(--quote-muted);
-opacity: 0.85;
+color: #89938D;
+opacity: 1;
 }
 
 .quote-field select {
 cursor: pointer;
+}
+
+.quote-field textarea {
+min-height: 100px;
+resize: vertical;
+}
+
+.quote-field input:hover,
+.quote-field select:hover,
+.quote-field textarea:hover {
+border-color: var(--quote-peach-border);
 }
 
 .quote-field input:focus,
 .quote-field select:focus,
 .quote-field textarea:focus {
-border-color: var(--quote-primary);
-
-box-shadow: 0 0 0 3px rgba(0, 184, 176, 0.12);
-
+background: var(--quote-surface);
+border-color: var(--quote-accent);
+box-shadow: 0 0 0 4px rgba(185, 102, 67, 0.13);
 }
 
-/* =========================================================
-9. CONSENT
-========================================================= */
+.quote-field input:focus-visible,
+.quote-field select:focus-visible,
+.quote-field textarea:focus-visible {
+outline: 1px solid var(--quote-accent);
+outline-offset: 1px;
+}
+
+/* ==================== CONSENT CHECKBOX ==================== */
 
 .quote-consent {
 display: flex;
 align-items: flex-start;
-gap: 9px;
-
-margin: 0 0 16px;
-
+gap: 11px;
+margin: 3px 0 23px;
 color: var(--quote-muted);
-
-font-size: 11px;
-line-height: 1.7;
+font-size: 12px;
+line-height: 1.8;
 cursor: pointer;
-
 }
 
 .quote-consent input {
 flex-shrink: 0;
-
-width: 15px;
-height: 15px;
-
+width: 17px;
+height: 17px;
 margin: 3px 0 0;
-
-accent-color: var(--quote-primary-dark);
+accent-color: var(--quote-primary);
 cursor: pointer;
-
 }
 
-/* =========================================================
-10. SUBMIT BUTTON
-========================================================= */
-
-.quote-submit-btn {
-width: 100%;
-min-height: 47px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 12px;
-
-padding: 12px 18px;
-
-background: var(--quote-primary);
-color: #FFFFFF;
-
-border: 2px solid var(--quote-primary);
-border-radius: 8px;
-
-font-family: inherit;
-font-size: 13px;
-font-weight: 800;
-
-cursor: pointer;
-
-transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-
-}
-
-.quote-submit-btn span {
-font-size: 18px;
-transition: transform 0.2s ease;
-}
-
-.quote-submit-btn:hover {
-background: var(--quote-primary-dark);
-border-color: var(--quote-primary-dark);
-
-box-shadow: 0 6px 16px rgba(0, 143, 137, 0.18);
-transform: translateY(-1px);
-
-}
-
-.quote-submit-btn:hover span {
-transform: translateX(3px);
-}
-
-.quote-submit-btn:focus-visible {
-outline: 3px solid var(--quote-orange);
+.quote-consent input:focus-visible {
+outline: 2px solid var(--quote-accent);
 outline-offset: 3px;
 }
 
-/* =========================================================
-11. FORM FEEDBACK
-========================================================= */
+/* ==================== SUBMIT BUTTON ==================== */
+
+.quote-submit-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 13px;
+width: 100%;
+min-height: 54px;
+padding: 15px 22px;
+color: #FFFFFF;
+background: var(--quote-accent);
+border: 1px solid var(--quote-accent);
+border-radius: 11px;
+box-shadow: 0 8px 18px rgba(185, 102, 67, 0.18);
+font-size: 14px;
+font-weight: 800;
+cursor: pointer;
+transition:
+color var(--quote-transition),
+background-color var(--quote-transition),
+border-color var(--quote-transition),
+box-shadow var(--quote-transition),
+transform var(--quote-transition);
+}
+
+.quote-submit-btn span {
+display: inline-block;
+font-size: 20px;
+line-height: 1;
+transition: transform var(--quote-transition);
+}
+
+.quote-submit-btn:hover {
+background: var(--quote-accent-dark);
+border-color: var(--quote-accent-dark);
+box-shadow: 0 12px 25px rgba(152, 75, 48, 0.24);
+transform: translateY(-2px);
+}
+
+.quote-submit-btn:hover span {
+transform: translateX(4px);
+}
+
+.quote-submit-btn:active {
+transform: translateY(0);
+}
+
+.quote-submit-btn:focus-visible {
+outline: 3px solid var(--quote-primary);
+outline-offset: 4px;
+}
+
+/* ==================== FORM FEEDBACK ==================== */
 
 .quote-form-feedback {
-margin: 10px 0 0;
-
+margin: 15px 0 0;
 color: var(--quote-muted);
-
-font-size: 11px;
+font-size: 13px;
 line-height: 1.7;
+overflow-wrap: anywhere;
+}
 
+.quote-form-feedback:empty {
+display: none;
 }
 
 .quote-form-feedback-success {
-padding: 10px 12px;
+padding: 12px 14px;
+color: var(--quote-primary);
+background: var(--quote-primary-light);
+border: 1px solid #C9DED5;
+border-radius: 9px;
+}
 
-background: var(--quote-section);
-color: var(--quote-primary-dark);
+/* ==================== ANIMATIONS ==================== */
 
-border-left: 3px solid var(--quote-primary);
-border-radius: 6px;
+@keyframes quoteFadeUp {
+from {
+opacity: 0;
+transform: translateY(18px);
+}
+
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 }
 
-/* =========================================================
-12. RTL SUPPORT
-========================================================= */
+/* ==================== DARK MODE ==================== */
 
-html[dir="rtl"] .quote-content::before {
-left: auto;
-right: 0;
+body.dark-mode .quote-page {
+color: #E5ECE8;
+background: #111B18;
 }
 
-html[dir="rtl"] .quote-contact {
-border-left: 1px solid var(--quote-border);
-border-right: 3px solid var(--quote-orange);
+body.dark-mode .site-header {
+background: rgba(17, 27, 24, 0.96);
+border-bottom-color: #30423B;
+}
+
+body.dark-mode .brand-name .store {
+color: #E1ECE6;
+}
+
+body.dark-mode .brand-tagline {
+color: #B8C8BF;
+}
+
+body.dark-mode .rtl-btn,
+body.dark-mode .icon-btn {
+color: #E1ECE6;
+background: #1D2C26;
+border-color: #40544A;
+}
+
+body.dark-mode .rtl-btn:hover,
+body.dark-mode .icon-btn:hover {
+color: #FFFFFF;
+background: var(--quote-accent);
+border-color: var(--quote-accent);
+}
+
+body.dark-mode .quote-section {
+background:
+linear-gradient(
+125deg,
+#202B25 0%,
+#302720 48%,
+#202B25 100%
+);
+}
+
+body.dark-mode .quote-section::before {
+border-color: rgba(230, 165, 130, 0.18);
+}
+
+body.dark-mode .quote-section::after {
+background: rgba(255, 255, 255, 0.025);
+}
+
+body.dark-mode .quote-eyebrow {
+color: #F0B69A;
+background: rgba(185, 102, 67, 0.13);
+border-color: rgba(230, 165, 130, 0.28);
+}
+
+body.dark-mode .quote-content h1,
+body.dark-mode .quote-benefit h3,
+body.dark-mode .quote-contact a,
+body.dark-mode .quote-form-heading h2,
+body.dark-mode .quote-field label {
+color: #E6EFE9;
+}
+
+body.dark-mode .quote-content h1 span {
+color: #E4A080;
+}
+
+body.dark-mode .quote-description,
+body.dark-mode .quote-benefit p,
+body.dark-mode .quote-contact p {
+color: #C1CDC5;
+}
+
+body.dark-mode .quote-benefit:hover {
+background: rgba(255, 255, 255, 0.045);
+border-color: #4A5046;
+}
+
+body.dark-mode .quote-benefit .benefit-number {
+color: #F0B69A;
+background: #2C3029;
+border-color: #665044;
+}
+
+body.dark-mode .quote-benefit:hover .benefit-number {
+color: #FFFFFF;
+background: var(--quote-accent);
+}
+
+body.dark-mode .quote-contact {
+border-top-color: #46534A;
+}
+
+body.dark-mode .quote-contact-label,
+body.dark-mode .quote-form-label {
+color: #E4A080;
+}
+
+body.dark-mode .quote-contact a:hover {
+color: #F0B69A;
+}
+
+body.dark-mode .quote-form-card {
+background: #19241F;
+border-color: #394A40;
+box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .quote-form-card:hover {
+box-shadow: 0 24px 55px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .quote-form-heading {
+border-bottom-color: #394A40;
+}
+
+body.dark-mode .quote-form-heading p,
+body.dark-mode .quote-consent,
+body.dark-mode .quote-form-feedback {
+color: #B8C8BF;
+}
+
+body.dark-mode .quote-field input,
+body.dark-mode .quote-field select,
+body.dark-mode .quote-field textarea {
+color: #E5ECE8;
+background: #202D26;
+border-color: #435449;
+}
+
+body.dark-mode .quote-field input::placeholder,
+body.dark-mode .quote-field textarea::placeholder {
+color: #9BAAA0;
+}
+
+body.dark-mode .quote-field input:hover,
+body.dark-mode .quote-field select:hover,
+body.dark-mode .quote-field textarea:hover {
+border-color: #9D7059;
+}
+
+body.dark-mode .quote-field input:focus,
+body.dark-mode .quote-field select:focus,
+body.dark-mode .quote-field textarea:focus {
+background: #24332B;
+border-color: #D78D69;
+box-shadow: 0 0 0 4px rgba(215, 141, 105, 0.15);
+}
+
+body.dark-mode .quote-field select option {
+color: #E5ECE8;
+background: #202D26;
+}
+
+body.dark-mode .quote-consent input {
+accent-color: #D78D69;
+}
+
+body.dark-mode .quote-submit-btn {
+color: #FFFFFF;
+background: var(--quote-accent);
+border-color: var(--quote-accent);
+}
+
+body.dark-mode .quote-submit-btn:hover {
+background: #A85636;
+border-color: #A85636;
+}
+
+body.dark-mode .quote-form-feedback-success {
+color: #DCECE2;
+background: #24382D;
+border-color: #45624F;
+}
+
+/* ==================== RTL SUPPORT ==================== */
+
+html[dir="rtl"] .quote-content,
+html[dir="rtl"] .quote-form-card {
+text-align: right;
+}
+
+html[dir="rtl"] .quote-benefit:hover {
+transform: translateX(-5px);
 }
 
 html[dir="rtl"] .quote-submit-btn span {
@@ -571,155 +838,149 @@ transform: scaleX(-1);
 }
 
 html[dir="rtl"] .quote-submit-btn:hover span {
-transform: scaleX(-1) translateX(3px);
+transform: scaleX(-1) translateX(4px);
 }
 
-html[dir="rtl"] .quote-form-feedback-success {
-border-left: none;
-border-right: 3px solid var(--quote-primary);
+html[dir="rtl"] .quote-field input,
+html[dir="rtl"] .quote-field select,
+html[dir="rtl"] .quote-field textarea {
+text-align: right;
 }
 
-/* =========================================================
-13. DARK MODE
-========================================================= */
-
-body.dark-mode {
---quote-background: #101B1D;
---quote-surface: #172628;
---quote-section: #1C3031;
-
---quote-text: #F0F7F6;
---quote-muted: #B1C4C3;
---quote-border: #304849;
-
---quote-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
-
+html[dir="rtl"] .quote-contact p {
+justify-content: flex-start;
 }
 
-body.dark-mode .quote-section {
-background:
-radial-gradient(
-circle at 5% 5%,
-rgba(0, 184, 176, 0.08),
-transparent 32%
-),
-var(--quote-background);
-}
+/* ==================== RESPONSIVE: TABLET ==================== */
 
-body.dark-mode .quote-content {
-background: var(--quote-section);
-}
-
-body.dark-mode .quote-form-card,
-body.dark-mode .quote-contact {
-background: var(--quote-surface);
-}
-
-body.dark-mode .quote-field input,
-body.dark-mode .quote-field select,
-body.dark-mode .quote-field textarea {
-background: #122123;
-color: var(--quote-text);
-border-color: var(--quote-border);
-}
-
-body.dark-mode .quote-field input::placeholder,
-body.dark-mode .quote-field textarea::placeholder {
-color: #9DB2B1;
-}
-
-body.dark-mode .quote-field select option {
-background: #172628;
-color: #F0F7F6;
-}
-
-body.dark-mode .quote-form-feedback-success {
-background: #203B39;
-color: #7CE3D7;
-}
-
-/* =========================================================
-14. TABLET RESPONSIVE
-========================================================= */
-
-@media (max-width: 1000px) {
-
+@media (max-width: 1050px) {
 .quote-section {
-    padding: 38px 18px;
+padding: 58px 22px 66px;
 }
 
 .quote-container {
-    gap: 20px;
-}
-
-.quote-content {
-    padding: 28px 24px;
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+    gap: 34px;
 }
 
 .quote-content h1 {
-    font-size: 34px;
+    font-size: clamp(39px, 5vw, 54px);
 }
 
 .quote-form-card {
-    padding: 25px 21px;
-}
-
-.quote-form-heading h2 {
-    font-size: 25px;
+    padding: 28px;
 }
 
 .quote-form-row {
-    gap: 10px;
+    gap: 14px;
 }
 
 }
 
-/* =========================================================
-15. MOBILE RESPONSIVE
-========================================================= */
+/* ==================== RESPONSIVE: MOBILE ==================== */
 
 @media (max-width: 760px) {
+.header-container {
+min-height: 76px;
+gap: 12px;
+}
+
+.brand {
+    gap: 9px;
+}
+
+.brand img {
+    width: 44px;
+    height: 44px;
+}
+
+.brand-name {
+    font-size: 23px;
+}
+
+.brand-tagline {
+    max-width: 190px;
+    font-size: 8px;
+    letter-spacing: 0.65px;
+}
+
+.header-actions {
+    gap: 7px;
+}
+
+.rtl-btn,
+.icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+}
 
 .quote-section {
-    padding: 25px 15px;
+    padding: 42px 17px 48px;
 }
 
 .quote-container {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-}
-
-.quote-content,
-.quote-form-panel {
-    height: auto;
+    gap: 32px;
+    max-width: 560px;
 }
 
 .quote-content {
-    padding: 28px 23px;
-    border-radius: 14px;
+    padding: 0;
+}
+
+.quote-eyebrow {
+    margin-bottom: 16px;
 }
 
 .quote-content h1 {
-    font-size: clamp(30px, 7vw, 38px);
+    margin-bottom: 18px;
+    font-size: clamp(38px, 9vw, 52px);
+    letter-spacing: -1.3px;
 }
 
 .quote-description {
-    font-size: 13px;
+    margin-bottom: 25px;
+    font-size: 15px;
     line-height: 1.8;
 }
 
 .quote-benefits {
-    margin-bottom: 22px;
+    gap: 12px;
+    margin-bottom: 27px;
+}
+
+.quote-benefit {
+    gap: 13px;
+    padding: 11px 9px;
+}
+
+.quote-benefit h3 {
+    font-size: 15px;
+}
+
+.quote-benefit p {
+    font-size: 12px;
+}
+
+.quote-contact {
+    padding-top: 20px;
 }
 
 .quote-form-card {
-    height: auto;
     padding: 25px 20px;
-    border-radius: 14px;
+    border-radius: 18px;
+}
+
+.quote-form-heading {
+    margin-bottom: 23px;
+    padding-bottom: 20px;
 }
 
 .quote-form-heading h2 {
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .quote-form-row {
@@ -727,102 +988,86 @@ color: #7CE3D7;
     gap: 0;
 }
 
-}
-
-/* =========================================================
-16. SMALL MOBILE
-========================================================= */
-
-@media (max-width: 420px) {
-
-.quote-section {
-    padding: 20px 12px;
-}
-
-.quote-content {
-    padding: 24px 19px;
-}
-
-.quote-eyebrow {
-    font-size: 10px;
-    letter-spacing: 1.2px;
-}
-
-.quote-content h1 {
-    font-size: 29px;
-}
-
-.quote-contact {
-    padding: 14px;
-}
-
-.quote-form-card {
-    padding: 22px 16px;
-}
-
-.quote-form-heading h2 {
-    font-size: 23px;
+.quote-field {
+    margin-bottom: 17px;
 }
 
 .quote-field input,
 .quote-field select,
 .quote-field textarea {
-    font-size: 12px;
+    min-height: 48px;
+    font-size: 14px;
+}
+
+.quote-field textarea {
+    min-height: 100px;
 }
 
 }
 
-/* =========================================================
-17. ACCESSIBILITY
-========================================================= */
+/* ==================== RESPONSIVE: SMALL MOBILE ==================== */
+
+@media (max-width: 380px) {
+.header-container {
+gap: 8px;
+}
+
+.brand img {
+    width: 36px;
+    height: 36px;
+}
+
+.brand-name {
+    font-size: 20px;
+}
+
+.brand-tagline {
+    max-width: 145px;
+    font-size: 7px;
+    letter-spacing: 0.35px;
+}
+
+.header-actions {
+    gap: 5px;
+}
+
+.rtl-btn,
+.icon-btn {
+    width: 33px;
+    height: 35px;
+    font-size: 18px;
+}
+
+.quote-section {
+    padding-right: 13px;
+    padding-left: 13px;
+}
+
+.quote-content h1 {
+    font-size: 36px;
+}
+
+.quote-form-card {
+    padding: 21px 15px;
+}
+
+.quote-form-heading h2 {
+    font-size: 25px;
+}
+
+}
+
+/* ==================== REDUCED MOTION ==================== */
 
 @media (prefers-reduced-motion: reduce) {
-
-.quote-contact a,
-.quote-field input,
-.quote-field select,
-.quote-field textarea,
-.quote-submit-btn,
-.quote-submit-btn span {
-    transition: none;
+.quote-page *,
+.quote-page *::before,
+.quote-page *::after,
+.site-header,
+.header-actions button {
+scroll-behavior: auto !important;
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
 }
-
-.quote-submit-btn:hover {
-    transform: none;
-}
-
-}
-
-/* =========================================================
-   QUOTE PAGE — SUBMIT BUTTON COLOR OVERRIDE
-   ========================================================= */
-
-.quote-submit-btn,
-body.dark-mode .quote-submit-btn {
-    background: #FF8A36 !important;
-    color: #172B32 !important;
-    border: 2px solid #FF8A36 !important;
-}
-
-.quote-submit-btn span,
-body.dark-mode .quote-submit-btn span {
-    color: #172B32 !important;
-}
-
-.quote-submit-btn:hover,
-body.dark-mode .quote-submit-btn:hover {
-    background: #E47718 !important;
-    color: #172B32 !important;
-    border-color: #E47718 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(228, 119, 24, 0.22);
-}
-
-.quote-submit-btn:hover span {
-    color: #172B32 !important;
-}
-
-.quote-submit-btn:focus-visible {
-    outline: 3px solid #FF8A36;
-    outline-offset: 3px;
 }

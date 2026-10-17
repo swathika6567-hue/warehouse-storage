@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="StoreVault offers flexible warehouse and storage solutions for business inventory, equipment, household items and personal belongings.">
     <title>StoreVault | Warehouse &amp; Storage Solutions</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -49,7 +49,7 @@
             <a href="pricing.html">Pricing</a>
             <a href="storage-guide.html">Storage Guide</a>
             <a href="contact.html">Contact</a>
-             <a href="contact.html" class="nav-quote-btn">
+       <a href="contact.html" class="nav-quote-btn">
     Get a Quote
              </a>
           
@@ -660,5 +660,45 @@
 
 
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedElements = document.querySelectorAll(
+        ".service-card, .why-card, .project-card, " +
+        ".process-card, .solution-card, .experience-card, " +
+        ".section-heading, .intro-content, .intro-image"
+    );
+
+    animatedElements.forEach((element, index) => {
+        element.classList.add("scroll-reveal");
+
+        // Small stagger between cards in the same section
+        const siblings = Array.from(element.parentElement.children)
+            .filter(child => child.matches(
+                ".service-card, .why-card, .project-card, " +
+                ".process-card, .solution-card, .experience-card"
+            ));
+
+        if (siblings.length > 1 && siblings.includes(element)) {
+            element.style.transitionDelay =
+                (siblings.indexOf(element) * 100) + "ms";
+        }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -30px 0px"
+    });
+
+    animatedElements.forEach(element => observer.observe(element));
+});
+</script>
 </body>
 </html>

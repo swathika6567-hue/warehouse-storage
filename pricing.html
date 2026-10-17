@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#00B8B0">
+    <meta name="theme-color" content="#123C38">
     <meta name="description" content="Explore StoreVault storage plans and flexible warehouse pricing for business inventory, equipment and personal belongings.">
     <title>Pricing Plans | StoreVault Warehouse &amp; Storage Solutions</title>
 
@@ -32,6 +32,8 @@
         <nav class="main-nav" id="mainNav" aria-label="Main navigation">
 <div class="home-dropdown">
     <a href="index.html"
+       class=" home-link"
+
        aria-haspopup="true"
        aria-expanded="false">
         Home <span class="dropdown-arrow">▾</span>
@@ -705,6 +707,51 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const selectors = [
+        ".pricing-hero-content",
+        ".pricing-hero-visual",
+        ".pricing-intro .pricing-section-heading",
+        ".pricing-plan-card",
+        ".pricing-disclaimer",
+        ".pricing-advantages-content",
+        ".pricing-advantage-item",
+        ".pricing-comparison .pricing-section-heading",
+        ".pricing-table-wrap",
+        ".pricing-process .pricing-section-heading",
+        ".pricing-process-card",
+        ".pricing-faq-intro",
+        ".pricing-faq-item",
+        ".pricing-cta-content",
+        ".pricing-cta-decoration"
+    ];
+
+    const elements = document.querySelectorAll(
+        selectors.map(selector => "main " + selector).join(", ")
+    );
+
+    if (!("IntersectionObserver" in window)) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("pricing-revealed");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08
+    });
+
+    elements.forEach(function (element) {
+        element.classList.add("pricing-reveal");
+        observer.observe(element);
+    });
+});
+</script>
 
 
 </body>
